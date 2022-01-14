@@ -1,0 +1,1735 @@
+Tandem Diabetes Care Inc.
+t:connect Therapy Timeline Data Export
+Patient Name, Ryan O'Keefe
+Patient DOB, 5/7/2000
+Report Generated On, 1/14/2022 1:36:56 PM
+
+DeviceType,SerialNumber,Description,EventDateTime,Readings (CGM / BGM)
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:00:53","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:05:52","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:11:00","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:15:52","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:20:52","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:25:52","148",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:30:52","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:35:52","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:40:52","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:45:52","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:50:52","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T00:55:52","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:00:52","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:05:52","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:10:52","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:15:52","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:20:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:25:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:30:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:35:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:40:52","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:45:52","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:50:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T01:55:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:00:52","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:05:53","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:10:52","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:15:52","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:20:52","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:25:52","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:30:52","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:35:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:40:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:45:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:50:52","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T02:55:52","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:00:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:05:52","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:10:52","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:15:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:20:52","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:25:52","202",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:30:52","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:35:52","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:40:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:45:52","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:50:52","178",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T03:55:52","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:00:52","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:05:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:10:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:15:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:20:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:25:52","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:30:52","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:35:52","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:40:52","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:45:52","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:50:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T04:55:52","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:00:52","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:05:52","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:10:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:15:53","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:20:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:25:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:30:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:35:53","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:40:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:45:52","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:50:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T05:55:52","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:00:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:05:52","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:10:52","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:15:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:20:52","207",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:25:52","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:30:52","218",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:35:52","219",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:40:52","219",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:45:52","220",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:50:54","220",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T06:55:54","221",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:00:52","222",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:05:54","220",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:10:52","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:15:52","202",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:20:54","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:25:53","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:30:52","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:35:52","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:40:52","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:45:52","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:50:52","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T07:55:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:00:54","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:05:52","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:10:56","214",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:15:56","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:20:56","202",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:25:56","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:30:55","219",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:35:52","226",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:40:52","227",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:45:52","223",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:50:52","218",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T08:55:52","214",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:00:53","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:05:52","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:10:52","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:15:52","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:20:52","202",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:25:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:30:52","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:35:56","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:40:53","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:45:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:50:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T09:55:52","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:00:53","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:05:52","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:10:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:15:52","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:20:52","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:25:52","191",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:30:52","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:35:52","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:40:52","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:45:53","191",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:50:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T10:55:52","191",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:00:52","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:05:52","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:10:52","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:15:52","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:20:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:25:52","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:30:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:35:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:40:52","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:45:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:50:52","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T11:55:52","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:00:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:05:52","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:10:52","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:15:52","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:20:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:25:52","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:30:52","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:35:52","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:40:52","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:45:52","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:50:52","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T12:55:52","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:00:52","205",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:05:52","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:10:52","207",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:15:52","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:20:52","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:25:52","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:30:52","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:35:54","202",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:40:52","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:45:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:50:54","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T13:55:52","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:00:52","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:05:52","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:10:52","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:15:52","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:20:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:25:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:30:52","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:35:52","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:40:52","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:45:52","157",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:50:52","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T14:55:52","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:00:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:05:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:10:52","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:15:53","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:20:52","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:25:52","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:30:52","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:35:52","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:40:52","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:45:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:50:52","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T15:55:52","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:00:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:05:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:10:52","155",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:15:52","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:20:53","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:25:52","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:30:52","137",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:35:52","135",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:40:52","131",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:45:52","128",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:50:52","124",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T16:55:52","121",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:00:52","121",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:05:52","120",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:10:52","121",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:15:52","121",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:20:52","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:25:52","124",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:30:52","128",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:35:52","134",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:40:52","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:45:52","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:50:52","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T17:55:52","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:00:52","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:05:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:10:54","166",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:15:54","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:20:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:25:52","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:30:52","178",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:35:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:40:52","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:45:52","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:50:52","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T18:55:52","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:00:56","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:05:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:10:54","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:15:55","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:20:52","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:25:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:30:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:35:52","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:40:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:45:52","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:50:52","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T19:55:52","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:00:54","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:05:52","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:10:52","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:15:52","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:20:53","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:25:52","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:30:52","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:35:53","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:40:52","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:45:52","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:50:53","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T20:55:52","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:00:52","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:05:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:10:52","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:15:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:20:52","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:25:52","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:30:52","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:35:52","155",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:40:52","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:45:52","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:50:52","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T21:55:52","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:00:53","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:05:52","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:10:52","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:15:52","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:20:52","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:25:52","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:30:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:35:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:40:54","166",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:45:52","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:50:52","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T22:55:52","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:00:54","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:05:52","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:10:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:15:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:20:53","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:25:52","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:30:53","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:35:52","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:40:53","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:45:53","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:50:52","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-11T23:55:53","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:00:53","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:05:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:10:54","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:15:53","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:20:53","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:25:53","87",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:30:52","138",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:35:52","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:40:52","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:45:52","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:50:52","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T00:55:52","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:00:52","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:05:52","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:10:52","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:15:52","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:20:52","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:25:52","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:30:52","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:35:52","196",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:40:52","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:45:52","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:50:53","178",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T01:55:53","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:00:52","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:05:52","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:10:53","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:15:52","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:20:53","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:25:52","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:30:53","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:35:54","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:40:53","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:45:52","148",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:50:52","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T02:55:52","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:00:52","146",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:05:52","146",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:10:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:15:52","137",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:20:52","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:25:52","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:30:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:35:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:40:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:45:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:50:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T03:55:53","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:00:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:05:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:10:53","141",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:15:53","138",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:20:53","131",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:25:53","135",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:30:53","135",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:35:53","138",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:40:53","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:45:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:50:53","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T04:55:53","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:00:53","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:05:53","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:10:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:15:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:20:53","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:25:56","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:30:55","157",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:35:53","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:40:53","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:45:53","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:50:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T05:55:53","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:00:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:05:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:10:53","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:15:53","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:20:53","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:25:53","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:30:53","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:35:53","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:40:53","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:45:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:50:53","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T06:55:53","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:00:53","137",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:05:53","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:10:53","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:15:53","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:20:53","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:25:53","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:30:53","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:35:53","178",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:40:54","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:45:53","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:50:54","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T07:55:53","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:00:53","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:05:54","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:10:56","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:15:54","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:20:53","166",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:25:56","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:30:53","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:35:53","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:40:53","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:45:53","159",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:50:53","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T08:55:53","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:00:53","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:05:53","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:10:53","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:15:53","157",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:20:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:25:53","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:30:53","148",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:35:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:40:53","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:45:53","116",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:50:53","104",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T09:55:53","111",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:00:53","126",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:05:53","136",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:10:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:15:53","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:20:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:25:53","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:30:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:35:53","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:40:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:45:53","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:50:53","136",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T10:55:53","134",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:00:53","132",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:05:53","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:10:53","127",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:15:53","119",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:20:53","125",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:25:53","124",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:30:53","120",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:35:53","115",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:40:53","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:45:53","127",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:50:53","124",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T11:55:53","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:00:53","119",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:05:53","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:10:53","128",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:15:53","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:20:53","131",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:25:53","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:30:53","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:35:54","126",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:40:53","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:45:53","134",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:50:53","146",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T12:55:53","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:00:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:05:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:10:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:15:53","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:20:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:25:53","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:30:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:35:53","146",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:40:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:45:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:50:53","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T13:55:53","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:00:54","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:05:55","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:10:53","142",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:15:53","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:20:53","155",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:25:53","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:30:53","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:35:53","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:40:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:45:53","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:50:53","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T14:55:53","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:00:53","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:05:53","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:10:53","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:15:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:20:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:25:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:30:53","184",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:35:53","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:40:55","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:45:53","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:50:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T15:55:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:00:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:05:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:10:53","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:15:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:20:53","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:25:53","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:30:53","191",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:35:53","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:40:53","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:45:53","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:50:57","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T16:55:53","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:00:53","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:05:53","218",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:10:53","221",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:15:53","222",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:20:53","222",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:25:53","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:30:53","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:35:53","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:40:53","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:45:53","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:50:53","207",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T17:55:53","205",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:00:53","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:05:53","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:10:53","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:15:53","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:20:54","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:25:53","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:30:53","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:35:53","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:40:53","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:45:53","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:50:53","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T18:55:53","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:00:53","158",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:05:53","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:10:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:15:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:20:53","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:25:53","135",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:30:53","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:35:53","123",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:40:53","116",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:45:53","113",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:50:53","109",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T19:55:53","107",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:00:53","106",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:05:53","104",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:10:53","101",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:15:53","99",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:20:53","100",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:25:56","99",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:30:53","100",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:35:53","99",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:40:53","101",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:45:53","102",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:50:53","105",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T20:55:53","107",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:00:53","108",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:05:53","105",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:10:53","106",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:15:54","106",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:20:53","108",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:25:53","81",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:30:53","97",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:35:53","100",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:40:53","100",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:45:53","100",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:50:53","107",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T21:55:53","116",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:00:53","115",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:05:55","125",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:10:53","126",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:15:55","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:20:55","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:25:53","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:30:53","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:35:53","108",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:40:53","92",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:45:53","120",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:50:53","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T22:55:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:00:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:05:53","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:10:53","141",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:15:53","144",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:20:53","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:25:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:30:53","132",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:35:53","123",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:40:53","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:45:53","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:50:54","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-12T23:55:54","166",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:00:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:05:53","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:10:53","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:15:53","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:20:53","227",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:25:53","243",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:30:54","247",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:35:54","247",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:40:55","252",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:45:53","232",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:50:54","236",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T00:55:54","256",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:00:55","276",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:30:53","263",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:35:55","235",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:40:57","230",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:45:53","228",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:50:53","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T01:55:53","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:00:54","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:05:54","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:10:55","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:15:54","214",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:20:53","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:25:53","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:30:53","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:35:53","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:40:53","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:45:53","157",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:50:53","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T02:55:53","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:00:55","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:05:53","167",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:10:53","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:15:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:20:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:25:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:30:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:35:53","145",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:40:55","141",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:45:53","139",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:50:53","138",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T03:55:53","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:00:53","124",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:05:53","128",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:10:56","127",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:15:56","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:20:54","120",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:25:53","128",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:30:53","112",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:35:53","105",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:40:53","118",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:45:53","127",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:50:53","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T04:55:53","135",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:00:53","136",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:05:53","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:10:53","141",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:15:53","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:20:53","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:25:55","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:30:54","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:35:53","152",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:40:53","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:45:53","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:50:53","168",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T05:55:54","146",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:00:53","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:05:53","151",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:10:53","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:15:54","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:20:55","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:25:56","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:30:56","187",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:35:55","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:40:55","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:45:55","194",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:50:55","198",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T06:55:53","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:00:54","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:05:53","161",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:10:53","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:15:53","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:20:53","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:25:54","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:30:53","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:35:53","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:40:54","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:45:56","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:50:56","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T07:55:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:00:56","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:05:54","216",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:10:53","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:15:53","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:20:54","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:25:53","166",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:30:53","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:35:53","160",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:40:53","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:45:53","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:50:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T08:55:54","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:00:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:05:54","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:10:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:15:55","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:20:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:25:54","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:30:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:35:54","170",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:40:55","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:45:54","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:50:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T09:55:54","174",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:00:54","183",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:05:54","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:10:54","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:15:53","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:20:53","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:25:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:30:54","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:35:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:40:54","216",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:45:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:50:54","197",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T10:55:54","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:00:54","205",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:05:54","216",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:10:54","217",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:15:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:20:54","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:25:54","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:30:54","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:35:54","206",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:40:54","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:45:54","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:50:54","162",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T11:55:54","171",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:00:54","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:05:54","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:10:54","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:15:54","173",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:20:55","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:25:55","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:30:54","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:35:54","190",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:40:54","192",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:45:55","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:50:54","165",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T12:55:55","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:00:54","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:05:54","186",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:10:54","182",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:15:54","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:20:54","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:25:54","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:30:54","176",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:35:54","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:40:54","177",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:45:54","180",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:50:54","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T13:55:54","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:00:54","201",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:05:54","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:10:59","204",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:15:54","200",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:20:54","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:25:54","199",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:30:54","193",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:35:54","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:40:55","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:45:54","188",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:50:55","185",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T14:55:54","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:00:54","169",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:05:54","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:10:54","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:15:54","164",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:20:54","153",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:25:55","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:30:54","143",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:35:54","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:40:54","149",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:45:54","147",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:50:54","150",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T15:55:54","154",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:00:54","156",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:05:54","163",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:10:54","172",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:15:55","175",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:20:54","179",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:25:54","181",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:30:54","189",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:35:54","195",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:40:54","203",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:45:54","208",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:50:54","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T16:55:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:00:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:05:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:10:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:15:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:20:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:25:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:30:54","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:35:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:40:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:45:54","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:50:54","216",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T17:55:54","217",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:00:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:05:54","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:10:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:15:55","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:20:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:25:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:30:54","212",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:35:54","209",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:40:54","210",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:45:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:50:54","214",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T18:55:54","211",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T19:00:54","215",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T19:05:54","217",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T19:10:54","213",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T21:45:54","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T21:50:54","137",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T21:55:57","132",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:00:56","129",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:05:54","130",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:10:54","117",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:15:54","127",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:20:54","132",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:25:54","126",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:30:54","122",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:35:54","107",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:40:54","105",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:45:54","109",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:50:54","112",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T22:55:54","115",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:00:55","120",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:05:54","118",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:10:54","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:15:54","140",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:20:54","157",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:25:54","136",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:30:54","133",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:35:54","136",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:40:54","117",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:45:54","119",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:50:54","117",
+"t:slim X2 Insulin Pump","809685","EGV","2022-01-13T23:55:54","122",
+
+Type,EventID,EventDateTime,IOB
+"IOB","81","2022-01-11T00:00:11","3.96"
+"IOB","81","2022-01-11T00:10:11","3.42"
+"IOB","81","2022-01-11T00:20:10","2.94"
+"IOB","81","2022-01-11T00:30:11","2.49"
+"IOB","81","2022-01-11T00:40:11","2.07"
+"IOB","81","2022-01-11T00:50:11","1.70"
+"IOB","81","2022-01-11T01:00:11","1.41"
+"IOB","81","2022-01-11T01:10:11","1.15"
+"IOB","81","2022-01-11T01:20:11","0.94"
+"IOB","81","2022-01-11T01:30:11","0.80"
+"IOB","81","2022-01-11T01:40:11","0.68"
+"IOB","81","2022-01-11T01:50:10","0.51"
+"IOB","81","2022-01-11T02:00:11","0.46"
+"IOB","81","2022-01-11T02:10:11","0.50"
+"IOB","64","2022-01-11T02:10:17","0.50"
+"IOB","55","2022-01-11T02:10:32","0.50"
+"IOB","20","2022-01-11T02:11:13","1.17"
+"IOB","81","2022-01-11T02:11:13","0.50"
+"IOB","81","2022-01-11T02:20:11","1.16"
+"IOB","81","2022-01-11T02:30:11","1.13"
+"IOB","81","2022-01-11T02:40:11","1.06"
+"IOB","81","2022-01-11T02:50:11","0.97"
+"IOB","81","2022-01-11T03:00:11","0.88"
+"IOB","81","2022-01-11T03:10:11","0.80"
+"IOB","64","2022-01-11T03:15:11","0.79"
+"IOB","55","2022-01-11T03:15:26","0.79"
+"IOB","20","2022-01-11T03:15:54","1.39"
+"IOB","81","2022-01-11T03:15:54","0.79"
+"IOB","81","2022-01-11T03:20:11","1.41"
+"IOB","81","2022-01-11T03:30:10","1.53"
+"IOB","81","2022-01-11T03:40:11","1.58"
+"IOB","81","2022-01-11T03:50:11","1.46"
+"IOB","81","2022-01-11T04:00:10","1.34"
+"IOB","81","2022-01-11T04:10:10","1.22"
+"IOB","81","2022-01-11T04:20:11","1.09"
+"IOB","81","2022-01-11T04:30:10","0.96"
+"IOB","81","2022-01-11T04:40:11","0.84"
+"IOB","64","2022-01-11T04:50:01","0.73"
+"IOB","81","2022-01-11T04:50:10","0.73"
+"IOB","55","2022-01-11T04:50:16","0.73"
+"IOB","20","2022-01-11T04:50:57","1.52"
+"IOB","81","2022-01-11T04:50:57","0.73"
+"IOB","81","2022-01-11T05:00:10","1.53"
+"IOB","81","2022-01-11T05:10:11","1.42"
+"IOB","81","2022-01-11T05:20:11","1.30"
+"IOB","81","2022-01-11T05:30:10","1.17"
+"IOB","81","2022-01-11T05:40:11","1.05"
+"IOB","81","2022-01-11T05:50:10","0.93"
+"IOB","64","2022-01-11T05:54:52","0.88"
+"IOB","55","2022-01-11T05:55:07","0.88"
+"IOB","20","2022-01-11T05:55:35","1.45"
+"IOB","81","2022-01-11T05:55:35","0.88"
+"IOB","81","2022-01-11T06:00:11","1.43"
+"IOB","81","2022-01-11T06:10:10","1.49"
+"IOB","81","2022-01-11T06:20:10","1.66"
+"IOB","81","2022-01-11T06:30:11","1.59"
+"IOB","81","2022-01-11T06:40:11","1.83"
+"IOB","81","2022-01-11T06:50:10","1.91"
+"IOB","64","2022-01-11T06:59:46","1.87"
+"IOB","55","2022-01-11T07:00:01","1.87"
+"IOB","81","2022-01-11T07:00:11","1.87"
+"IOB","81","2022-01-11T07:00:28","1.87"
+"IOB","20","2022-01-11T07:00:28","2.32"
+"IOB","81","2022-01-11T07:10:11","2.23"
+"IOB","81","2022-01-11T07:20:11","2.07"
+"IOB","81","2022-01-11T07:30:11","1.88"
+"IOB","81","2022-01-11T07:40:11","1.77"
+"IOB","81","2022-01-11T07:50:11","1.79"
+"IOB","81","2022-01-11T08:00:10","1.65"
+"IOB","64","2022-01-11T08:04:16","1.57"
+"IOB","55","2022-01-11T08:04:31","1.57"
+"IOB","20","2022-01-11T08:05:24","2.42"
+"IOB","81","2022-01-11T08:05:24","1.57"
+"IOB","81","2022-01-11T08:10:11","2.41"
+"IOB","81","2022-01-11T08:20:11","2.26"
+"IOB","81","2022-01-11T08:30:11","2.07"
+"IOB","9","2022-01-11T08:38:27","1.90"
+"IOB","16","2022-01-11T08:38:27","1.97"
+"IOB","64","2022-01-11T08:38:33","1.97"
+"IOB","55","2022-01-11T08:38:48","1.97"
+"IOB","81","2022-01-11T08:40:11","1.87"
+"IOB","81","2022-01-11T08:40:21","1.87"
+"IOB","20","2022-01-11T08:40:21","3.87"
+"IOB","81","2022-01-11T08:50:11","3.86"
+"IOB","9","2022-01-11T08:53:22","3.80"
+"IOB","81","2022-01-11T09:00:11","3.64"
+"IOB","81","2022-01-11T09:10:11","3.37"
+"IOB","9","2022-01-11T09:10:53","3.30"
+"IOB","16","2022-01-11T09:10:53","3.37"
+"IOB","64","2022-01-11T09:10:59","3.37"
+"IOB","55","2022-01-11T09:11:14","3.37"
+"IOB","20","2022-01-11T09:11:58","4.37"
+"IOB","81","2022-01-11T09:11:58","3.37"
+"IOB","81","2022-01-11T09:20:10","4.07"
+"IOB","81","2022-01-11T09:30:11","3.77"
+"IOB","81","2022-01-11T09:40:10","3.43"
+"IOB","81","2022-01-11T09:50:11","3.09"
+"IOB","81","2022-01-11T10:00:10","2.76"
+"IOB","81","2022-01-11T10:10:11","2.43"
+"IOB","64","2022-01-11T10:15:23","2.26"
+"IOB","55","2022-01-11T10:15:38","2.26"
+"IOB","20","2022-01-11T10:16:18","2.92"
+"IOB","81","2022-01-11T10:16:18","2.26"
+"IOB","81","2022-01-11T10:20:11","2.76"
+"IOB","81","2022-01-11T10:30:10","2.46"
+"IOB","81","2022-01-11T10:40:10","2.19"
+"IOB","81","2022-01-11T10:50:11","1.90"
+"IOB","81","2022-01-11T11:00:10","1.70"
+"IOB","81","2022-01-11T11:10:10","1.50"
+"IOB","81","2022-01-11T11:20:11","1.28"
+"IOB","64","2022-01-11T11:20:16","1.28"
+"IOB","55","2022-01-11T11:20:31","1.28"
+"IOB","20","2022-01-11T11:21:25","2.18"
+"IOB","81","2022-01-11T11:21:25","1.28"
+"IOB","81","2022-01-11T11:30:10","2.03"
+"IOB","81","2022-01-11T11:40:11","1.86"
+"IOB","9","2022-01-11T11:48:32","1.70"
+"IOB","16","2022-01-11T11:48:35","1.77"
+"IOB","64","2022-01-11T11:48:40","1.77"
+"IOB","55","2022-01-11T11:48:55","1.66"
+"IOB","20","2022-01-11T11:49:48","2.66"
+"IOB","81","2022-01-11T11:49:48","1.66"
+"IOB","81","2022-01-11T12:00:11","2.47"
+"IOB","81","2022-01-11T12:10:11","2.28"
+"IOB","81","2022-01-11T12:20:11","2.08"
+"IOB","9","2022-01-11T12:30:11","1.80"
+"IOB","81","2022-01-11T12:30:11","1.86"
+"IOB","81","2022-01-11T12:40:10","1.67"
+"IOB","81","2022-01-11T12:50:11","1.70"
+"IOB","64","2022-01-11T12:55:27","1.70"
+"IOB","55","2022-01-11T12:55:42","1.70"
+"IOB","20","2022-01-11T12:56:26","2.71"
+"IOB","81","2022-01-11T12:56:26","1.70"
+"IOB","81","2022-01-11T13:00:11","2.71"
+"IOB","9","2022-01-11T13:06:30","2.60"
+"IOB","16","2022-01-11T13:06:30","2.61"
+"IOB","64","2022-01-11T13:06:34","2.61"
+"IOB","55","2022-01-11T13:06:50","2.61"
+"IOB","20","2022-01-11T13:08:12","4.61"
+"IOB","81","2022-01-11T13:08:12","2.61"
+"IOB","81","2022-01-11T13:10:11","4.52"
+"IOB","81","2022-01-11T13:20:11","4.30"
+"IOB","81","2022-01-11T13:30:11","4.02"
+"IOB","9","2022-01-11T13:31:10","4.00"
+"IOB","9","2022-01-11T13:31:53","4.00"
+"IOB","16","2022-01-11T13:31:56","4.02"
+"IOB","9","2022-01-11T13:31:58","4.00"
+"IOB","81","2022-01-11T13:40:10","3.71"
+"IOB","81","2022-01-11T13:50:11","3.40"
+"IOB","81","2022-01-11T14:00:11","3.07"
+"IOB","81","2022-01-11T14:10:11","2.74"
+"IOB","81","2022-01-11T14:20:11","2.39"
+"IOB","81","2022-01-11T14:30:11","2.04"
+"IOB","81","2022-01-11T14:40:11","1.74"
+"IOB","81","2022-01-11T14:50:11","1.47"
+"IOB","9","2022-01-11T14:54:15","1.30"
+"IOB","16","2022-01-11T14:54:15","1.36"
+"IOB","64","2022-01-11T14:54:31","1.36"
+"IOB","55","2022-01-11T14:54:45","1.36"
+"IOB","20","2022-01-11T14:56:35","3.86"
+"IOB","81","2022-01-11T14:56:35","1.36"
+"IOB","81","2022-01-11T15:00:10","3.74"
+"IOB","9","2022-01-11T15:00:44","3.70"
+"IOB","16","2022-01-11T15:00:45","3.74"
+"IOB","64","2022-01-11T15:00:50","3.74"
+"IOB","55","2022-01-11T15:01:05","3.74"
+"IOB","20","2022-01-11T15:02:53","6.24"
+"IOB","81","2022-01-11T15:02:53","3.74"
+"IOB","9","2022-01-11T15:09:35","6.10"
+"IOB","16","2022-01-11T15:09:35","6.11"
+"IOB","64","2022-01-11T15:09:40","6.11"
+"IOB","55","2022-01-11T15:09:55","6.11"
+"IOB","81","2022-01-11T15:10:11","6.11"
+"IOB","81","2022-01-11T15:11:44","5.98"
+"IOB","20","2022-01-11T15:11:44","8.48"
+"IOB","9","2022-01-11T15:13:25","8.40"
+"IOB","9","2022-01-11T15:13:28","8.40"
+"IOB","9","2022-01-11T15:13:46","8.40"
+"IOB","81","2022-01-11T15:20:11","8.34"
+"IOB","9","2022-01-11T15:23:07","8.10"
+"IOB","16","2022-01-11T15:23:07","8.16"
+"IOB","64","2022-01-11T15:23:11","8.16"
+"IOB","55","2022-01-11T15:23:26","8.16"
+"IOB","20","2022-01-11T15:25:16","10.66"
+"IOB","81","2022-01-11T15:25:16","8.16"
+"IOB","81","2022-01-11T15:30:11","10.48"
+"IOB","9","2022-01-11T15:34:07","10.20"
+"IOB","81","2022-01-11T15:40:11","9.98"
+"IOB","81","2022-01-11T15:50:11","9.41"
+"IOB","81","2022-01-11T16:00:11","8.72"
+"IOB","81","2022-01-11T16:10:11","7.99"
+"IOB","81","2022-01-11T16:20:11","7.21"
+"IOB","81","2022-01-11T16:30:11","6.40"
+"IOB","81","2022-01-11T16:40:11","5.61"
+"IOB","81","2022-01-11T16:50:10","4.86"
+"IOB","81","2022-01-11T17:00:10","4.15"
+"IOB","81","2022-01-11T17:10:11","3.48"
+"IOB","81","2022-01-11T17:20:11","2.91"
+"IOB","81","2022-01-11T17:30:11","2.41"
+"IOB","81","2022-01-11T17:40:11","1.98"
+"IOB","81","2022-01-11T17:50:11","1.61"
+"IOB","81","2022-01-11T18:00:11","1.33"
+"IOB","64","2022-01-11T18:07:47","1.08"
+"IOB","55","2022-01-11T18:08:02","1.08"
+"IOB","20","2022-01-11T18:08:56","2.04"
+"IOB","81","2022-01-11T18:08:56","1.08"
+"IOB","81","2022-01-11T18:10:11","2.04"
+"IOB","81","2022-01-11T18:20:11","1.86"
+"IOB","81","2022-01-11T18:30:11","1.63"
+"IOB","81","2022-01-11T18:40:11","1.41"
+"IOB","81","2022-01-11T18:50:10","1.25"
+"IOB","9","2022-01-11T18:56:10","1.10"
+"IOB","16","2022-01-11T18:56:11","1.20"
+"IOB","64","2022-01-11T18:56:16","1.20"
+"IOB","55","2022-01-11T18:56:31","1.20"
+"IOB","20","2022-01-11T18:57:24","2.22"
+"IOB","81","2022-01-11T18:57:24","1.20"
+"IOB","81","2022-01-11T19:00:11","2.22"
+"IOB","81","2022-01-11T19:10:11","2.15"
+"IOB","9","2022-01-11T19:16:04","2.00"
+"IOB","16","2022-01-11T19:16:05","2.08"
+"IOB","64","2022-01-11T19:16:07","2.08"
+"IOB","55","2022-01-11T19:16:22","2.08"
+"IOB","9","2022-01-11T19:16:32","2.00"
+"IOB","81","2022-01-11T19:16:48","2.00"
+"IOB","20","2022-01-11T19:16:48","2.38"
+"IOB","81","2022-01-11T19:20:11","2.38"
+"IOB","81","2022-01-11T19:30:11","2.21"
+"IOB","81","2022-01-11T19:40:11","2.04"
+"IOB","81","2022-01-11T19:50:11","1.85"
+"IOB","81","2022-01-11T20:00:11","1.67"
+"IOB","81","2022-01-11T20:10:11","1.66"
+"IOB","81","2022-01-11T20:20:11","1.63"
+"IOB","9","2022-01-11T20:21:17","1.60"
+"IOB","16","2022-01-11T20:21:18","1.63"
+"IOB","64","2022-01-11T20:21:21","1.63"
+"IOB","55","2022-01-11T20:21:36","1.54"
+"IOB","20","2022-01-11T20:22:58","3.54"
+"IOB","81","2022-01-11T20:22:58","1.54"
+"IOB","81","2022-01-11T20:30:11","3.45"
+"IOB","81","2022-01-11T20:40:11","3.26"
+"IOB","81","2022-01-11T20:50:11","3.06"
+"IOB","81","2022-01-11T21:00:11","2.80"
+"IOB","81","2022-01-11T21:10:10","2.56"
+"IOB","81","2022-01-11T21:20:11","2.31"
+"IOB","81","2022-01-11T21:30:11","2.04"
+"IOB","81","2022-01-11T21:40:11","1.80"
+"IOB","81","2022-01-11T21:50:11","1.56"
+"IOB","81","2022-01-11T22:00:11","1.35"
+"IOB","64","2022-01-11T22:07:59","1.14"
+"IOB","55","2022-01-11T22:08:14","1.14"
+"IOB","20","2022-01-11T22:08:56","2.06"
+"IOB","81","2022-01-11T22:08:56","1.14"
+"IOB","81","2022-01-11T22:10:11","2.06"
+"IOB","81","2022-01-11T22:20:11","1.93"
+"IOB","81","2022-01-11T22:30:11","1.75"
+"IOB","81","2022-01-11T22:40:11","1.56"
+"IOB","81","2022-01-11T22:50:11","1.38"
+"IOB","9","2022-01-11T22:51:35","1.30"
+"IOB","16","2022-01-11T22:51:35","1.31"
+"IOB","64","2022-01-11T22:51:40","1.31"
+"IOB","9","2022-01-11T22:51:51","1.30"
+"IOB","81","2022-01-11T22:51:52","1.31"
+"IOB","20","2022-01-11T22:51:52","1.31"
+"IOB","9","2022-01-11T22:59:28","1.20"
+"IOB","81","2022-01-11T23:00:11","1.24"
+"IOB","9","2022-01-11T23:02:29","1.20"
+"IOB","16","2022-01-11T23:02:38","1.24"
+"IOB","64","2022-01-11T23:02:42","1.24"
+"IOB","55","2022-01-11T23:02:57","1.24"
+"IOB","20","2022-01-11T23:04:57","7.06"
+"IOB","81","2022-01-11T23:04:57","1.24"
+"IOB","81","2022-01-11T23:10:11","6.97"
+"IOB","81","2022-01-11T23:20:11","6.76"
+"IOB","81","2022-01-11T23:30:11","6.51"
+"IOB","81","2022-01-11T23:40:11","6.05"
+"IOB","81","2022-01-11T23:50:11","5.64"
+"IOB","81","2022-01-11T23:58:10","5.17"
+"IOB","81","2022-01-12T00:00:11","5.17"
+"IOB","81","2022-01-12T00:10:11","4.66"
+"IOB","81","2022-01-12T00:20:11","4.16"
+"IOB","81","2022-01-12T00:30:11","3.59"
+"IOB","9","2022-01-12T00:31:04","3.20"
+"IOB","64","2022-01-12T00:37:31","3.00"
+"IOB","55","2022-01-12T00:37:46","3.00"
+"IOB","20","2022-01-12T00:37:59","3.09"
+"IOB","81","2022-01-12T00:37:59","3.00"
+"IOB","81","2022-01-12T00:40:11","3.09"
+"IOB","81","2022-01-12T00:50:11","2.73"
+"IOB","81","2022-01-12T01:00:11","2.42"
+"IOB","81","2022-01-12T01:10:11","2.06"
+"IOB","81","2022-01-12T01:20:11","2.03"
+"IOB","81","2022-01-12T01:30:11","1.98"
+"IOB","81","2022-01-12T01:40:11","1.77"
+"IOB","64","2022-01-12T01:42:24","1.64"
+"IOB","55","2022-01-12T01:42:39","1.64"
+"IOB","20","2022-01-12T01:43:15","2.00"
+"IOB","81","2022-01-12T01:43:15","1.64"
+"IOB","81","2022-01-12T01:50:11","1.87"
+"IOB","81","2022-01-12T02:00:11","1.68"
+"IOB","81","2022-01-12T02:10:11","1.51"
+"IOB","81","2022-01-12T02:20:11","1.26"
+"IOB","81","2022-01-12T02:30:11","1.09"
+"IOB","81","2022-01-12T02:40:10","0.91"
+"IOB","81","2022-01-12T02:50:11","0.77"
+"IOB","81","2022-01-12T03:00:11","0.65"
+"IOB","81","2022-01-12T03:10:11","0.55"
+"IOB","81","2022-01-12T03:20:11","0.46"
+"IOB","81","2022-01-12T03:30:11","0.37"
+"IOB","81","2022-01-12T03:40:11","0.30"
+"IOB","81","2022-01-12T03:50:11","0.24"
+"IOB","81","2022-01-12T04:00:11","0.20"
+"IOB","81","2022-01-12T04:10:11","0.16"
+"IOB","81","2022-01-12T04:20:11","0.13"
+"IOB","81","2022-01-12T04:30:11","0.10"
+"IOB","81","2022-01-12T04:40:11","0.08"
+"IOB","81","2022-01-12T04:50:11","0.06"
+"IOB","81","2022-01-12T05:00:10","0.05"
+"IOB","81","2022-01-12T05:10:11","0.07"
+"IOB","81","2022-01-12T05:20:11","0.05"
+"IOB","81","2022-01-12T05:30:11","0.05"
+"IOB","81","2022-01-12T05:40:10","0.07"
+"IOB","64","2022-01-12T05:42:18","0.10"
+"IOB","55","2022-01-12T05:42:33","0.10"
+"IOB","20","2022-01-12T05:43:17","1.07"
+"IOB","81","2022-01-12T05:43:17","0.10"
+"IOB","81","2022-01-12T05:50:11","1.24"
+"IOB","81","2022-01-12T06:00:11","1.22"
+"IOB","81","2022-01-12T06:10:11","1.20"
+"IOB","81","2022-01-12T06:20:11","1.15"
+"IOB","81","2022-01-12T06:30:11","1.08"
+"IOB","81","2022-01-12T06:40:11","1.00"
+"IOB","81","2022-01-12T06:50:11","0.91"
+"IOB","81","2022-01-12T07:00:10","0.82"
+"IOB","81","2022-01-12T07:10:11","0.67"
+"IOB","64","2022-01-12T07:16:46","0.58"
+"IOB","55","2022-01-12T07:17:00","0.58"
+"IOB","20","2022-01-12T07:17:54","1.69"
+"IOB","81","2022-01-12T07:17:54","0.58"
+"IOB","81","2022-01-12T07:20:11","1.69"
+"IOB","81","2022-01-12T07:30:11","1.71"
+"IOB","81","2022-01-12T07:40:10","1.61"
+"IOB","81","2022-01-12T07:50:11","1.50"
+"IOB","81","2022-01-12T08:00:11","1.37"
+"IOB","81","2022-01-12T08:10:11","1.25"
+"IOB","81","2022-01-12T08:20:11","1.12"
+"IOB","81","2022-01-12T08:30:11","0.99"
+"IOB","64","2022-01-12T08:36:57","0.89"
+"IOB","55","2022-01-12T08:37:12","0.89"
+"IOB","20","2022-01-12T08:37:54","1.85"
+"IOB","81","2022-01-12T08:37:54","0.89"
+"IOB","81","2022-01-12T08:40:10","1.85"
+"IOB","81","2022-01-12T08:50:11","1.80"
+"IOB","81","2022-01-12T09:00:11","1.66"
+"IOB","81","2022-01-12T09:10:11","1.52"
+"IOB","81","2022-01-12T09:20:11","1.38"
+"IOB","81","2022-01-12T09:30:11","1.24"
+"IOB","81","2022-01-12T09:40:11","1.10"
+"IOB","81","2022-01-12T09:50:10","0.97"
+"IOB","81","2022-01-12T10:00:10","0.70"
+"IOB","81","2022-01-12T10:10:11","0.52"
+"IOB","64","2022-01-12T10:11:46","0.49"
+"IOB","55","2022-01-12T10:12:01","0.49"
+"IOB","20","2022-01-12T10:12:57","1.56"
+"IOB","81","2022-01-12T10:12:57","0.49"
+"IOB","81","2022-01-12T10:20:11","1.60"
+"IOB","81","2022-01-12T10:30:11","1.49"
+"IOB","81","2022-01-12T10:40:11","1.39"
+"IOB","81","2022-01-12T10:50:11","1.26"
+"IOB","81","2022-01-12T11:00:10","1.15"
+"IOB","81","2022-01-12T11:10:11","1.03"
+"IOB","81","2022-01-12T11:20:11","0.92"
+"IOB","81","2022-01-12T11:30:11","0.77"
+"IOB","81","2022-01-12T11:40:11","0.67"
+"IOB","81","2022-01-12T11:50:10","0.54"
+"IOB","81","2022-01-12T12:00:10","0.44"
+"IOB","81","2022-01-12T12:10:10","0.37"
+"IOB","81","2022-01-12T12:20:10","0.30"
+"IOB","81","2022-01-12T12:30:10","0.23"
+"IOB","81","2022-01-12T12:40:11","0.19"
+"IOB","81","2022-01-12T12:50:11","0.15"
+"IOB","64","2022-01-12T12:56:05","0.11"
+"IOB","55","2022-01-12T12:56:20","0.11"
+"IOB","20","2022-01-12T12:57:16","1.28"
+"IOB","81","2022-01-12T12:57:16","0.11"
+"IOB","81","2022-01-12T13:00:11","1.28"
+"IOB","81","2022-01-12T13:10:11","1.40"
+"IOB","81","2022-01-12T13:20:11","1.36"
+"IOB","81","2022-01-12T13:30:11","1.28"
+"IOB","9","2022-01-12T13:39:12","1.20"
+"IOB","16","2022-01-12T13:39:12","1.20"
+"IOB","64","2022-01-12T13:39:19","1.20"
+"IOB","55","2022-01-12T13:39:33","1.20"
+"IOB","81","2022-01-12T13:40:10","1.20"
+"IOB","81","2022-01-12T13:41:21","1.16"
+"IOB","20","2022-01-12T13:41:21","3.66"
+"IOB","9","2022-01-12T13:48:22","3.60"
+"IOB","16","2022-01-12T13:48:22","3.61"
+"IOB","64","2022-01-12T13:48:54","3.61"
+"IOB","55","2022-01-12T13:49:09","3.61"
+"IOB","81","2022-01-12T13:50:11","3.55"
+"IOB","81","2022-01-12T13:50:58","3.55"
+"IOB","20","2022-01-12T13:50:58","6.05"
+"IOB","81","2022-01-12T14:00:11","5.89"
+"IOB","81","2022-01-12T14:10:11","5.65"
+"IOB","81","2022-01-12T14:20:10","5.33"
+"IOB","81","2022-01-12T14:30:11","4.95"
+"IOB","81","2022-01-12T14:40:11","4.54"
+"IOB","81","2022-01-12T14:50:10","4.11"
+"IOB","81","2022-01-12T15:00:11","3.68"
+"IOB","81","2022-01-12T15:10:11","3.24"
+"IOB","64","2022-01-12T15:16:24","3.02"
+"IOB","55","2022-01-12T15:16:39","3.02"
+"IOB","20","2022-01-12T15:17:15","3.30"
+"IOB","81","2022-01-12T15:17:15","3.02"
+"IOB","81","2022-01-12T15:20:10","3.09"
+"IOB","81","2022-01-12T15:30:11","2.70"
+"IOB","81","2022-01-12T15:40:11","2.33"
+"IOB","81","2022-01-12T15:50:10","2.00"
+"IOB","81","2022-01-12T16:00:11","1.69"
+"IOB","81","2022-01-12T16:10:11","1.41"
+"IOB","81","2022-01-12T16:20:11","1.22"
+"IOB","9","2022-01-12T16:21:03","1.20"
+"IOB","16","2022-01-12T16:21:04","1.22"
+"IOB","64","2022-01-12T16:21:08","1.22"
+"IOB","55","2022-01-12T16:21:23","1.22"
+"IOB","20","2022-01-12T16:22:14","2.05"
+"IOB","81","2022-01-12T16:22:14","1.22"
+"IOB","81","2022-01-12T16:30:11","1.87"
+"IOB","81","2022-01-12T16:40:11","1.69"
+"IOB","81","2022-01-12T16:50:11","1.54"
+"IOB","9","2022-01-12T16:58:58","1.50"
+"IOB","16","2022-01-12T16:58:59","1.53"
+"IOB","64","2022-01-12T16:59:03","1.53"
+"IOB","55","2022-01-12T16:59:18","1.53"
+"IOB","81","2022-01-12T17:00:10","1.54"
+"IOB","81","2022-01-12T17:00:42","1.54"
+"IOB","20","2022-01-12T17:00:42","3.54"
+"IOB","81","2022-01-12T17:10:11","3.44"
+"IOB","81","2022-01-12T17:20:11","3.24"
+"IOB","81","2022-01-12T17:30:11","3.01"
+"IOB","81","2022-01-12T17:40:11","2.77"
+"IOB","81","2022-01-12T17:50:11","2.53"
+"IOB","9","2022-01-12T17:55:28","2.40"
+"IOB","16","2022-01-12T17:55:29","2.40"
+"IOB","64","2022-01-12T17:55:33","2.40"
+"IOB","55","2022-01-12T17:55:48","2.40"
+"IOB","20","2022-01-12T17:57:12","4.40"
+"IOB","81","2022-01-12T17:57:12","2.40"
+"IOB","81","2022-01-12T18:00:11","4.40"
+"IOB","81","2022-01-12T18:10:11","4.12"
+"IOB","9","2022-01-12T18:19:16","3.80"
+"IOB","16","2022-01-12T18:19:16","3.84"
+"IOB","64","2022-01-12T18:19:20","3.84"
+"IOB","55","2022-01-12T18:19:35","3.84"
+"IOB","81","2022-01-12T18:20:10","3.84"
+"IOB","81","2022-01-12T18:20:58","3.70"
+"IOB","20","2022-01-12T18:20:58","5.70"
+"IOB","81","2022-01-12T18:30:11","5.53"
+"IOB","81","2022-01-12T18:40:11","5.16"
+"IOB","81","2022-01-12T18:50:11","4.79"
+"IOB","81","2022-01-12T19:00:11","4.38"
+"IOB","81","2022-01-12T19:10:11","3.97"
+"IOB","81","2022-01-12T19:20:11","3.54"
+"IOB","81","2022-01-12T19:30:11","3.12"
+"IOB","81","2022-01-12T19:40:10","2.72"
+"IOB","9","2022-01-12T19:44:23","2.50"
+"IOB","16","2022-01-12T19:44:24","2.50"
+"IOB","64","2022-01-12T19:44:29","2.50"
+"IOB","55","2022-01-12T19:44:45","2.50"
+"IOB","20","2022-01-12T19:47:43","11.02"
+"IOB","81","2022-01-12T19:47:43","2.27"
+"IOB","81","2022-01-12T19:50:11","11.02"
+"IOB","81","2022-01-12T20:00:10","10.52"
+"IOB","81","2022-01-12T20:10:11","10.01"
+"IOB","81","2022-01-12T20:20:11","9.34"
+"IOB","81","2022-01-12T20:30:11","8.55"
+"IOB","81","2022-01-12T20:40:11","7.73"
+"IOB","81","2022-01-12T20:50:11","6.86"
+"IOB","81","2022-01-12T21:00:11","6.05"
+"IOB","81","2022-01-12T21:10:10","5.30"
+"IOB","81","2022-01-12T21:20:11","4.51"
+"IOB","9","2022-01-12T21:28:30","3.70"
+"IOB","16","2022-01-12T21:28:31","3.78"
+"IOB","9","2022-01-12T21:28:33","3.70"
+"IOB","16","2022-01-12T21:28:33","3.78"
+"IOB","64","2022-01-12T21:28:38","3.78"
+"IOB","55","2022-01-12T21:28:53","3.78"
+"IOB","81","2022-01-12T21:30:11","3.78"
+"IOB","81","2022-01-12T21:30:41","3.78"
+"IOB","20","2022-01-12T21:30:41","8.78"
+"IOB","9","2022-01-12T21:32:51","8.30"
+"IOB","16","2022-01-12T21:32:52","8.38"
+"IOB","64","2022-01-12T21:32:56","8.38"
+"IOB","55","2022-01-12T21:33:11","8.38"
+"IOB","20","2022-01-12T21:34:59","10.88"
+"IOB","81","2022-01-12T21:34:59","8.38"
+"IOB","81","2022-01-12T21:40:11","10.50"
+"IOB","81","2022-01-12T21:50:11","9.87"
+"IOB","81","2022-01-12T22:00:11","9.14"
+"IOB","81","2022-01-12T22:10:11","8.33"
+"IOB","81","2022-01-12T22:20:11","7.60"
+"IOB","81","2022-01-12T22:30:11","6.83"
+"IOB","81","2022-01-12T22:40:11","6.06"
+"IOB","9","2022-01-12T22:46:42","5.20"
+"IOB","81","2022-01-12T22:50:10","5.23"
+"IOB","64","2022-01-12T22:57:35","4.47"
+"IOB","55","2022-01-12T22:57:50","4.47"
+"IOB","20","2022-01-12T22:58:03","4.54"
+"IOB","81","2022-01-12T22:58:03","4.47"
+"IOB","81","2022-01-12T23:00:11","4.54"
+"IOB","81","2022-01-12T23:10:11","3.83"
+"IOB","81","2022-01-12T23:20:11","3.20"
+"IOB","81","2022-01-12T23:30:11","2.70"
+"IOB","81","2022-01-12T23:40:10","2.24"
+"IOB","81","2022-01-12T23:50:11","1.71"
+"IOB","81","2022-01-12T23:58:11","1.39"
+"IOB","81","2022-01-13T00:00:11","1.39"
+"IOB","64","2022-01-13T00:02:30","1.45"
+"IOB","55","2022-01-13T00:02:45","1.45"
+"IOB","20","2022-01-13T00:03:38","2.48"
+"IOB","81","2022-01-13T00:03:38","1.45"
+"IOB","81","2022-01-13T00:10:11","2.53"
+"IOB","81","2022-01-13T00:20:10","2.29"
+"IOB","81","2022-01-13T00:30:10","2.47"
+"IOB","81","2022-01-13T00:40:11","2.55"
+"IOB","9","2022-01-13T00:41:24","2.50"
+"IOB","16","2022-01-13T00:41:24","2.56"
+"IOB","64","2022-01-13T00:41:29","2.56"
+"IOB","55","2022-01-13T00:41:44","2.56"
+"IOB","20","2022-01-13T00:43:17","4.56"
+"IOB","81","2022-01-13T00:43:17","2.56"
+"IOB","81","2022-01-13T00:50:11","4.59"
+"IOB","81","2022-01-13T01:00:11","4.32"
+"IOB","9","2022-01-13T01:01:12","4.30"
+"IOB","9","2022-01-13T01:01:15","4.30"
+"IOB","64","2022-01-13T01:01:20","4.32"
+"IOB","55","2022-01-13T01:01:35","4.32"
+"IOB","20","2022-01-13T01:02:59","6.17"
+"IOB","81","2022-01-13T01:02:59","4.17"
+"IOB","81","2022-01-13T01:10:11","6.04"
+"IOB","81","2022-01-13T01:20:11","5.68"
+"IOB","9","2022-01-13T01:20:59","5.60"
+"IOB","9","2022-01-13T01:27:04","5.30"
+"IOB","9","2022-01-13T01:27:16","5.30"
+"IOB","81","2022-01-13T01:30:11","5.33"
+"IOB","9","2022-01-13T01:30:59","5.30"
+"IOB","64","2022-01-13T01:31:05","5.33"
+"IOB","55","2022-01-13T01:31:20","5.33"
+"IOB","20","2022-01-13T01:32:53","7.11"
+"IOB","81","2022-01-13T01:32:53","5.11"
+"IOB","81","2022-01-13T01:40:10","6.89"
+"IOB","9","2022-01-13T01:41:12","6.80"
+"IOB","81","2022-01-13T01:50:11","6.41"
+"IOB","81","2022-01-13T02:00:11","5.92"
+"IOB","81","2022-01-13T02:10:11","5.36"
+"IOB","9","2022-01-13T02:16:53","4.80"
+"IOB","16","2022-01-13T02:16:54","4.81"
+"IOB","64","2022-01-13T02:16:59","4.81"
+"IOB","55","2022-01-13T02:17:14","4.81"
+"IOB","20","2022-01-13T02:18:36","6.81"
+"IOB","81","2022-01-13T02:18:36","4.81"
+"IOB","81","2022-01-13T02:20:11","6.81"
+"IOB","81","2022-01-13T02:30:11","6.26"
+"IOB","81","2022-01-13T02:40:11","5.71"
+"IOB","81","2022-01-13T02:50:11","5.07"
+"IOB","81","2022-01-13T03:00:11","4.44"
+"IOB","81","2022-01-13T03:10:11","3.91"
+"IOB","81","2022-01-13T03:20:11","3.39"
+"IOB","81","2022-01-13T03:30:11","2.92"
+"IOB","81","2022-01-13T03:40:11","2.50"
+"IOB","81","2022-01-13T03:50:11","2.11"
+"IOB","81","2022-01-13T04:00:11","1.74"
+"IOB","81","2022-01-13T04:10:11","1.42"
+"IOB","81","2022-01-13T04:20:11","1.13"
+"IOB","81","2022-01-13T04:30:11","0.91"
+"IOB","81","2022-01-13T04:40:11","0.67"
+"IOB","81","2022-01-13T04:50:11","0.43"
+"IOB","81","2022-01-13T05:00:11","0.33"
+"IOB","81","2022-01-13T05:10:11","0.23"
+"IOB","9","2022-01-13T05:18:05","0.10"
+"IOB","16","2022-01-13T05:18:05","0.16"
+"IOB","64","2022-01-13T05:18:10","0.16"
+"IOB","55","2022-01-13T05:18:25","0.16"
+"IOB","20","2022-01-13T05:19:04","0.80"
+"IOB","81","2022-01-13T05:19:04","0.16"
+"IOB","81","2022-01-13T05:20:11","0.80"
+"IOB","81","2022-01-13T05:30:11","0.77"
+"IOB","81","2022-01-13T05:40:11","0.70"
+"IOB","9","2022-01-13T05:46:09","0.60"
+"IOB","16","2022-01-13T05:46:10","0.68"
+"IOB","64","2022-01-13T05:46:13","0.68"
+"IOB","55","2022-01-13T05:46:28","0.68"
+"IOB","20","2022-01-13T05:47:08","1.40"
+"IOB","81","2022-01-13T05:47:08","0.68"
+"IOB","81","2022-01-13T05:50:11","1.40"
+"IOB","81","2022-01-13T06:00:11","1.42"
+"IOB","81","2022-01-13T06:10:11","1.35"
+"IOB","81","2022-01-13T06:20:11","1.26"
+"IOB","81","2022-01-13T06:30:11","1.37"
+"IOB","81","2022-01-13T06:40:11","1.51"
+"IOB","64","2022-01-13T06:49:07","1.41"
+"IOB","55","2022-01-13T06:49:22","1.41"
+"IOB","20","2022-01-13T06:49:59","1.85"
+"IOB","81","2022-01-13T06:49:59","1.41"
+"IOB","81","2022-01-13T07:00:11","1.75"
+"IOB","81","2022-01-13T07:10:11","1.61"
+"IOB","81","2022-01-13T07:20:11","1.47"
+"IOB","81","2022-01-13T07:30:11","1.36"
+"IOB","81","2022-01-13T07:40:11","1.24"
+"IOB","81","2022-01-13T07:50:11","1.10"
+"IOB","64","2022-01-13T07:54:14","1.19"
+"IOB","55","2022-01-13T07:54:29","1.19"
+"IOB","20","2022-01-13T07:55:40","2.88"
+"IOB","81","2022-01-13T07:55:40","1.19"
+"IOB","81","2022-01-13T08:00:11","3.11"
+"IOB","81","2022-01-13T08:10:11","2.98"
+"IOB","81","2022-01-13T08:20:11","2.81"
+"IOB","81","2022-01-13T08:30:11","2.56"
+"IOB","81","2022-01-13T08:40:11","2.31"
+"IOB","81","2022-01-13T08:50:11","2.09"
+"IOB","81","2022-01-13T09:00:11","1.85"
+"IOB","81","2022-01-13T09:10:11","1.63"
+"IOB","81","2022-01-13T09:20:11","1.42"
+"IOB","81","2022-01-13T09:30:11","1.22"
+"IOB","81","2022-01-13T09:40:11","1.04"
+"IOB","81","2022-01-13T09:50:11","0.88"
+"IOB","81","2022-01-13T10:00:11","0.76"
+"IOB","64","2022-01-13T10:04:09","0.70"
+"IOB","55","2022-01-13T10:04:24","0.70"
+"IOB","20","2022-01-13T10:05:20","1.88"
+"IOB","81","2022-01-13T10:05:20","0.70"
+"IOB","81","2022-01-13T10:10:10","1.94"
+"IOB","81","2022-01-13T10:20:11","1.93"
+"IOB","81","2022-01-13T10:30:11","2.02"
+"IOB","81","2022-01-13T10:40:11","1.94"
+"IOB","81","2022-01-13T10:50:11","1.88"
+"IOB","81","2022-01-13T11:00:11","1.74"
+"IOB","64","2022-01-13T11:08:40","1.55"
+"IOB","55","2022-01-13T11:08:55","1.55"
+"IOB","20","2022-01-13T11:10:02","2.96"
+"IOB","81","2022-01-13T11:10:02","1.55"
+"IOB","81","2022-01-13T11:20:11","3.00"
+"IOB","81","2022-01-13T11:30:11","2.80"
+"IOB","81","2022-01-13T11:40:11","2.58"
+"IOB","81","2022-01-13T11:50:11","2.35"
+"IOB","81","2022-01-13T12:00:11","2.08"
+"IOB","81","2022-01-13T12:10:11","1.85"
+"IOB","64","2022-01-13T12:13:30","1.74"
+"IOB","55","2022-01-13T12:13:45","1.74"
+"IOB","20","2022-01-13T12:14:26","2.53"
+"IOB","81","2022-01-13T12:14:26","1.74"
+"IOB","81","2022-01-13T12:20:11","2.44"
+"IOB","81","2022-01-13T12:30:11","2.22"
+"IOB","81","2022-01-13T12:40:11","2.01"
+"IOB","9","2022-01-13T12:41:06","2.00"
+"IOB","16","2022-01-13T12:41:07","2.01"
+"IOB","64","2022-01-13T12:41:11","2.01"
+"IOB","55","2022-01-13T12:41:26","2.01"
+"IOB","20","2022-01-13T12:42:19","3.01"
+"IOB","81","2022-01-13T12:42:19","2.01"
+"IOB","81","2022-01-13T12:50:11","2.77"
+"IOB","81","2022-01-13T13:00:11","2.56"
+"IOB","81","2022-01-13T13:10:11","2.33"
+"IOB","81","2022-01-13T13:20:11","2.08"
+"IOB","81","2022-01-13T13:30:11","1.85"
+"IOB","9","2022-01-13T13:37:18","1.70"
+"IOB","16","2022-01-13T13:37:19","1.73"
+"IOB","64","2022-01-13T13:37:24","1.73"
+"IOB","55","2022-01-13T13:37:39","1.63"
+"IOB","20","2022-01-13T13:39:27","4.16"
+"IOB","81","2022-01-13T13:39:27","1.63"
+"IOB","9","2022-01-13T13:41:19","4.10"
+"IOB","16","2022-01-13T13:41:21","4.16"
+"IOB","64","2022-01-13T13:41:28","4.16"
+"IOB","55","2022-01-13T13:41:43","4.16"
+"IOB","20","2022-01-13T13:43:33","6.55"
+"IOB","81","2022-01-13T13:43:33","4.05"
+"IOB","81","2022-01-13T13:50:10","6.43"
+"IOB","9","2022-01-13T13:54:15","6.20"
+"IOB","16","2022-01-13T13:54:15","6.29"
+"IOB","64","2022-01-13T13:54:19","6.29"
+"IOB","55","2022-01-13T13:54:35","6.29"
+"IOB","20","2022-01-13T13:56:24","8.79"
+"IOB","81","2022-01-13T13:56:24","6.29"
+"IOB","81","2022-01-13T14:00:11","8.66"
+"IOB","81","2022-01-13T14:10:11","8.30"
+"IOB","81","2022-01-13T14:20:11","7.81"
+"IOB","9","2022-01-13T14:26:41","7.50"
+"IOB","16","2022-01-13T14:26:42","7.53"
+"IOB","64","2022-01-13T14:26:45","7.53"
+"IOB","55","2022-01-13T14:26:59","7.53"
+"IOB","20","2022-01-13T14:27:52","8.53"
+"IOB","81","2022-01-13T14:27:52","7.53"
+"IOB","81","2022-01-13T14:30:11","8.25"
+"IOB","81","2022-01-13T14:40:11","7.65"
+"IOB","81","2022-01-13T14:50:10","6.99"
+"IOB","81","2022-01-13T15:00:11","6.30"
+"IOB","81","2022-01-13T15:10:11","5.63"
+"IOB","81","2022-01-13T15:20:10","4.96"
+"IOB","81","2022-01-13T15:30:11","4.30"
+"IOB","81","2022-01-13T15:40:11","3.71"
+"IOB","81","2022-01-13T15:50:11","3.16"
+"IOB","81","2022-01-13T16:00:11","2.65"
+"IOB","81","2022-01-13T16:10:11","2.19"
+"IOB","64","2022-01-13T16:16:46","2.01"
+"IOB","55","2022-01-13T16:17:01","2.01"
+"IOB","20","2022-01-13T16:17:43","2.93"
+"IOB","81","2022-01-13T16:17:43","2.01"
+"IOB","81","2022-01-13T16:20:11","2.81"
+"IOB","81","2022-01-13T16:30:11","2.47"
+"IOB","81","2022-01-13T16:40:10","2.19"
+"IOB","81","2022-01-13T16:50:11","2.16"
+"IOB","9","2022-01-13T16:55:06","2.10"
+"IOB","16","2022-01-13T16:55:07","2.18"
+"IOB","64","2022-01-13T16:55:10","2.18"
+"IOB","55","2022-01-13T16:55:25","2.18"
+"IOB","20","2022-01-13T16:57:29","5.18"
+"IOB","81","2022-01-13T16:57:29","2.18"
+"IOB","81","2022-01-13T17:00:11","5.18"
+"IOB","81","2022-01-13T17:10:10","5.01"
+"IOB","9","2022-01-13T17:19:54","4.60"
+"IOB","81","2022-01-13T17:20:10","4.69"
+"IOB","81","2022-01-13T17:30:11","4.35"
+"IOB","81","2022-01-13T17:40:11","4.00"
+"IOB","81","2022-01-13T17:50:11","3.64"
+"IOB","81","2022-01-13T18:00:11","3.27"
+"IOB","64","2022-01-13T18:02:33","3.08"
+"IOB","55","2022-01-13T18:02:48","3.08"
+"IOB","20","2022-01-13T18:03:24","3.43"
+"IOB","81","2022-01-13T18:03:24","3.08"
+"IOB","81","2022-01-13T18:10:11","3.25"
+"IOB","81","2022-01-13T18:20:11","2.90"
+"IOB","81","2022-01-13T18:30:11","2.56"
+"IOB","81","2022-01-13T18:40:10","2.28"
+"IOB","9","2022-01-13T18:47:06","2.00"
+"IOB","81","2022-01-13T18:50:10","2.04"
+"IOB","81","2022-01-13T19:00:11","1.97"
+"IOB","64","2022-01-13T19:07:26","1.93"
+"IOB","55","2022-01-13T19:07:41","1.93"
+"IOB","20","2022-01-13T19:08:34","3.02"
+"IOB","81","2022-01-13T19:08:34","1.93"
+"IOB","81","2022-01-13T19:10:11","3.02"
+"IOB","81","2022-01-13T19:20:11","2.92"
+"IOB","9","2022-01-13T19:26:09","2.60"
+"IOB","81","2022-01-13T19:30:11","2.68"
+"IOB","9","2022-01-13T19:37:32","2.40"
+"IOB","64","2022-01-13T19:37:35","2.43"
+"IOB","55","2022-01-13T19:37:50","2.43"
+"IOB","20","2022-01-13T19:39:54","5.43"
+"IOB","81","2022-01-13T19:39:54","2.43"
+"IOB","81","2022-01-13T19:50:10","5.17"
+"IOB","9","2022-01-13T19:50:56","5.10"
+"IOB","64","2022-01-13T19:51:00","5.04"
+"IOB","55","2022-01-13T19:51:15","5.04"
+"IOB","20","2022-01-13T19:53:19","8.04"
+"IOB","81","2022-01-13T19:53:19","5.04"
+"IOB","9","2022-01-13T19:56:58","7.80"
+"IOB","64","2022-01-13T19:57:02","7.89"
+"IOB","55","2022-01-13T19:57:17","7.89"
+"IOB","20","2022-01-13T19:59:03","13.14"
+"IOB","81","2022-01-13T19:59:03","7.89"
+"IOB","81","2022-01-13T20:00:11","13.14"
+"IOB","9","2022-01-13T20:06:50","12.90"
+"IOB","64","2022-01-13T20:06:54","12.98"
+"IOB","55","2022-01-13T20:07:09","12.98"
+"IOB","20","2022-01-13T20:08:51","17.72"
+"IOB","81","2022-01-13T20:08:51","12.72"
+"IOB","9","2022-01-13T20:09:59","17.70"
+"IOB","64","2022-01-13T20:10:04","17.72"
+"IOB","81","2022-01-13T20:10:11","17.72"
+"IOB","55","2022-01-13T20:10:19","17.72"
+"IOB","9","2022-01-13T20:11:19","17.70"
+"IOB","9","2022-01-13T20:11:22","17.70"
+"IOB","81","2022-01-13T20:11:23","17.72"
+"IOB","20","2022-01-13T20:11:23","18.85"
+"IOB","64","2022-01-13T20:11:28","18.85"
+"IOB","55","2022-01-13T20:11:43","18.85"
+"IOB","20","2022-01-13T20:13:23","23.57"
+"IOB","81","2022-01-13T20:13:23","18.57"
+"IOB","9","2022-01-13T20:16:13","23.50"
+"IOB","64","2022-01-13T20:16:18","23.57"
+"IOB","55","2022-01-13T20:16:33","23.57"
+"IOB","20","2022-01-13T20:18:22","25.75"
+"IOB","81","2022-01-13T20:18:22","23.25"
+"IOB","81","2022-01-13T20:20:11","25.75"
+"IOB","9","2022-01-13T20:22:37","25.30"
+"IOB","64","2022-01-13T20:22:52","25.36"
+"IOB","55","2022-01-13T20:23:08","25.36"
+"IOB","20","2022-01-13T20:24:47","30.36"
+"IOB","81","2022-01-13T20:24:47","25.36"
+"IOB","9","2022-01-13T20:29:49","29.80"
+"IOB","64","2022-01-13T20:29:59","29.82"
+"IOB","81","2022-01-13T20:30:11","29.82"
+"IOB","55","2022-01-13T20:30:14","29.82"
+"IOB","20","2022-01-13T20:31:19","31.07"
+"IOB","81","2022-01-13T20:31:19","29.82"
+"IOB","81","2022-01-13T20:40:11","29.72"
+"IOB","81","2022-01-13T20:50:11","28.02"
+"IOB","81","2022-01-13T21:00:11","26.04"
+"IOB","81","2022-01-13T21:10:11","23.90"
+"IOB","81","2022-01-13T21:20:10","21.60"
+"IOB","81","2022-01-13T21:30:10","19.27"
+"IOB","81","2022-01-13T21:40:10","16.98"
+"IOB","81","2022-01-13T21:50:10","14.78"
+"IOB","81","2022-01-13T22:00:10","12.69"
+"IOB","81","2022-01-13T22:10:11","10.74"
+"IOB","81","2022-01-13T22:20:10","9.03"
+"IOB","81","2022-01-13T22:30:11","7.51"
+"IOB","81","2022-01-13T22:40:10","6.17"
+"IOB","81","2022-01-13T22:50:11","4.93"
+"IOB","81","2022-01-13T23:00:11","3.95"
+"IOB","81","2022-01-13T23:10:11","3.12"
+"IOB","81","2022-01-13T23:20:10","2.46"
+"IOB","64","2022-01-13T23:24:38","2.11"
+"IOB","55","2022-01-13T23:24:53","2.11"
+"IOB","20","2022-01-13T23:25:59","3.28"
+"IOB","81","2022-01-13T23:25:59","2.11"
+"IOB","81","2022-01-13T23:30:11","3.14"
+"IOB","81","2022-01-13T23:40:11","2.58"
+"IOB","81","2022-01-13T23:50:11","2.09"
+"IOB","81","2022-01-13T23:58:11","1.84"
+
+Type,Description,BG,IOB,BolusRequestID,BolusCompletionID,CompletionDateTime,InsulinDelivered,FoodDelivered,CorrectionDelivered,CompletionStatusID,CompletionStatusDesc,BolusIsComplete,BolexCompletionID,BolexSize,BolexStartDateTime,BolexCompletionDateTime,BolexInsulinDelivered,BolexIOB,BolexCompletionStatusID,BolexCompletionStatusDesc,ExtendedBolusIsComplete,EventDateTime,RequestDateTime,BolusType,BolusRequestOptions,StandardPercent,Duration,CarbSize,UserOverride,TargetBG,CorrectionFactor,FoodBolusSize,CorrectionBolusSize,ActualTotalBolusRequested,IsQuickBolus,EventHistoryReportEventDesc,EventHistoryReportDetails,NoteID,IndexID,Note
+"Bolus","Automatic Bolus/Correction",,"0.50","3671.000","3671.000","2022-01-11T02:11:13","0.67","0.00","0.67","3","Completed","1",,,,,,,,,,"2022-01-11T02:10:17","2022-01-11T02:10:17","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.67","0.67","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","470593","",
+"Bolus","Automatic Bolus/Correction",,"0.79","3672.000","3672.000","2022-01-11T03:15:54","0.60","0.00","0.60","3","Completed","1",,,,,,,,,,"2022-01-11T03:15:11","2022-01-11T03:15:11","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.60","0.60","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","470701","",
+"Bolus","Automatic Bolus/Correction",,"0.73","3673.000","3673.000","2022-01-11T04:50:57","0.79","0.00","0.79","3","Completed","1",,,,,,,,,,"2022-01-11T04:50:01","2022-01-11T04:50:01","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.79","0.79","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","470857","",
+"Bolus","Automatic Bolus/Correction",,"0.88","3674.000","3674.000","2022-01-11T05:55:35","0.57","0.00","0.57","3","Completed","1",,,,,,,,,,"2022-01-11T05:54:52","2022-01-11T05:54:52","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.57","0.57","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","470961","",
+"Bolus","Automatic Bolus/Correction",,"1.87","3675.000","3675.000","2022-01-11T07:00:28","0.45","0.00","0.45","3","Completed","1",,,,,,,,,,"2022-01-11T06:59:46","2022-01-11T06:59:46","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.45","0.45","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","471066","",
+"Bolus","Automatic Bolus/Correction",,"1.57","3676.000","3676.000","2022-01-11T08:05:24","0.86","0.00","0.86","3","Completed","1",,,,,,,,,,"2022-01-11T08:04:16","2022-01-11T08:04:16","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.86","0.86","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","471174","",
+"Bolus","Standard/Correction","226","1.97","3677.000","3677.000","2022-01-11T08:40:21","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T08:38:33","2022-01-11T08:38:33","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","1.17","2.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 1.2 units","0","471253","",
+"Bolus","Standard","208","3.37","3678.000","3678.000","2022-01-11T09:11:58","1.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T09:10:59","2022-01-11T09:10:59","Carb","Standard","100.00","0","0","1","110","37.00","0.00","0.00","1.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","471367","",
+"Bolus","Automatic Bolus/Correction",,"2.26","3679.000","3679.000","2022-01-11T10:16:18","0.65","0.00","0.65","3","Completed","1",,,,,,,,,,"2022-01-11T10:15:23","2022-01-11T10:15:23","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.65","0.65","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","471483","",
+"Bolus","Automatic Bolus/Correction",,"1.28","3680.000","3680.000","2022-01-11T11:21:25","0.90","0.00","0.90","3","Completed","1",,,,,,,,,,"2022-01-11T11:20:16","2022-01-11T11:20:16","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.90","0.90","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","471589","",
+"Bolus","Standard/Correction","193","1.77","3681.000","3681.000","2022-01-11T11:49:48","1.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T11:48:40","2022-01-11T11:48:40","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","0.47","1.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.5 units","0","471649","",
+"Bolus","Automatic Bolus/Correction",,"1.70","3682.000","3682.000","2022-01-11T12:56:26","1.01","0.00","1.01","3","Completed","1",,,,,,,,,,"2022-01-11T12:55:27","2022-01-11T12:55:27","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.01","1.01","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","471766","",
+"Bolus","Standard","197","2.61","3683.000","3683.000","2022-01-11T13:08:12","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T13:06:34","2022-01-11T13:06:34","Carb","Standard","100.00","0","0","1","110","37.00","0.00","0.00","2.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","471805","",
+"Bolus","Standard","158","1.36","3686.000","3686.000","2022-01-11T14:56:35","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T14:54:31","2022-01-11T14:54:31","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472002","",
+"Bolus","Standard","158","3.74","3687.000","3687.000","2022-01-11T15:02:53","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T15:00:50","2022-01-11T15:00:50","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472037","",
+"Bolus","Standard","159","6.11","3688.000","3688.000","2022-01-11T15:11:44","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T15:09:40","2022-01-11T15:09:40","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472075","",
+"Bolus","Standard","163","8.16","3689.000","3689.000","2022-01-11T15:25:16","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T15:23:11","2022-01-11T15:23:11","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472135","",
+"Bolus","Automatic Bolus/Correction",,"1.08","3690.000","3690.000","2022-01-11T18:08:56","0.96","0.00","0.96","3","Completed","1",,,,,,,,,,"2022-01-11T18:07:47","2022-01-11T18:07:47","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.96","0.96","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","472397","",
+"Bolus","Standard/Correction","192","1.20","3691.000","3691.000","2022-01-11T18:57:24","1.02","0.00","1.02","3","Completed","1",,,,,,,,,,"2022-01-11T18:56:16","2022-01-11T18:56:16","Carb","Standard/Correction","100.00","0","0","0","110","37.00","0.00","1.02","1.02","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472485","",
+"Bolus","Standard/Correction","201","2.08","3692.000","3692.000","2022-01-11T19:16:48","0.38","0.00","0.38","3","Completed","1",,,,,,,,,,"2022-01-11T19:16:07","2022-01-11T19:16:07","Carb","Standard/Correction","100.00","0","0","0","110","37.00","0.00","0.38","0.38","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472537","",
+"Bolus","Standard/Correction","196","1.63","3693.000","3693.000","2022-01-11T20:22:58","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-11T20:21:21","2022-01-11T20:21:21","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","0.69","2.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.7 units","0","472687","",
+"Bolus","Automatic Bolus/Correction",,"1.14","3694.000","3694.000","2022-01-11T22:08:56","0.92","0.00","0.92","3","Completed","1",,,,,,,,,,"2022-01-11T22:07:59","2022-01-11T22:07:59","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.92","0.92","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","472858","",
+"Bolus","Standard/Correction","161","1.31","3695.000","3695.000","2022-01-11T22:51:52","0.00","0.00","0.00","0","User Aborted","0",,,,,,,,,,"2022-01-11T22:51:40","2022-01-11T22:51:40","Carb","Standard/Correction","100.00","0","45","0","110","37.00","5.63","0.07","5.70","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","472941","",
+"Bolus","Standard/Correction","163","1.24","3697.000","3697.000","2022-01-11T23:04:57","5.82","5.63","0.19","3","Completed","1",,,,,,,,,,"2022-01-11T23:02:42","2022-01-11T23:02:42","Carb","Standard/Correction","100.00","0","45","0","110","37.00","5.63","0.19","5.82","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","473007","",
+"Bolus","Automatic Bolus/Correction",,"3.00","3698.000","3698.000","2022-01-12T00:37:59","0.09","0.00","0.09","3","Completed","1",,,,,,,,,,"2022-01-12T00:37:31","2022-01-12T00:37:31","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.09","0.09","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","473183","",
+"Bolus","Automatic Bolus/Correction",,"1.64","3699.000","3699.000","2022-01-12T01:43:15","0.36","0.00","0.36","3","Completed","1",,,,,,,,,,"2022-01-12T01:42:24","2022-01-12T01:42:24","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.36","0.36","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","473291","",
+"Bolus","Automatic Bolus/Correction",,"0.10","3700.000","3700.000","2022-01-12T05:43:17","0.97","0.00","0.97","3","Completed","1",,,,,,,,,,"2022-01-12T05:42:18","2022-01-12T05:42:18","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.97","0.97","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","473641","",
+"Bolus","Automatic Bolus/Correction",,"0.58","3701.000","3701.000","2022-01-12T07:17:54","1.12","0.00","1.12","3","Completed","1",,,,,,,,,,"2022-01-12T07:16:46","2022-01-12T07:16:46","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.12","1.12","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","473790","",
+"Bolus","Automatic Bolus/Correction",,"0.89","3702.000","3702.000","2022-01-12T08:37:54","0.96","0.00","0.96","3","Completed","1",,,,,,,,,,"2022-01-12T08:36:57","2022-01-12T08:36:57","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.96","0.96","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","473917","",
+"Bolus","Automatic Bolus/Correction",,"0.49","3703.000","3703.000","2022-01-12T10:12:57","1.06","0.00","1.06","3","Completed","1",,,,,,,,,,"2022-01-12T10:11:46","2022-01-12T10:11:46","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.06","1.06","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","474064","",
+"Bolus","Automatic Bolus/Correction",,"0.11","3704.000","3704.000","2022-01-12T12:57:16","1.17","0.00","1.17","3","Completed","1",,,,,,,,,,"2022-01-12T12:56:05","2022-01-12T12:56:05","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.17","1.17","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","474313","",
+"Bolus","Standard","146","1.20","3705.000","3705.000","2022-01-12T13:41:21","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T13:39:19","2022-01-12T13:39:19","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","474393","",
+"Bolus","Standard","142","3.61","3706.000","3706.000","2022-01-12T13:50:58","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T13:48:54","2022-01-12T13:48:54","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","474434","",
+"Bolus","Automatic Bolus/Correction",,"3.02","3707.000","3707.000","2022-01-12T15:17:15","0.27","0.00","0.27","3","Completed","1",,,,,,,,,,"2022-01-12T15:16:24","2022-01-12T15:16:24","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.27","0.27","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","474583","",
+"Bolus","Standard/Correction","186","1.22","3708.000","3708.000","2022-01-12T16:22:14","0.83","0.00","0.83","3","Completed","1",,,,,,,,,,"2022-01-12T16:21:08","2022-01-12T16:21:08","Carb","Standard/Correction","100.00","0","0","0","110","37.00","0.00","0.83","0.83","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","474697","",
+"Bolus","Standard/Correction","206","1.53","3709.000","3709.000","2022-01-12T17:00:42","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T16:59:03","2022-01-12T16:59:03","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","1.06","2.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 1.1 units","0","474779","",
+"Bolus","Standard/Correction","207","2.40","3710.000","3710.000","2022-01-12T17:57:12","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T17:55:33","2022-01-12T17:55:33","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","0.22","2.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.2 units","0","474885","",
+"Bolus","Standard","204","3.84","3711.000","3711.000","2022-01-12T18:20:58","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T18:19:20","2022-01-12T18:19:20","Carb","Standard","100.00","0","0","1","110","37.00","0.00","0.00","2.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","474943","",
+"Bolus","Standard","116","2.50","3712.000","3712.000","2022-01-12T19:47:43","8.75","8.75","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T19:44:29","2022-01-12T19:44:29","Carb","Standard","100.00","0","70","0","110","37.00","8.75","0.00","8.75","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","475095","",
+"Bolus","Standard","81","3.78","3714.000","3714.000","2022-01-12T21:30:41","5.00","5.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T21:28:38","2022-01-12T21:28:38","Carb","Standard","100.00","0","40","0","110","37.00","5.00","0.00","5.00","1","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","475289","",
+"Bolus","Standard","97","8.38","3715.000","3715.000","2022-01-12T21:34:59","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-12T21:32:56","2022-01-12T21:32:56","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","1","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","475332","",
+"Bolus","Automatic Bolus/Correction",,"4.47","3716.000","3716.000","2022-01-12T22:58:03","0.06","0.00","0.06","3","Completed","1",,,,,,,,,,"2022-01-12T22:57:35","2022-01-12T22:57:35","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.06","0.06","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","475504","",
+"Bolus","Automatic Bolus/Correction",,"1.45","3717.000","3717.000","2022-01-13T00:03:38","1.03","0.00","1.03","3","Completed","1",,,,,,,,,,"2022-01-13T00:02:30","2022-01-13T00:02:30","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","1.03","1.03","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","475617","",
+"Bolus","Standard/Correction","252","2.56","3718.000","3718.000","2022-01-13T00:43:17","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T00:41:29","2022-01-13T00:41:29","Carb","Standard/Correction","100.00","0","0","1","110","50.00","0.00","0.28","2.00","0","0","Correction & Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.3 units","0","475712","",
+"Bolus","Standard",,"4.32","3720.000","3720.000","2022-01-13T01:02:59","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T01:01:20","2022-01-13T01:01:20","Carb","Standard","100.00","0","0","1","110","50.00","0.00","0.00","2.00","0","0","Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","475768","",
+"Bolus","Standard",,"5.33","3721.000","3721.000","2022-01-13T01:32:53","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T01:31:05","2022-01-13T01:31:05","Carb","Standard","100.00","0","0","1","110","50.00","0.00","0.00","2.00","0","0","Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","475874","",
+"Bolus","Standard","214","4.81","3722.000","3722.000","2022-01-13T02:18:36","2.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T02:16:59","2022-01-13T02:16:59","Carb","Standard","100.00","0","0","1","110","50.00","0.00","0.00","2.00","0","0","Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","475975","",
+"Bolus","Standard/Correction","150","0.16","3723.000","3723.000","2022-01-13T05:19:04","0.64","0.00","0.64","3","Completed","1",,,,,,,,,,"2022-01-13T05:18:10","2022-01-13T05:18:10","Carb","Standard/Correction","100.00","0","0","0","110","50.00","0.00","0.64","0.64","0","0","Correction & Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110","0","476278","",
+"Bolus","Standard/Correction","180","0.68","3724.000","3724.000","2022-01-13T05:47:08","0.72","0.00","0.72","3","Completed","1",,,,,,,,,,"2022-01-13T05:46:13","2022-01-13T05:46:13","Carb","Standard/Correction","100.00","0","0","0","110","50.00","0.00","0.72","0.72","0","0","Correction & Food Bolus","CF 1:50 - Carb Ratio 1:8 - Target BG 110","0","476345","",
+"Bolus","Automatic Bolus/Correction",,"1.41","3725.000","3725.000","2022-01-13T06:49:59","0.44","0.00","0.44","3","Completed","1",,,,,,,,,,"2022-01-13T06:49:07","2022-01-13T06:49:07","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","50.00","0.00","0.44","0.44","0","0","Correction Bolus","CF 1:50 - Carb Ratio 1:0 - Target BG 160","0","476464","",
+"Bolus","Automatic Bolus/Correction",,"1.19","3726.000","3726.000","2022-01-13T07:55:40","1.69","0.00","1.69","3","Completed","1",,,,,,,,,,"2022-01-13T07:54:14","2022-01-13T07:54:14","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.69","1.69","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","476578","",
+"Bolus","Automatic Bolus/Correction",,"0.70","3727.000","3727.000","2022-01-13T10:05:20","1.18","0.00","1.18","3","Completed","1",,,,,,,,,,"2022-01-13T10:04:09","2022-01-13T10:04:09","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.18","1.18","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","476780","",
+"Bolus","Automatic Bolus/Correction",,"1.55","3728.000","3728.000","2022-01-13T11:10:02","1.41","0.00","1.41","3","Completed","1",,,,,,,,,,"2022-01-13T11:08:40","2022-01-13T11:08:40","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.41","1.41","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","476884","",
+"Bolus","Automatic Bolus/Correction",,"1.74","3729.000","3729.000","2022-01-13T12:14:26","0.79","0.00","0.79","3","Completed","1",,,,,,,,,,"2022-01-13T12:13:30","2022-01-13T12:13:30","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.79","0.79","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","476991","",
+"Bolus","Standard/Correction","192","2.01","3730.000","3730.000","2022-01-13T12:42:19","1.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T12:41:11","2022-01-13T12:41:11","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","0.21","1.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.2 units","0","477051","",
+"Bolus","Standard/Correction","175","1.73","3731.000","3731.000","2022-01-13T13:39:27","2.53","2.50","0.03","3","Completed","1",,,,,,,,,,"2022-01-13T13:37:24","2022-01-13T13:37:24","Carb","Standard/Correction","100.00","0","20","0","110","37.00","2.50","0.03","2.53","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477159","",
+"Bolus","Standard","177","4.16","3732.000","3732.000","2022-01-13T13:43:33","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T13:41:28","2022-01-13T13:41:28","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477191","",
+"Bolus","Standard","185","6.29","3733.000","3733.000","2022-01-13T13:56:24","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T13:54:19","2022-01-13T13:54:19","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477234","",
+"Bolus","Standard","199","7.53","3734.000","3734.000","2022-01-13T14:27:52","1.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T14:26:45","2022-01-13T14:26:45","Carb","Standard","100.00","0","0","1","110","37.00","0.00","0.00","1.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.0 units","0","477304","",
+"Bolus","Automatic Bolus/Correction",,"2.01","3735.000","3735.000","2022-01-13T16:17:43","0.91","0.00","0.91","3","Completed","1",,,,,,,,,,"2022-01-13T16:16:46","2022-01-13T16:16:46","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.91","0.91","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","477473","",
+"Bolus","Standard/Correction","209","2.18","3736.000","3736.000","2022-01-13T16:57:29","3.00","0.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T16:55:10","2022-01-13T16:55:10","Carb","Standard/Correction","100.00","0","0","1","110","37.00","0.00","0.50","3.00","0","0","Correction & Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110 | Override: Pump calculated Bolus = 0.5 units","0","477558","",
+"Bolus","Automatic Bolus/Correction",,"3.08","3737.000","3737.000","2022-01-13T18:03:24","0.35","0.00","0.35","3","Completed","1",,,,,,,,,,"2022-01-13T18:02:33","2022-01-13T18:02:33","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","0.35","0.35","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","477693","",
+"Bolus","Automatic Bolus/Correction",,"1.93","3738.000","3738.000","2022-01-13T19:08:34","1.09","0.00","1.09","3","Completed","1",,,,,,,,,,"2022-01-13T19:07:26","2022-01-13T19:07:26","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.09","1.09","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","477815","",
+"Bolus","Standard",,"2.43","3739.000","3739.000","2022-01-13T19:39:54","3.00","3.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T19:37:35","2022-01-13T19:37:35","Carb","Standard","100.00","0","24","0","110","37.00","3.00","0.00","3.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477896","",
+"Bolus","Standard",,"5.04","3740.000","3740.000","2022-01-13T19:53:19","3.00","3.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T19:51:00","2022-01-13T19:51:00","Carb","Standard","100.00","0","24","0","110","37.00","3.00","0.00","3.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477954","",
+"Bolus","Standard",,"7.89","3741.000","3741.000","2022-01-13T19:59:03","5.25","5.25","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T19:57:02","2022-01-13T19:57:02","Carb","Standard","100.00","0","42","0","110","37.00","5.25","0.00","5.25","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","477985","",
+"Bolus","Standard",,"12.98","3742.000","3742.000","2022-01-13T20:08:51","5.00","5.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:06:54","2022-01-13T20:06:54","Carb","Standard","100.00","0","40","0","110","37.00","5.00","0.00","5.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478027","",
+"Bolus","Standard",,"17.72","3743.000","3743.000","2022-01-13T20:11:23","1.13","1.13","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:10:04","2022-01-13T20:10:04","Carb","Standard","100.00","0","9","0","110","37.00","1.13","0.00","1.13","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478055","",
+"Bolus","Standard",,"18.85","3744.000","3744.000","2022-01-13T20:13:23","5.00","5.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:11:28","2022-01-13T20:11:28","Carb","Standard","100.00","0","40","0","110","37.00","5.00","0.00","5.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478086","",
+"Bolus","Standard",,"23.57","3745.000","3745.000","2022-01-13T20:18:22","2.50","2.50","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:16:18","2022-01-13T20:16:18","Carb","Standard","100.00","0","20","0","110","37.00","2.50","0.00","2.50","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478119","",
+"Bolus","Standard",,"25.36","3746.000","3746.000","2022-01-13T20:24:47","5.00","5.00","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:22:52","2022-01-13T20:22:52","Carb","Standard","100.00","0","40","0","110","37.00","5.00","0.00","5.00","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478154","",
+"Bolus","Standard",,"29.82","3747.000","3747.000","2022-01-13T20:31:19","1.25","1.25","0.00","3","Completed","1",,,,,,,,,,"2022-01-13T20:29:59","2022-01-13T20:29:59","Carb","Standard","100.00","0","10","0","110","37.00","1.25","0.00","1.25","0","0","Food Bolus","CF 1:37 - Carb Ratio 1:8 - Target BG 110","0","478201","",
+"Bolus","Automatic Bolus/Correction",,"2.11","3748.000","3748.000","2022-01-13T23:25:59","1.17","0.00","1.17","3","Completed","1",,,,,,,,,,"2022-01-13T23:24:38","2022-01-13T23:24:38","Automatic Correction","Automatic Bolus/Correction","100.00","0","0","0","160","37.00","0.00","1.17","1.17","0","0","Correction Bolus","CF 1:37 - Carb Ratio 1:0 - Target BG 160","0","478477","",
