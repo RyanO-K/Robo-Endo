@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter.filedialog import askopenfilename
+
 
 class StartPage(Frame):
 
