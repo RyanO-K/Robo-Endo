@@ -48,7 +48,7 @@ with open(file, 'r') as data:
     pdf = pd.DataFrame(IOB, columns=['time', 'IOB'])
     model.fit(pdf.values)
     pdf['anomaly2'] = pd.Series(model.predict(pdf.values))
-    # visualization
+    # visualization of outliers
     df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
     a = df.loc[df['anomaly2'] == -1]  # anomaly
     _ = plt.figure(figsize=(18, 6))
