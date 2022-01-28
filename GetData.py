@@ -41,14 +41,13 @@ with open(file, 'r') as data:
                 IOB.append((convert_unix(line[2]), float(line[3])))
 
     # outlier detection of IOB
-
     df = pd.DataFrame(IOB, columns=['time', 'IOB'])
     outliers_fraction = 0.10
     model = IsolationForest(contamination=outliers_fraction)
     pdf = pd.DataFrame(IOB, columns=['time', 'IOB'])
     model.fit(pdf.values)
     pdf['anomaly2'] = pd.Series(model.predict(pdf.values))
-    # visualization of outliers
+    # visualization of IOB outliers
     df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
     a = df.loc[df['anomaly2'] == -1]  # anomaly
     _ = plt.figure(figsize=(18, 6))
@@ -61,6 +60,26 @@ with open(file, 'r') as data:
     _ = plt.legend(loc='best')
     plt.show()
     IOB = df.values.tolist()
+    # outlier detection of EGV
+    df = pd.DataFrame(CGM_BGM, columns=['time', 'CGM'])
+    outliers_fraction = 0.05
+    model = IsolationForest(contamination=outliers_fraction)
+    pdf = pd.DataFrame(CGM_BGM, columns=['time', 'CGM'])
+    model.fit(pdf.values)
+    pdf['anomaly2'] = pd.Series(model.predict(pdf.values))
+    # visualization of EGV outliers
+    df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
+    a = df.loc[df['anomaly2'] == -1]  # anomaly
+    _ = plt.figure(figsize=(18, 6))
+    _ = plt.plot(df['CGM'], color='blue', label='Normal')
+    _ = plt.plot(a['CGM'], linestyle='none', marker='X',
+                 color='red', markersize=12, label='Anomaly')
+    _ = plt.xlabel('Time')
+    _ = plt.ylabel('CGM')
+    _ = plt.title('CGM Anomalies')
+    _ = plt.legend(loc='best')
+    plt.show()
+    CGM_BGM = df.values.tolist()
 
     # lists for data points for plot
 
@@ -74,4 +93,16 @@ with open(file, 'r') as data:
 
     plt.scatter(X, Y, s=1)
     plt.title('IOB over time')
+    plt.show()
+
+    X2 = []
+    Y2 = []
+
+    for i in CGM_BGM:
+        if i[2] != -1:
+            X2.append(i[0])
+            Y2.append(i[1])
+
+    plt.scatter(X2, Y2, s=1)
+    plt.title('CGM over time')
     plt.show()
