@@ -1,9 +1,7 @@
 import csv
-import time
 import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import pandas as pd
 
 file = '3_days_data_Ryan.csv'
 # file = '1_month_of_data_Ryan.csv'
@@ -25,13 +23,10 @@ with open(file, 'r') as data:
                 temp_str = temp_str + line[6][0:10] + " " + line[6][11:] + ".0"
                 date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
                 Completion_time.append(date_time_obj)
-                temp_str = ""
 
-BG = BG[1:]
-Completion_time = Completion_time[1:]
 
-plt.scatter(Completion_time, BG)
-plt.plot(Completion_time, BG)
+plt.scatter(Completion_time[1:], BG[1:])
+plt.plot(Completion_time[1:], BG[1:])
 
 myFmt = mdates.DateFormatter('%H:%M')
 plt.gca().xaxis.set_major_formatter(myFmt)
