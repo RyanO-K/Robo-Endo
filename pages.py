@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
+from GetData import plot
 
 
 class StartPage(Frame):
@@ -46,7 +47,8 @@ class StartPage(Frame):
         main.grid(row=0, column=1, sticky="nsew")
         info.grid(row=0, column=0, sticky="nsew")
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "StartPage"
 
 
@@ -91,7 +93,8 @@ class PageOne(Frame):
         main.grid(row=0, column=1, sticky="nsew")
         info.grid(row=0, column=0, sticky="nsew")
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "PageOne"
 
 
@@ -136,7 +139,8 @@ class PageTwo(Frame):
         main.grid(row=0, column=1, sticky="nsew")
         info.grid(row=0, column=0, sticky="nsew")
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "PageTwo"
 
 
@@ -176,15 +180,129 @@ class PageThree(Frame):
         )
         try:
             filename = askopenfilename(filetypes=filetypes)
-            self.controller.file = open(filename)
+            self.controller.filename = filename
         except FileNotFoundError:
             return
 
         self.controller.next_frame()
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "PageThree"
 
+
+class ChartOne(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        info = Frame(self)
+        self.graph = Frame(self)
+
+        info.configure(background='#01384C')
+
+        # create sub widgets
+        nav = Label(info, text="This graph is 1")
+        # emplace sub widgets
+        nav.place(relx=.5, rely=.5, anchor="center")
+
+        # emplace sub frames
+        self.graph.grid(row=0, column=1, sticky="nsew")
+        info.grid(row=0, column=0, sticky="nsew")
+
+    @staticmethod
+    def get_name():
+        return "ChartOne"
+
+
+class ChartTwo(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        info = Frame(self)
+        self.graph = Frame(self)
+
+        info.configure(background='#01384C')
+
+        # create sub widgets
+        nav = Label(info, text="This graph is 2")
+        # emplace sub widgets
+        nav.place(relx=.5, rely=.5, anchor="center")
+
+        # emplace sub frames
+        self.graph.grid(row=0, column=1, sticky="nsew")
+        info.grid(row=0, column=0, sticky="nsew")
+
+    @staticmethod
+    def get_name():
+        return "ChartTwo"
+
+class ChartThree(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        info = Frame(self)
+        self.graph = Frame(self)
+
+        info.configure(background='#01384C')
+
+        # create sub widgets
+        nav = Label(info, text="This graph is 3")
+        # emplace sub widgets
+        nav.place(relx=.5, rely=.5, anchor="center")
+
+        # emplace sub frames
+        self.graph.grid(row=0, column=1, sticky="nsew")
+        info.grid(row=0, column=0, sticky="nsew")
+
+    @staticmethod
+    def get_name():
+        return "ChartThree"
+
+class ChartFour(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        info = Frame(self)
+        self.graph = Frame(self)
+
+        info.configure(background='#01384C')
+
+        # create sub widgets
+        nav = Label(info, text="This graph is 4")
+        # emplace sub widgets
+        nav.place(relx=.5, rely=.5, anchor="center")
+
+        # emplace sub frames
+        self.graph.grid(row=0, column=1, sticky="nsew")
+        info.grid(row=0, column=0, sticky="nsew")
+
+    @staticmethod
+    def get_name():
+        return "ChartFour"
 
 class loading_page(Frame):
 
@@ -192,8 +310,6 @@ class loading_page(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-        # organize PageThree's row and col
-        # why is col 1 bigger on this one????
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
@@ -212,5 +328,9 @@ class loading_page(Frame):
         # emplace sub frames
         main.grid(row=0, column=0, sticky="nsew")
 
-    def get_name(self):
+    @staticmethod
+    def get_name():
         return "loading_page"
+
+
+page_set = (StartPage, PageOne, PageTwo, PageThree, loading_page, ChartOne, ChartTwo, ChartThree,ChartFour)

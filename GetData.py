@@ -6,10 +6,12 @@ from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import sys
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-#file = '3_days_data_Ryan.csv'
-#file = '1_month_of_data_Ryan.csv'
-#file = '3_months_of_data_Ryan.csv'
+
+# file = '3_days_data_Ryan.csv'
+# file = '1_month_of_data_Ryan.csv'
+# file = '3_months_of_data_Ryan.csv'
 
 # convert date in YYYY-MM-DDTHH:MM:SS to unix timestamp in local time
 
@@ -26,9 +28,9 @@ def convert_unix(s_date):
 
     return u_date
 
-def main(argv):
 
-    with open(argv, 'r') as data:
+def plot(file, frame1, frame2, frame3, frame4):
+    with open(file, 'r') as data:
         csv_reader = csv.reader(data)
 
         CGM_BGM = []
@@ -52,15 +54,17 @@ def main(argv):
         # visualization of IOB outliers
         df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
         a = df.loc[df['anomaly2'] == -1]  # anomaly
-        _ = plt.figure(figsize=(18, 6))
-        _ = plt.plot(df['IOB'], color='blue', label='Normal')
-        _ = plt.plot(a['IOB'], linestyle='none', marker='X',
-                    color='red', markersize=12, label='Anomaly')
-        _ = plt.xlabel('Time')
-        _ = plt.ylabel('IOB')
-        _ = plt.title('IOB Anomalies')
-        _ = plt.legend(loc='best')
-        plt.show()
+        figure = plt.figure()
+        IOB_anomalies = FigureCanvasTkAgg(figure, frame1)
+        IOB_anomalies.get_tk_widget().pack(expand=True)
+
+        figure = plt.plot(df['IOB'], color='blue', label='Normal')
+        figure = plt.plot(a['IOB'], linestyle='none', marker='X',
+                          color='red', markersize=12, label='Anomaly')
+        figure = plt.xlabel('Time')
+        figure = plt.ylabel('IOB')
+        figure = plt.title('IOB Anomalies')
+        figure = plt.legend(loc='best')
         IOB = df.values.tolist()
         # outlier detection of EGV
         df = pd.DataFrame(CGM_BGM, columns=['time', 'CGM'])
@@ -72,15 +76,18 @@ def main(argv):
         # visualization of EGV outliers
         df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
         a = df.loc[df['anomaly2'] == -1]  # anomaly
-        _ = plt.figure(figsize=(18, 6))
-        _ = plt.plot(df['CGM'], color='blue', label='Normal')
-        _ = plt.plot(a['CGM'], linestyle='none', marker='X',
-                    color='red', markersize=12, label='Anomaly')
-        _ = plt.xlabel('Time')
-        _ = plt.ylabel('CGM')
-        _ = plt.title('CGM Anomalies')
-        _ = plt.legend(loc='best')
-        plt.show()
+        figure = plt.figure()
+        CGM_anomalies = FigureCanvasTkAgg(figure, frame2)
+        CGM_anomalies.get_tk_widget().pack()
+        figure = plt.plot(df['CGM'], color='blue', label='Normal')
+        figure = plt.plot(a['CGM'], linestyle='none', marker='X',
+                          color='red', markersize=12, label='Anomaly')
+        figure = plt.xlabel('Time')
+        figure = plt.ylabel('CGM')
+        figure = plt.title('CGM Anomalies')
+        figure = plt.legend(loc='best')
+
+
         CGM_BGM = df.values.tolist()
 
         # lists for data points for plot
@@ -93,8 +100,15 @@ def main(argv):
                 X.append(i[0])
                 Y.append(i[1])
 
-        plt.scatter(X, Y, s=1)
-        plt.title('IOB over time')
+        figure = plt.figure()
+        IOB_Time = FigureCanvasTkAgg(figure, frame3)
+        IOB_Time.get_tk_widget().pack()
+
+        figure = plt.scatter(X, Y, s=1)
+        figure = plt.title('IOB over time')
+
+
+
         plt.show()
 
         X2 = []
@@ -104,10 +118,19 @@ def main(argv):
             if i[2] != -1:
                 X2.append(i[0])
                 Y2.append(i[1])
+        figure = plt.figure()
+        CGM_time = FigureCanvasTkAgg(figure, frame4)
+        CGM_time.get_tk_widget().pack()
 
-        plt.scatter(X2, Y2, s=1)
-        plt.title('CGM over time')
+        figure = plt.scatter(X2, Y2, s=1)
+        figure = plt.title('CGM over time')
+
+
+
         plt.show()
 
+        return IOB_Time, CGM_time, CGM_anomalies, IOB_anomalies
+
+
 if __name__ == "__main__":
-    main(sys.argv[1])
+    plot(sys.argv[1])
