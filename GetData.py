@@ -29,7 +29,7 @@ def convert_unix(s_date):
     return u_date
 
 
-def plot(file, frame1, frame2, frame3, frame4):
+def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
 
