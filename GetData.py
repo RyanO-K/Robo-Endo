@@ -87,7 +87,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
         figure = plt.title('CGM Anomalies')
         figure = plt.legend(loc='best')
 
-
         CGM_BGM = df.values.tolist()
 
         # lists for data points for plot
@@ -107,8 +106,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
         figure = plt.scatter(X, Y, s=1)
         figure = plt.title('IOB over time')
 
-
-
         plt.show()
 
         X2 = []
@@ -124,8 +121,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
 
         figure = plt.scatter(X2, Y2, s=1)
         figure = plt.title('CGM over time')
-
-
 
         plt.show()
 
