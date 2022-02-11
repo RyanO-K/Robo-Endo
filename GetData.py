@@ -43,7 +43,7 @@ def plotBG(file, BG, Completion_time, frame5=None):
     figure = plt.title('BG over time')
     BG_time = FigureCanvasTkAgg(figure, frame5)
     BG_time.get_tk_widget().pack()
-    plt.show()
+   # plt.show()
     return BG
 
 
@@ -65,7 +65,7 @@ def plotCGM(file, CGM, frame4=None):
     figure = plt.scatter(X, Y, s=1)
     figure = plt.title('CGM over time')
 
-    plt.show()
+    # plt.show()
     return CGM_time
 
 
@@ -136,12 +136,12 @@ def plotIOB(file, IOB, frame3=None):
     figure = plt.scatter(X, Y, s=1)
     figure = plt.title('IOB over time')
 
-    plt.show()
+   # plt.show()
 
     return IOB_Time
 
 
-def plot(file, frame1=None, frame2=None, frame3=None, frame4=None, frame5=None):
+def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     IOB = []
     CGM = []
     BG = list()
@@ -169,7 +169,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None, frame5=None):
                         temp_str, '%Y-%m-%d %H:%M:%S.%f')
                     Completion_time.append(date_time_obj)
 
-    return plotIOB(file, IOB, frame3=None), plotAnCGM(file, CGM, frame2=None), plotCGM(file, CGM, frame4=None), plotAnIOB(file, IOB, frame1=None)
+    return plotIOB(file, IOB, frame3), plotCGM(file, CGM, frame4), plotAnCGM(file, CGM, frame2), plotAnIOB(file, IOB, frame1)
 
 
 if __name__ == "__main__":
