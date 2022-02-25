@@ -268,9 +268,10 @@ class PageFour(Frame):
             filename = askopenfilename(filetypes=filetypes)
             self.controller.filename = filename
         except FileNotFoundError:
-            return
+            self.controller.previous_frame()
 
         self.controller.next_frame()
+        self.controller.update_page()
 
     @staticmethod
     def get_name():
@@ -480,5 +481,6 @@ class MainMenu(Frame):
         return "MainMenu"
 
 
-page_set = (StartPage, PageOne, PageTwo, PageThree, PageFour, loading_page, MainMenu, ChartOne, ChartTwo, ChartThree, ChartFour)
+page_set = (StartPage, PageOne, PageTwo, PageThree, PageFour, loading_page)
 chart_names = (ChartOne.get_name(), ChartTwo.get_name(), ChartThree.get_name(), ChartFour.get_name())
+chart_set = (MainMenu, ChartOne, ChartTwo, ChartThree, ChartFour)

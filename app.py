@@ -42,8 +42,8 @@ class app(Tk):
         for F in page_set:
             page_name = F.__name__
             frame = F(parent=self.container, controller=self)
+            # self.frames[page_name] = frame
             self.frames[page_name] = frame
-
             # put all of the pages in the same location;
             # the one on the top of the stacking order
             # will be the one that is visible.
@@ -99,12 +99,22 @@ class app(Tk):
             self.button2.pack_forget()
         if self.curr_frame.get_name() in chart_names:
             self.button2.pack_forget()
-            self.button2.configure(text = "Back to main menu")
+            self.button2.configure(text="Back to main menu")
             self.button2.configure(command=lambda: self.show_frame("MainMenu"))
             self.button2.pack(side=LEFT)
-        if self.curr_frame.get_name() in (loading_page.get_name()):
+        if self.curr_frame.get_name() is loading_page.get_name():
             # ChartOne.show_graph(self.frames[ChartOne.get_name()])
             self.container.update()
+            self.frames = {}
+            for F in chart_set:
+                page_name = F.get_name()
+                frame = F(parent=self.container, controller=self)
+                self.frames[page_name] = frame
+
+                # put all of the pages in the same location;
+                # the one on the top of the stacking order
+                # will be the one that is visible.
+                frame.grid(row=1, column=1, sticky="nsew")
 
             # TODO: Refactor this line
             self.frames[ChartOne.get_name()].canvas, \
@@ -117,7 +127,7 @@ class app(Tk):
                 self.frames[ChartThree.get_name()].graph,
                 self.frames[ChartFour.get_name()].graph)
 
-            self.next_frame()
+            self.show_frame(MainMenu.get_name())
         self.container.update()
 
 

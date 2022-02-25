@@ -109,7 +109,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
 
 
 
-        plt.show()
 
         X2 = []
         Y2 = []
