@@ -5,9 +5,13 @@ import matplotlib.dates as mdates
 
 
 
-#file = '3_days_data_Ryan.csv'
-file = '1_month_of_data_Ryan.csv'
+file = '3_days_data_Ryan.csv'
+#file = '1_month_of_data_Ryan.csv'
 # file = '3_months_of_data_Ryan.csv'
+#Just insuline delivered against time, daily tracking
+'''
+Insuline deliver against carb, with dataframe of just a meal 
+'''
 
 
 IOB = list()
