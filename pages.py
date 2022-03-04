@@ -2,6 +2,14 @@ from tkinter import *
 from tkinter.filedialog import askopenfilename
 from GetData import plot
 from PIL import Image, ImageTk
+from enum import IntEnum
+
+
+class PageNum(IntEnum):
+    CHARTONE = 0
+    CHARTTWO = 1
+    CHARTTHREE = 2
+    CHARTFOUR = 3
 
 
 class StartPage(Frame):
@@ -278,7 +286,7 @@ class PageFour(Frame):
         return "PageFour"
 
 
-class ChartOne(Frame):
+class ChartPage(Frame):
 
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
@@ -307,110 +315,7 @@ class ChartOne(Frame):
 
     @staticmethod
     def get_name():
-        return "ChartOne"
-
-
-class ChartTwo(Frame):
-
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
-        self.controller = controller
-
-        self.grid_columnconfigure(0, weight=4)
-        self.grid_columnconfigure(1, weight=8)
-        self.grid_columnconfigure(2, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-
-        info = Frame(self)
-        self.graph = Frame(self)
-
-        info.configure(background='#01384C')
-        self.configure(background='#01384C')
-        self.graph.configure(background='#303030')
-
-        # create sub widgets
-        nav = Label(info, text="This graph is 2")
-        # emplace sub widgets
-        nav.place(relx=.5, rely=.5, anchor="center")
-
-        # emplace sub frames
-        self.graph.grid(row=0, column=1, sticky="nsew")
-        info.grid(row=0, column=0, sticky="nsew")
-
-    @staticmethod
-    def get_name():
-        return "ChartTwo"
-
-
-class ChartThree(Frame):
-
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
-        self.controller = controller
-
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-
-        info = Frame(self)
-        self.graph = Frame(self)
-
-        info.configure(background='#01384C')
-        self.graph.configure(background='#303030')
-
-        # create sub widgets
-        nav = Label(info, text="This graph is 3")
-        # emplace sub widgets
-        nav.place(relx=.5, rely=.5, anchor="center")
-
-        # emplace sub frames
-        self.graph.grid(row=0, column=1, sticky="nsew")
-        info.grid(row=0, column=0, sticky="nsew")
-
-    @staticmethod
-    def get_name():
-        return "ChartThree"
-
-
-class ChartFour(Frame):
-
-    def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
-        self.controller = controller
-
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-
-        info = Frame(self)
-        main = Frame(self)
-        self.graph = Frame(main)
-
-        main.grid_rowconfigure(0, weight=1)
-        main.grid_rowconfigure(1, weight=17)
-        main.grid_rowconfigure(2, weight=1)
-
-        main.grid_columnconfigure(0, weight=1)
-        main.grid_columnconfigure(1, weight=17)
-        main.grid_columnconfigure(2, weight=1)
-
-        info.configure(background='#01384C')
-        self.graph.configure(background='#303030')
-        main.configure(background='#303030')
-
-        # create sub widgets
-        nav = Label(info, text="This graph is 4")
-        # emplace sub widgets
-        nav.place(relx=.5, rely=.5, anchor="center")
-
-        # emplace sub frames
-        self.graph.grid(row=1, column=1, sticky="nsew")
-        info.grid(row=0, column=0, sticky="nsew")
-        main.grid(row=0, column=1, sticky="nsew")
-
-    @staticmethod
-    def get_name():
-        return "ChartFour"
+        return "ChartPage"
 
 
 class loading_page(Frame):
@@ -459,10 +364,10 @@ class MainMenu(Frame):
         bottom_right = Frame(self)
 
         # create sub widgets
-        chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.show_frame(ChartOne.get_name()))
-        chart_two_btn = Button(top_right, text="CGM Anomalies", command=lambda: self.controller.show_frame(ChartTwo.get_name()))
-        chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.show_frame(ChartThree.get_name()))
-        chart_four_btn = Button(bottom_right, text="CGM over time", command=lambda: self.controller.show_frame(ChartFour.get_name()))
+        chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
+        chart_two_btn = Button(top_right, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
+        chart_four_btn = Button(bottom_right, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
@@ -482,5 +387,5 @@ class MainMenu(Frame):
 
 
 page_set = (StartPage, PageOne, PageTwo, PageThree, PageFour, loading_page)
-chart_names = (ChartOne.get_name(), ChartTwo.get_name(), ChartThree.get_name(), ChartFour.get_name())
-chart_set = (MainMenu, ChartOne, ChartTwo, ChartThree, ChartFour)
+chart_names = (ChartPage.get_name())
+chart_set = (MainMenu, ChartPage)

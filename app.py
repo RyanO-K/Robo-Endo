@@ -93,17 +93,17 @@ class app(Tk):
         self.button1.pack(side=RIGHT)
         self.button2.pack(side=LEFT)
 
-        if self.curr_frame.get_name() in (PageFour.get_name(), loading_page.get_name(), MainMenu.get_name()) + chart_names:
+        if self.curr_frame.get_name() in (PageFour.get_name(), loading_page.get_name(), MainMenu.get_name(), ChartPage.get_name()):
             self.button1.pack_forget()
-        if self.curr_frame.get_name() in (StartPage.get_name(), loading_page.get_name(), MainMenu.get_name()) + chart_names:
+        if self.curr_frame.get_name() in (StartPage.get_name(), loading_page.get_name(), MainMenu.get_name()):
             self.button2.pack_forget()
-        if self.curr_frame.get_name() in chart_names:
+        if self.curr_frame.get_name() in ChartPage.get_name():
             self.button2.pack_forget()
             self.button2.configure(text="Back to main menu")
             self.button2.configure(command=lambda: self.show_frame("MainMenu"))
             self.button2.pack(side=LEFT)
         if self.curr_frame.get_name() is loading_page.get_name():
-            # ChartOne.show_graph(self.frames[ChartOne.get_name()])
+            # ChartPage.show_graph(self.frames[ChartPage.get_name()])
             self.container.update()
             self.frames = {}
             for F in chart_set:
@@ -115,21 +115,14 @@ class app(Tk):
                 # the one on the top of the stacking order
                 # will be the one that is visible.
                 frame.grid(row=1, column=1, sticky="nsew")
-
-            # TODO: Refactor this line
-            self.frames[ChartOne.get_name()].canvas, \
-            self.frames[ChartTwo.get_name()].canvas, \
-            self.frames[ChartThree.get_name()].canvas, \
-            self.frames[ChartFour.get_name()].canvas = plot(
-                self.filename,
-                self.frames[ChartOne.get_name()].graph,
-                self.frames[ChartTwo.get_name()].graph,
-                self.frames[ChartThree.get_name()].graph,
-                self.frames[ChartFour.get_name()].graph)
-
+            self.arr = plot(self.filename, frame=self.frames[ChartPage.get_name()].graph)
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
+    def display_chart(self, chart_num):
+
+        self.frames[ChartPage.get_name()].canvas = self.arr[chart_num]
+        self.show_frame(ChartPage.get_name())
 
 if __name__ == '__main__':
     if os.environ.get("DEBUG"):

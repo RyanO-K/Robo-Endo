@@ -29,7 +29,7 @@ def convert_unix(s_date):
     return u_date
 
 
-def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
+def plot(file, frame=None):
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
 
@@ -55,7 +55,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
         df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
         a = df.loc[df['anomaly2'] == -1]  # anomaly
         figure = plt.figure()
-        IOB_anomalies = FigureCanvasTkAgg(figure, frame1)
+        IOB_anomalies = FigureCanvasTkAgg(figure, frame)
         IOB_anomalies.get_tk_widget().pack(expand=True)
 
         figure = plt.plot(df['IOB'], color='blue', label='Normal')
@@ -77,7 +77,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
         df['anomaly2'] = pd.Series(pdf['anomaly2'].values, index=df.index)
         a = df.loc[df['anomaly2'] == -1]  # anomaly
         figure = plt.figure()
-        CGM_anomalies = FigureCanvasTkAgg(figure, frame2)
+        CGM_anomalies = FigureCanvasTkAgg(figure, frame)
         CGM_anomalies.get_tk_widget().pack()
         figure = plt.plot(df['CGM'], color='blue', label='Normal')
         figure = plt.plot(a['CGM'], linestyle='none', marker='X',
@@ -101,7 +101,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 Y.append(i[1])
 
         figure = plt.figure()
-        IOB_Time = FigureCanvasTkAgg(figure, frame3)
+        IOB_Time = FigureCanvasTkAgg(figure, frame)
         IOB_Time.get_tk_widget().pack()
 
         figure = plt.scatter(X, Y, s=1)
@@ -118,7 +118,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 X2.append(i[0])
                 Y2.append(i[1])
         figure = plt.figure()
-        CGM_time = FigureCanvasTkAgg(figure, frame4)
+        CGM_time = FigureCanvasTkAgg(figure, frame)
         CGM_time.get_tk_widget().pack()
 
         figure = plt.scatter(X2, Y2, s=1)
