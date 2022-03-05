@@ -1,4 +1,5 @@
 from pages import *
+from GetData import *
 from PIL import Image, ImageTk
 import os
 
@@ -8,6 +9,7 @@ debug = False
 class app(Tk):
 
     def __init__(self, *args, **kwargs):
+        self.data = {}
         self.debug = debug
         Tk.__init__(self, *args, **kwargs)
         self.geometry('950x500')
@@ -115,14 +117,54 @@ class app(Tk):
                 # the one on the top of the stacking order
                 # will be the one that is visible.
                 frame.grid(row=1, column=1, sticky="nsew")
-            self.arr = plot(self.filename, frame=self.frames[ChartPage.get_name()].graph)
+
+            temp = plot(self.filename)
+            i = 0
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
+                self.data[key] = temp[i]
+                i += 1
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
     def display_chart(self, chart_num):
+        try:
+            del self.frames[ChartPage.get_name()].canvas
 
-        self.frames[ChartPage.get_name()].canvas = self.arr[chart_num]
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
+        except AttributeError:
+            pass
+        if chart_num is PageNum.CHARTONE:
+            self.frames[ChartPage.get_name()].canvas = plotAnIOB(self.filename,
+                                                                 self.data['IOB'],
+                                                                 self.data['ID'],
+                                                                 self.data['skipsI'],
+                                                                 self.data['carb'],
+                                                                 self.frames[ChartPage.get_name()].graph)
+        if chart_num is PageNum.CHARTTWO:
+            self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
+                                                                 self.data['CGM'],
+                                                                 self.data['skipsC'],
+                                                                 self.data['anC'],
+                                                                 self.data['carb'],
+                                                                 self.frames[ChartPage.get_name()].graph)
+        if chart_num is PageNum.CHARTTHREE:
+            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
+                                                               self.data['IOB'],
+                                                               self.data['ID'],
+                                                               self.data['skipsI'],
+                                                               self.data['peaks'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
+        if chart_num is PageNum.CHARTFOUR:
+            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['skipsC'],
+                                                               self.data['anC'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
         self.show_frame(ChartPage.get_name())
+
 
 if __name__ == '__main__':
     if os.environ.get("DEBUG"):
