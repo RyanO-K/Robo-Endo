@@ -303,9 +303,9 @@ class ChartPage(Frame):
         self.graph.configure(background='#303030')
 
         info.configure(background='#01384C')
-
+        self.graph_info = StringVar()
         # create sub widgets
-        nav = Label(info, text="This graph is 1")
+        nav = Label(info, textvariable=self.graph_info)
         # emplace sub widgets
         nav.place(relx=.5, rely=.5, anchor="center")
 
@@ -316,6 +316,36 @@ class ChartPage(Frame):
     @staticmethod
     def get_name():
         return "ChartPage"
+
+
+class RecPage(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.grid_columnconfigure(0, weight=4)
+        self.grid_rowconfigure(0, weight=1,minsize=20)
+        self.grid_rowconfigure(1, weight=4)
+
+        title = Frame(self)
+        self.recommendations_frame = Frame(self)
+        self.configure(background='#01384C')
+        self.recommendations_frame.configure(background='#303030')
+
+        title.configure(background='#01384C')
+        # create sub widgets
+        nav = Label(title, text="Potential Recommendations")
+        # emplace sub widgets
+        nav.place(relx=.5, rely=.5, anchor="center")
+
+        # emplace sub frames
+        self.recommendations_frame.grid(row=1, column=0, sticky="nsew")
+        title.grid(row=0, column=0, sticky="nsew")
+
+    @staticmethod
+    def get_name():
+        return "Recommendation"
 
 
 class loading_page(Frame):
@@ -352,34 +382,47 @@ class MainMenu(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-        self.grid_columnconfigure(0, weight=1)
+        self.grid_columnconfigure(0, weight=2)
         self.grid_columnconfigure(1, weight=1)
+
         self.grid_rowconfigure(0, weight=1)
-        self.grid_rowconfigure(1, weight=1)
+
 
         # create subframes under StartPage
-        top_left = Frame(self)
-        top_right = Frame(self)
-        bottom_left = Frame(self)
-        bottom_right = Frame(self)
+        left = Frame(self, bg='#303030')
+        left.grid_rowconfigure(0, weight=1)
+        left.grid_rowconfigure(1, weight=1)
+        left.grid_columnconfigure(0, weight=1)
+        left.grid_columnconfigure(1, weight=1)
+
+        right = Frame(self, bg='#303030')
+        top_left = Frame(left, bg='#303030')
+        top_mid = Frame(left, bg='#303030')
+        bottom_left = Frame(left, bg='#303030')
+        bottom_mid = Frame(left, bg='#303030')
+
 
         # create sub widgets
         chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
-        chart_two_btn = Button(top_right, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_two_btn = Button(top_mid, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
         chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
-        chart_four_btn = Button(bottom_right, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        chart_four_btn = Button(bottom_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        recommendation_btn = Button(right, text="Recommendations", command=lambda: self.controller.recommend())
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
         chart_two_btn.place(relx=.5, rely=.5, anchor="center")
         chart_three_btn.place(relx=.5, rely=.5, anchor="center")
         chart_four_btn.place(relx=.5, rely=.5, anchor="center")
+        recommendation_btn.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
         top_left.grid(row=0, column=0, sticky="nsew")
-        top_right.grid(row=0, column=1, sticky="nsew")
+        top_mid.grid(row=0, column=1, sticky="nsew")
         bottom_left.grid(row=1, column=0, sticky="nsew")
-        bottom_right.grid(row=1, column=1, sticky="nsew")
+        bottom_mid.grid(row=1, column=1, sticky="nsew")
+        right.grid(row=0, column=1, sticky="nsew")
+        left.grid(row=0, column=0, sticky="nsew")
 
     @staticmethod
     def get_name():
@@ -387,5 +430,4 @@ class MainMenu(Frame):
 
 
 page_set = (StartPage, PageOne, PageTwo, PageThree, PageFour, loading_page)
-chart_names = (ChartPage.get_name())
-chart_set = (MainMenu, ChartPage)
+chart_set = (MainMenu, ChartPage, RecPage)

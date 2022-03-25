@@ -219,7 +219,7 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
         YS.append(i[1])
     figure = plt.scatter(X, Y, s=1)
     figure = plt.scatter(XS, YS, color="orange")
-    figure = plt.title('IOB over time')
+    figure = plt.title('IOB anomalies over time')
     figure = plt.scatter(IDX, IDY, marker='P')
     return IOB_anomalies
 
@@ -262,6 +262,8 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
     return IOB_Time
 
+def get_recommendations(file):
+    return ["Sample","Recommendation"]
 
 def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     IOB = []

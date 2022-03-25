@@ -9,6 +9,7 @@ debug = False
 class app(Tk):
 
     def __init__(self, *args, **kwargs):
+        self.recommendation_list = []
         self.data = {}
         self.debug = debug
         Tk.__init__(self, *args, **kwargs)
@@ -95,11 +96,12 @@ class app(Tk):
         self.button1.pack(side=RIGHT)
         self.button2.pack(side=LEFT)
 
-        if self.curr_frame.get_name() in (PageFour.get_name(), loading_page.get_name(), MainMenu.get_name(), ChartPage.get_name()):
+        if self.curr_frame.get_name() in (
+                PageFour.get_name(), loading_page.get_name(), MainMenu.get_name(), ChartPage.get_name(), RecPage.get_name()):
             self.button1.pack_forget()
         if self.curr_frame.get_name() in (StartPage.get_name(), loading_page.get_name(), MainMenu.get_name()):
             self.button2.pack_forget()
-        if self.curr_frame.get_name() in ChartPage.get_name():
+        if self.curr_frame.get_name() in [ChartPage.get_name(), RecPage.get_name()]:
             self.button2.pack_forget()
             self.button2.configure(text="Back to main menu")
             self.button2.configure(command=lambda: self.show_frame("MainMenu"))
@@ -123,6 +125,7 @@ class app(Tk):
             for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
                 self.data[key] = temp[i]
                 i += 1
+            self.recommendation_list = get_recommendations(self.filename)
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
@@ -141,21 +144,24 @@ class app(Tk):
                                                                  self.data['skipsI'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("IOB Anomaly Graph")
         if chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
                                                                  self.data['skipsC'],
                                                                  self.data['anC'],
+                                                                 self.data['peaks'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("CGM Anomaly Graph")
         if chart_num is PageNum.CHARTTHREE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
                                                                self.data['ID'],
                                                                self.data['skipsI'],
-                                                               self.data['peaks'],
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("IOB Graph")
         if chart_num is PageNum.CHARTFOUR:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
@@ -163,7 +169,35 @@ class app(Tk):
                                                                self.data['anC'],
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("CGM Graph")
         self.show_frame(ChartPage.get_name())
+
+    def recommend(self):
+        # self.recommendation_list += "Have Better Blood Sugar", "Eat Better", "Inject before eating", "Adjust basal"
+
+        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(1, weight=2)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(2, weight=1)
+
+        list_canvas = Listbox(self.frames[RecPage.get_name()].recommendations_frame, bg='#303030', fg='white')
+        list_canvas.grid(row=0, column=1, sticky="nsew")
+        list_canvas.configure(font=('Times', 25))
+        if len(self.recommendation_list) > 13:
+            w = Scrollbar(self.frames[RecPage.get_name()].recommendations_frame)
+            w.grid(row=0, column=2, sticky="nsw")
+            w.config(command=list_canvas.yview)
+            list_canvas.configure(yscrollcommand=w.set)
+
+        index = 1
+
+        for entry in self.recommendation_list:
+            list_canvas.insert(END, str(index) + ": " + entry)
+            # emplace sub widgets
+
+            index += 1
+
+        self.show_frame(RecPage.get_name())
 
 
 if __name__ == '__main__':
