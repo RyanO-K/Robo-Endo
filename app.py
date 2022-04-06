@@ -189,7 +189,7 @@ class app(Tk):
 
         list_canvas = Listbox(self.frames[RecPage.get_name()].recommendations_frame, bg='#303030', fg='white')
         list_canvas.grid(row=0, column=1, sticky="nsew")
-        list_canvas.configure(font=('Times', 25))
+        list_canvas.configure(font=('Times', 15))
         if len(self.recommendation_list) > 13:
             w = Scrollbar(self.frames[RecPage.get_name()].recommendations_frame)
             w.grid(row=0, column=2, sticky="nsw")
