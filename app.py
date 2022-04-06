@@ -125,7 +125,14 @@ class app(Tk):
             for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
                 self.data[key] = temp[i]
                 i += 1
-            self.recommendation_list = get_recommendations(self.filename)
+            self.recommendation_list = get_recommendations(self.data['IOB'],
+                                                           self.data['ID'],
+                                                           self.data['skipsI'],
+                                                           self.data['carb'],
+                                                           self.data['CGM'],
+                                                           self.data['skipsC'],
+                                                           self.data['anC'],
+                                                           self.data['peaks'])
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
