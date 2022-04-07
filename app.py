@@ -255,6 +255,8 @@ class app(Tk):
 
         try:
             del self.frames[ChartPage.get_name()].canvas
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
         except AttributeError:
             pass
 
@@ -272,6 +274,8 @@ class app(Tk):
     def time_of_day(self, time):
         try:
             del self.frames[ChartPage.get_name()].canvas
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
         except AttributeError:
             pass
 
