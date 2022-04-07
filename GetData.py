@@ -58,7 +58,7 @@ def timeskips(data, time):
         if i > 0 and i+1 < len(data):
             nextTime = data[i+1][0]
             elem = data[i]
-            # 10 minutes without input = timeskip
+            # time minutes without input = timeskip
             if nextTime - elem[0] > time:
 
                 timeSkip.append(
@@ -296,7 +296,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[30] != "":
                     target.append((convert_unix(line[6]), int(line[30])))
 
-    skipsC = timeskips(CGM, 600)
+    skipsC = timeskips(CGM, 300)
     skipsI = timeskips(IOB, 900)
     #peaks = peakdet(IOB, 7)
     i = 0
