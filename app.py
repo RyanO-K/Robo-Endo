@@ -251,8 +251,21 @@ class app(Tk):
         chart_num is the chart selection. CHARTONE is insulin CHARTTWO is glucose
         """
 
+        try:
+            del self.frames[ChartPage.get_name()].canvas
+        except AttributeError:
+            pass
+
         print(f"Update here! {date}")
         self.frames[ChartPage.get_name()].canvas = None
+        """
+        self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['skipsC'],
+                                                               self.data['anC'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
+        """
 
     def time_of_day(self, time):
         try:
