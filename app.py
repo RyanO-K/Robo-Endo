@@ -122,10 +122,10 @@ class app(Tk):
 
             temp = plot(self.filename)
             i = 0
-            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'meal', 'anI']:
                 self.data[key] = temp[i]
                 i += 1
-       #     self.recommendation_list = get_recommendations(self.filename)
+           # self.recommendation_list = get_recommendations(self.filename)
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
@@ -142,7 +142,7 @@ class app(Tk):
                                                                  self.data['IOB'],
                                                                  self.data['ID'],
                                                                  self.data['skipsI'],
-                                                                 self.data['carb'],
+                                                                 self.data['anI'],
                                                                  self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set(
                 "IOB Anomaly Graph")
@@ -153,6 +153,7 @@ class app(Tk):
                                                                  self.data['anC'],
                                                                  self.data['peaks'],
                                                                  self.data['carb'],
+                                                                 self.data['meal'],
                                                                  self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set(
                 "CGM Anomaly Graph")
@@ -170,6 +171,7 @@ class app(Tk):
                                                                self.data['skipsC'],
                                                                self.data['anC'],
                                                                self.data['carb'],
+                                                               self.data['meal'],
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("CGM Graph")
         self.show_frame(ChartPage.get_name())
