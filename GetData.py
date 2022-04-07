@@ -75,6 +75,84 @@ def timeskips(data, time):
 
     return timeSkip
 
+def plotMealTime(file, CGM):
+    meal_size = list()
+    parsed_meal_size = list()
+    temp_count = 0
+
+    with open(file, 'r') as data:
+        csv_reader = csv.reader(data)
+
+        for index, item in enumerate(csv_reader):
+            if len(item) >= 41 and item[24] != "BolusType":
+                if item[24] != "Carb":
+                    temp_str = ""
+                    temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
+                    date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
+                    meal_size.append((temp_count, convert_unix(item[22])))
+                    temp_count = 0
+                if item[28] != '0' and item[24] == "Carb":
+                    temp_count += float(item[28])
+
+    for i in range(0, len(meal_size)):
+        if meal_size[i][0] == 0:
+            continue
+        if meal_size[i][0] != 0:
+            parsed_meal_size.append(meal_size[i])
+
+
+
+
+
+
+
+    X = []
+    Y = []
+    NewCGM = list()
+    dataFreq = list()
+    for i in range(0, 48):
+        dataFreq.append(0)
+    index = 0
+    for i in range(0, 14400, 300):
+        j = i, 0
+        NewCGM.append(list(j))
+    for meal in range(0, len(parsed_meal_size)):
+        for elem in CGM:
+            if elem[0] > parsed_meal_size[meal][1] and elem[0] < (parsed_meal_size[meal][1]+14400):
+                i = ((elem[0] - parsed_meal_size[meal][1]) - ((elem[0] - parsed_meal_size[meal][1]) % 300)), elem[1]
+                for e in NewCGM:
+                    if e[0] == i[0]:
+                        e[1] += i[1]
+                        dataFreq[int(i[0]/300)] += 1
+
+
+    for i in range(0, len(NewCGM)):
+        NewCGM[i][1] = NewCGM[i][1]/dataFreq[i]
+
+    for i in range(1, len(NewCGM)):
+       NewCGM[i][1] = (NewCGM[i][1] - NewCGM[0][1])
+    NewCGM[0][1] = 0
+
+    for i, elem in enumerate(NewCGM):
+        if i > 0 and i + 1 < len(NewCGM):
+            if elem[1] - NewCGM[i - 1][1] < 0 and elem[1] - NewCGM[i + 1][1] < 0 and NewCGM[2] == -1:
+                elem[1] = min(abs(elem[1] - NewCGM[i - 1][1]),
+                              abs(NewCGM[i + 1][1] - elem[1]))
+            X.append(datetime.datetime.fromtimestamp(elem[0]))
+            Y.append(elem[1])
+
+    figure = plt.figure()
+    myFmt = mdates.DateFormatter('%H:%M')
+    #plt.gca().xaxis.set_major_formatter(myFmt)
+    #CGM_time = FigureCanvasTkAgg(figure, frame4)
+    #CGM_time.get_tk_widget().pack()
+    figure = plt.scatter(X, Y, s=1)
+    figure = plt.title('CGM Change 4 hours post meal')
+
+    plt.show()
+    
+
+
 
 def plotBG(file, BG, Completion_time, frame5=None):
     figure = plt.figure()
@@ -353,4 +431,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
 
 
 if __name__ == "__main__":
-    plot(sys.argv[1])
+    file = "3_months_of_data_Ryan.csv"
+    CGM = plot(file)[4]
+    plotMealTime(file, CGM)
