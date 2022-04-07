@@ -153,6 +153,15 @@ class app(Tk):
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
+            date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)
+            self.frames[ChartPage.get_name()].nav.place_forget()
+            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.25, anchor="center")
+            date_selection.place(relx=.5, rely=.75, anchor="center")
+
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+                            command=lambda: self.update_graph(date_selection.get_date(),chart_num))
+
+            update.place(relx=.5, rely=.85, anchor="center")
         if chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
@@ -168,7 +177,7 @@ class app(Tk):
             date_selection.place(relx=.5, rely=.75, anchor="center")
 
             update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
-                            command=lambda: self.update_graph(date_selection.get_date()))
+                            command=lambda: self.update_graph(date_selection.get_date(),chart_num))
 
             update.place(relx=.5, rely=.85, anchor="center")
         if chart_num is PageNum.CHARTTHREE:
@@ -216,7 +225,11 @@ class app(Tk):
 
         self.show_frame(RecPage.get_name())
 
-    def update_graph(self, date):
+    def update_graph(self, date, chart_num):
+        """date is a one day selection %YR-%M-%D
+        chart_num is the chart selection. CHARTONE is insulin CHARTTWO is glucose
+        """
+
         print(f"Update here!:{date}")
         self.frames[ChartPage.get_name()].canvas = None
 
