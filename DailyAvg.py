@@ -4,6 +4,7 @@ from tracemalloc import start
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import pandas
+from GetData import *
 
 
 file = '3_days_data_Ryan.csv'
@@ -11,21 +12,9 @@ file = '3_days_data_Ryan.csv'
 # file = '3_months_of_data_Ryan.csv'
 
 
-def convert_unix(s_date):
-    year = int(s_date[0:4:1])
-    month = int(s_date[5:7:1])
-    day = int(s_date[8:10:1])
-    t = s_date[11:19:1]
-
-    dt = datetime.datetime(year, month, day)
-    u_date = dt.timestamp()
-    u_date += int(t[0:2])*3600 + int(t[3:5])*60 + int(t[6:8])
-
-    return u_date
-
-
 CGM = list()
 AVG = [0] * 288
+cnt = [0] * 288
 
 with open(file, 'r') as data:
     csv_reader = csv.reader(data)
@@ -36,33 +25,41 @@ with open(file, 'r') as data:
                 temp_str = temp_str + line[3][0:10] + " " + line[3][11:] + ".0"
                 date_time_obj = datetime.datetime.strptime(
                     temp_str, '%Y-%m-%d %H:%M:%S.%f')
-                CGM.append((date_time_obj, int(line[4])))
-
+                CGM.append(
+                    (convert_unix(line[3]), int(line[4]), date_time_obj))
 
 # set the dates here, which are inclusive
-startdate = datetime.datetime(2022, 1, 11)
-enddate = datetime.datetime(2022, 1, 13)
+startdate = datetime.datetime(2022, 1, 11, 0, 0, 0)
+enddate = datetime.datetime(2022, 1, 13, 23, 59, 59)
 range = enddate-startdate
 range = range.days + 1
-
+timeskips(CGM, 550)
+anom(CGM)
 timeplot = pandas.date_range("00:00", "23:59", freq="5min")
 
 
-# find values with date within range, select average
+# add CGM to avg
 for i in CGM:
-    if i[0] > startdate and i[0] < enddate:
-        hour = i[0].hour
-        minute = i[0].minute
+    if i[2] > startdate and i[2] < enddate:
+
+        minute = i[2].minute
+        hour = i[2].hour
         minute = minute - minute % 5
-        time = datetime.time(i[0].hour, minute)
         index = int(hour*12+minute/5)
         AVG[index] = AVG[index]+i[1]
-for i in AVG:
-    i = i/range
+        cnt[index] = cnt[index] + 1
+# determine avg
+for i, n in enumerate(AVG):
+
+    AVG[i] = n/cnt[i]
+
+for i, n in enumerate(cnt):
+    if n < range:
+        AVG[i] = (AVG[i-1] + AVG[i+1])/2
 
 plt.scatter(timeplot, AVG)
 
-
+print(AVG[6])
 plt.plot(timeplot, AVG, label="CGM")
 
 myFmt = mdates.DateFormatter('%H:%M')

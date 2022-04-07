@@ -31,6 +31,14 @@ def convert_unix(s_date):
     return u_date
 
 
+def convert_datetime(line):
+    temp_str = ""
+    temp_str = temp_str + line[3][0:10] + " " + line[3][11:] + ".0"
+    date_time_obj = datetime.datetime.strptime(
+        temp_str, '%Y-%m-%d %H:%M:%S.%f')
+    return date_time_obj
+
+
 def peakdet(v, thresh):
     maxthresh = []
     peaks = []
@@ -55,21 +63,45 @@ def timeskips(data, time):
     timeSkip = []
     i = 0
     while i < len(data):
-        if i > 0 and i+1 < len(data):
+        if i+1 < len(data):
             nextTime = data[i+1][0]
             elem = data[i]
             # time minutes without input = timeskip
             if nextTime - elem[0] > time:
+                avg = float((nextTime + elem[0])/2)
 
                 timeSkip.append(
-                    (float((nextTime + elem[0])/2), int((data[i+1][1] + elem[1])/2)))
+                    (avg, int((data[i+1][1] + elem[1])/2)))
                 data.insert(
-                    i+1, (float((nextTime + elem[0])/2), int((data[i+1][1] + elem[1])/2)))
+                    i+1, (avg, int((data[i+1][1] + elem[1])/2), datetime.datetime.fromtimestamp(avg)))
                 i = i-1
 
         i = i+1
 
     return timeSkip
+
+
+def anom(CGM):
+    outlier = []
+    i = 0
+    while i < len(CGM):
+        curr = CGM[i][1]
+        if i > 0 and i+1 < len(CGM):
+            prev = CGM[i-1][1]
+            nextVal = CGM[i+1][1]
+            # jump/dip of 30 blood sugar in short period of time
+            if abs(prev-curr) > 30:
+                outlier.append((CGM[i][0], curr))
+                CGM.remove(CGM[i])
+                timeskips(CGM, 600)
+            # 10 blood sugar jump/dip not within trend
+            elif (prev < curr and curr > nextVal) or (prev > curr and curr < nextVal):
+                if abs(prev-curr) > 10 and abs(nextVal-curr) > 10:
+                    outlier.append((CGM[i][0], curr))
+                    CGM.remove(CGM[i])
+                    timeskips(CGM, 600)
+        i = i + 1
+    return outlier
 
 
 def plotBG(file, BG, Completion_time, frame5=None):
@@ -90,83 +122,50 @@ def plotBG(file, BG, Completion_time, frame5=None):
     return BG
 
 
-def plotCGM(file, CGM, skips, carb, target, frame4=None):
+def plotCGM(file, CGM, carb, frame4=None):
 
     X = []
     Y = []
-    XS = []
-    YS = []
+    # carb
     XC = []
     YC = []
-    XT = []
-    YT = []
-    for i, elem in enumerate(CGM):
-        if i > 0 and i+1 < len(CGM):
-            if elem[1]-CGM[i-1][1] < 0 and elem[1]-CGM[i+1][1] < 0:
-                elem[1] = min(abs(elem[1]-CGM[i-1][1]),
-                              abs(CGM[i+1][1]-elem[1]))
-            X.append(datetime.datetime.fromtimestamp(elem[0]))
-            Y.append(elem[1])
-
-    for i in skips:
-        XS.append(datetime.datetime.fromtimestamp(i[0]))
-        YS.append(i[1])
-    for i in target:
-        XT.append(datetime.datetime.fromtimestamp(i[0]))
-        YT.append(i[1])
-        print(i[1])
+    for i in CGM:
+        X.append(datetime.datetime.fromtimestamp(i[0]))
+        Y.append(i[1])
     figure = plt.figure()
     myFmt = mdates.DateFormatter('%H:%M')
     plt.gca().xaxis.set_major_formatter(myFmt)
     CGM_time = FigureCanvasTkAgg(figure, frame4)
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
-    figure = plt.scatter(XS, YS, color="orange")
-    figure = plt.scatter(XT, YT, color="red")
-    figure = plt.axhspan(110, 160, color='y', alpha=0.5, lw=0)
+    figure = plt.axhspan(70, 180, color='y', alpha=0.5, lw=0)
     figure = plt.title('CGM over time')
 
     # plt.show()
     return CGM_time
 
 
-def plotAnCGM(file, CGM, skips, anC, carb, frame2):
-    outlier = []
+def plotAnCGM(file, CGM, skipsC, anC, carb, frame2):
     X = []
     Y = []
+    # skips
     XS = []
     YS = []
+    # outlier
     XO = []
     YO = []
+    # carbs
     XC = []
     YC = []
-    i = 0
-    while i < len(CGM):
-        curr = CGM[i][1]
-        X.append(datetime.datetime.fromtimestamp(CGM[i][0]))
-        Y.append(curr)
-        if i > 0 and i+1 < len(CGM):
-            prev = CGM[i-1][1]
-            nextVal = CGM[i+1][1]
-            # jump of 30 blood sugar in short period of time
-            if abs(curr-nextVal) > 30:
-                outlier.append((CGM[i+1][0], nextVal))
-                CGM.remove(CGM[i+1])
-                timeskips(CGM, 600)
-                continue
-            # 10 blood sugar
-            elif (prev < curr and curr > nextVal) or (prev > curr and curr < nextVal):
-                if abs(prev-curr) > 10 and abs(nextVal-curr) > 10:
-                    outlier.append((CGM[i][0], curr))
-                    CGM.remove(CGM[i])
-                    timeskips(CGM, 600)
-                    continue
-        i = i + 1
 
-    for i in skips:
+    for i in CGM:
+        X.append(datetime.datetime.fromtimestamp(i[0]))
+        Y.append(i[1])
+
+    for i in skipsC:
         XS.append(datetime.datetime.fromtimestamp(i[0]))
         YS.append(i[1])
-    for i in outlier:
+    for i in anC:
         XO.append(datetime.datetime.fromtimestamp(i[0]))
         YO.append(i[1])
     for i in carb:
@@ -179,9 +178,6 @@ def plotAnCGM(file, CGM, skips, anC, carb, frame2):
     CGM_anomalies.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
     figure = plt.scatter(XS, YS, color="orange")
-    # for i in peaks:
-    # plt.axvline(x=datetime.datetime.fromtimestamp(i[0]), ymin=0, ymax=0.20, color='b',
-    #            label='IOB peaks')
     figure = plt.title('CGM over time')
     figure = plt.scatter(XO, YO, color="red", marker='x')
     figure = plt.scatter(XC, YC, marker='P', color="red")
@@ -191,15 +187,17 @@ def plotAnCGM(file, CGM, skips, anC, carb, frame2):
     return CGM_anomalies
 
 
-def plotAnIOB(file, IOB, ID, skips, carb, frame1):
+def plotAnIOB(file, IOB, ID, skipsI, carb, frame1):
 
     figure = plt.figure()
     IOB_anomalies = FigureCanvasTkAgg(figure, frame1)
     IOB_anomalies.get_tk_widget().pack(expand=True)
     X = []
     Y = []
+    # skips
     XS = []
     YS = []
+    # injections
     XC = []
     YC = []
 
@@ -212,7 +210,7 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
     for i, elem in enumerate(ID):
         IDX.append(datetime.datetime.fromtimestamp(elem[0]))
         IDY.append(elem[1])
-    for i in skips:
+    for i in skipsI:
         XS.append(datetime.datetime.fromtimestamp(i[0]))
         YS.append(i[1])
     figure = plt.scatter(X, Y, s=1)
@@ -222,15 +220,14 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
     return IOB_anomalies
 
 
-def plotIOB(file, IOB, ID, skips, carb, frame3=None):
+def plotIOB(file, IOB, ID, carb, frame3=None):
 
-    # lists for data points for plot
     X = []
     Y = []
-    XS = []
-    YS = []
+    # carb
     XC = []
     YC = []
+    # injection
 
     for i in IOB:
         X.append(datetime.datetime.fromtimestamp(i[0]))
@@ -254,7 +251,6 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
         IDY.append(elem[1])
     figure = plt.scatter(IDX, IDY, marker='P')
     #figure = plt.scatter(XC, YC, marker='P', color="red")
-    figure = plt.scatter(XS, YS, color="orange")
 
    # plt.show()
 
@@ -296,8 +292,9 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[30] != "":
                     target.append((convert_unix(line[6]), int(line[30])))
 
-    skipsC = timeskips(CGM, 300)
+    skipsC = timeskips(CGM, 600)
     skipsI = timeskips(IOB, 900)
+    anC = anom(CGM)
     #peaks = peakdet(IOB, 7)
     i = 0
     while i < len(carb):
@@ -319,7 +316,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 carb.remove(carb[i])
             break
 
-    return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, carb, frame2), plotCGM(file, CGM, skipsC, carb, target, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
+    return plotIOB(file, IOB, ID, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, carb, frame2), plotCGM(file, CGM, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
 if __name__ == "__main__":
