@@ -10,6 +10,7 @@ class PageNum(IntEnum):
     CHARTTWO = 1
     CHARTTHREE = 2
     CHARTFOUR = 3
+    CHARTFIVE = 3
 
 
 class StartPage(Frame):
@@ -325,7 +326,7 @@ class RecPage(Frame):
         self.controller = controller
 
         self.grid_columnconfigure(0, weight=4)
-        self.grid_rowconfigure(0, weight=1,minsize=20)
+        self.grid_rowconfigure(0, weight=1, minsize=20)
         self.grid_rowconfigure(1, weight=4)
 
         title = Frame(self)
@@ -387,7 +388,6 @@ class MainMenu(Frame):
 
         self.grid_rowconfigure(0, weight=1)
 
-
         # create subframes under StartPage
         left = Frame(self, bg='#303030')
         left.grid_rowconfigure(0, weight=1)
@@ -396,24 +396,31 @@ class MainMenu(Frame):
         left.grid_columnconfigure(1, weight=1)
 
         right = Frame(self, bg='#303030')
+        right.grid_columnconfigure(0,weight=1)
+        right.grid_rowconfigure(0, weight=1)
+        right.grid_rowconfigure(1, weight=1)
+
+        top_right = Frame(right, bg='#303030')
+        bottom_right = Frame(right, bg='#303030')
         top_left = Frame(left, bg='#303030')
         top_mid = Frame(left, bg='#303030')
         bottom_left = Frame(left, bg='#303030')
         bottom_mid = Frame(left, bg='#303030')
-
 
         # create sub widgets
         chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
         chart_two_btn = Button(top_mid, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
         chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
         chart_four_btn = Button(bottom_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
-        recommendation_btn = Button(right, text="Recommendations", command=lambda: self.controller.recommend())
+        chart_five_btn = Button(top_right, text="CGM after meal", command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
+        recommendation_btn = Button(bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
         chart_two_btn.place(relx=.5, rely=.5, anchor="center")
         chart_three_btn.place(relx=.5, rely=.5, anchor="center")
         chart_four_btn.place(relx=.5, rely=.5, anchor="center")
+        chart_five_btn.place(relx=.5, rely=.5, anchor="center")
         recommendation_btn.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
@@ -421,6 +428,9 @@ class MainMenu(Frame):
         top_mid.grid(row=0, column=1, sticky="nsew")
         bottom_left.grid(row=1, column=0, sticky="nsew")
         bottom_mid.grid(row=1, column=1, sticky="nsew")
+        bottom_right.grid(row=1, column=0, sticky="nsew")
+        top_right.grid(row=0, column=0, sticky="nsew")
+
         right.grid(row=0, column=1, sticky="nsew")
         left.grid(row=0, column=0, sticky="nsew")
 

@@ -11,6 +11,7 @@ import sys
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.dates as mdates
 import numpy as np
+import datetime
 
 
 # file = '3_days_data_Ryan.csv'
@@ -251,13 +252,14 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
         XC.append(datetime.datetime.fromtimestamp(i[0]))
         YC.append(10)
     for i, elem in enumerate(ID):
+
         IDX.append(datetime.datetime.fromtimestamp(elem[0]))
         IDY.append(elem[1])
     figure = plt.scatter(IDX, IDY, marker='P')
     # figure = plt.scatter(XC, YC, marker='P', color="red")
     figure = plt.scatter(XS, YS, color="orange")
 
-    # plt.show()
+    plt.show()
 
     return IOB_Time
 
@@ -266,41 +268,173 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
     recommendations = ["Sample Recommendation", "Generic Recommendation!"]
 
     num_highs_from_carbs = 0
+    num_lows_from_carbs = 0
     probable_machine_failure = 0
     insufficient_basal = []
     i = 0
     while i < len(IOB_anomalies):
         relevant_carbs = [[IOB_anomalies[i][0] - x[0], x[1], x[2]] for x in carb if
-                          0 <= IOB_anomalies[i][0] - x[0] < 14400]  # grab all carbs within four hours of high
+                          0 <= IOB_anomalies[i][0] - x[0] < 14400]  # grab all carbs within four hours of high IOB
         recent_carbs = [[IOB_anomalies[i][0] - x[0], x[1], x[2]] for x in carb if
-                        0 <= IOB_anomalies[i][0] - x[0] < 7200]  # grab all carbs within two hours of high
-        relevant_total = np.sum([x[1] for x in relevant_carbs])
+                        0 <= IOB_anomalies[i][0] - x[0] < 7200]  # grab all carbs within two hours of high IOB
+
         recent_total = np.sum([x[1] for x in recent_carbs])
 
-        if recent_total > 100:
+        if len(relevant_carbs) == 0:
+            probable_machine_failure += 1
+        curr_index = i + 1
+        try:
+            while IOB_anomalies[i][0] - IOB_anomalies[curr_index][0] < 14400:
+                curr_index += 1
+        except IndexError as e:
+            # only hits if the remainder of the reading are too close
+            break
+        i = curr_index
+
+    i = 0
+    CGM_highs = [x for x in CGM if x[1] > 250]
+    CGM_lows = [x for x in CGM if x[1] < 60]
+    start_night = datetime.datetime.strptime("0:00:00", "%H:%M:%S").time()
+    start_morning = datetime.datetime.strptime("6:00:00", "%H:%M:%S").time()
+    start_afternoon = datetime.datetime.strptime("12:00:00", "%H:%M:%S").time()
+    start_evening = datetime.datetime.strptime("18:00:00", "%H:%M:%S").time()
+
+    night_highs = 0
+    morning_highs = 0
+    afternoon_highs = 0
+    evening_highs = 0
+
+    night_lows = 0
+    morning_lows = 0
+    afternoon_lows = 0
+    evening_lows = 0
+
+    while i < len(CGM_highs):
+        relevant_carbs = [[CGM_highs[i][0] - x[0], x[1], x[2]] for x in carb if 0 <= CGM_highs[i][0] - x[0] < 14400]
+        # grab all carbs within four hours of high BS
+        relevant_total = np.sum([x[1] for x in relevant_carbs])
+
+        if relevant_total > 100:
             num_highs_from_carbs += 1
 
-        if len(recent_carbs) == 0 and relevant_total <= 20:
-            insufficient_basal += [IOB_anomalies[i][0] - 14400]  # TODO: convert to time of day
+        if relevant_total < 20:  # if there are less than 20 relevant carbs
+            insufficient_basal += [CGM_highs[i][0]]
+            converted_time = datetime.datetime.fromtimestamp(CGM_highs[i][0]).time()
 
-            curr_index = i
-            while IOB_anomalies[curr_index + 1][0] - IOB_anomalies[i][0] < 7200:  # toss out any IOB_anomalies occuring the the next 2 hours
-                curr_index += 1
-            i = curr_index
+            if converted_time > start_evening:
+                evening_highs += 1
+                try:
+                    while datetime.datetime.fromtimestamp(
+                            CGM_highs[i + 1][0]).time() > start_evening:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_afternoon:
+                afternoon_highs += 1
+                try:
+                    while start_evening > datetime.datetime.fromtimestamp(
+                            CGM_highs[i + 1][0]).time() > start_afternoon:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_morning:
+                morning_highs += 1
+                try:
+                    while start_afternoon > datetime.datetime.fromtimestamp(
+                            CGM_highs[i + 1][0]).time() > start_morning:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_night:
+                night_highs += 1
+                try:
+                    while datetime.datetime.fromtimestamp(
+                            CGM_highs[i + 1][0]).time() < start_morning:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
 
-        elif len(relevant_carbs) == 0:
-            probable_machine_failure += 1
         i += 1
 
-    # TODO: Move logic regarding basal to a loop iterating over CGM anomalies rather than IOB
+    i=0
+    while i < len(CGM_lows):
+        relevant_carbs = [[CGM_lows[i][0] - x[0], x[1], x[2]] for x in carb if 0 <= CGM_lows[i][0] - x[0] < 14400]
+        # grab all carbs within four hours of high BS
+        relevant_total = np.sum([x[1] for x in relevant_carbs])
 
-    for time in insufficient_basal:
-        recommendations += [f"You went high at {time} despite not many carbs."]  # TODO: convert to time of day
+        if relevant_total > 100:
+            num_lows_from_carbs += 1
+
+        if relevant_total < 20:  # if there are less than 20 relevant carbs
+            insufficient_basal += [CGM_lows[i][0]]
+            converted_time = datetime.datetime.fromtimestamp(CGM_lows[i][0]).time()
+
+            if converted_time > start_evening:
+                evening_lows += 1
+                try:
+                    while datetime.datetime.fromtimestamp(
+                            CGM_lows[i + 1][0]).time() > start_evening:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_afternoon:
+                afternoon_lows += 1
+                try:
+                    while start_evening > datetime.datetime.fromtimestamp(
+                            CGM_lows[i + 1][0]).time() > start_afternoon:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_morning:
+                morning_lows += 1
+                try:
+                    while start_afternoon > datetime.datetime.fromtimestamp(
+                            CGM_lows[i + 1][0]).time() > start_morning:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+            elif converted_time > start_night:
+                night_lows += 1
+                try:
+                    while datetime.datetime.fromtimestamp(
+                            CGM_lows[i + 1][0]).time() < start_morning:  # toss out any CGM readings until the next segment
+                        i += 1
+                except IndexError as e:
+                    # only hits if the remainder of hte readings are high
+                    break
+
+        i += 1
+
+    if night_highs > 0:
+        recommendations += [f"You had {night_highs} unexplained highs at night."]
+    if morning_highs > 0:
+        recommendations += [f"You had {morning_highs} unexplained morning highs."]
+    if afternoon_highs > 0:
+        recommendations += [f"You had {afternoon_highs} unexplained highs in the afternoon."]
+    if evening_highs > 0:
+        recommendations += [f"You had {evening_highs} unexplained highs in the evening."]
+    if night_lows > 0:
+        recommendations += [f"You had {night_lows} unexplained lows at night."]
+    if morning_lows > 0:
+        recommendations += [f"You had {morning_lows} unexplained morning lows."]
+    if afternoon_lows > 0:
+        recommendations += [f"You had {afternoon_lows} unexplained lows in the afternoon."]
+    if evening_lows > 0:
+        recommendations += [f"You had {evening_lows} unexplained lows in the evening."]
+
     if probable_machine_failure > 0:
         recommendations += [f"You had {probable_machine_failure} machine failures."]
     if num_highs_from_carbs > 0:
         recommendations += [f"You went high from eating a large meal {num_highs_from_carbs} times."]
-
+    if num_lows_from_carbs > 0:
+        recommendations += [f"You went low from eating a large meal {num_lows_from_carbs} times."]
     # TODO: Get average number of failures per day
 
     return recommendations
@@ -339,7 +473,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                     continue
                 if line[6] != "":
                     BG.append((convert_unix(line[6]), int(line[2])))
-                if line[7] != "":
+                if line[7] != "" and line[6] != "":
                     ID.append((convert_unix(line[6]), float(line[7])))
 
     skipsC = timeskips(CGM, 600)
