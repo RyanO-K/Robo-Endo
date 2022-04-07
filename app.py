@@ -159,10 +159,10 @@ class app(Tk):
             date_selection.place(relx=.5, rely=.75, anchor="center")
 
             update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
-                            command=lambda: self.update_graph(date_selection.get_date(),chart_num))
+                            command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
             update.place(relx=.5, rely=.85, anchor="center")
-        if chart_num is PageNum.CHARTTWO:
+        elif chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
                                                                  self.data['skipsC'],
@@ -177,10 +177,10 @@ class app(Tk):
             date_selection.place(relx=.5, rely=.75, anchor="center")
 
             update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
-                            command=lambda: self.update_graph(date_selection.get_date(),chart_num))
+                            command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
             update.place(relx=.5, rely=.85, anchor="center")
-        if chart_num is PageNum.CHARTTHREE:
+        elif chart_num is PageNum.CHARTTHREE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
                                                                self.data['ID'],
@@ -188,7 +188,7 @@ class app(Tk):
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average IOB")
-        if chart_num is PageNum.CHARTFOUR:
+        elif chart_num is PageNum.CHARTFOUR:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
                                                                self.data['skipsC'],
@@ -196,7 +196,23 @@ class app(Tk):
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average Glucose")
-        # chart five code goes here
+        elif chart_num is PageNum.CHARTFIVE:
+            self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
+                                                                    self.data['CGM'],
+                                                                    self.frames[ChartPage.get_name()].graph,
+                                                                    0)
+            self.frames[ChartPage.get_name()].graph_info.set("Mealtime Averages")
+            night = Button(self.frames[ChartPage.get_name()].info, text='Night Meals', command=lambda: self.time_of_day(1))
+            morning = Button(self.frames[ChartPage.get_name()].info, text='Morning Meals', command=lambda: self.time_of_day(2))
+            afternoon = Button(self.frames[ChartPage.get_name()].info, text='Afternoon Meals', command=lambda: self.time_of_day(3))
+            evening = Button(self.frames[ChartPage.get_name()].info, text='Evening Meals', command=lambda: self.time_of_day(4))
+            self.frames[ChartPage.get_name()].nav.place_forget()
+            night.place(relx=.5, rely=.33, anchor="center")
+            morning.place(relx=.5, rely=.5, anchor="center")
+            afternoon.place(relx=.5, rely=.67, anchor="center")
+            evening.place(relx=.5, rely=.83, anchor="center")
+            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.16, anchor="center")
+
         self.show_frame(ChartPage.get_name())
 
     def recommend(self):
@@ -230,8 +246,15 @@ class app(Tk):
         chart_num is the chart selection. CHARTONE is insulin CHARTTWO is glucose
         """
 
-        print(f"Update here!:{date}")
+        print(f"Update here! {date}")
         self.frames[ChartPage.get_name()].canvas = None
+
+    def time_of_day(self, time):
+        self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
+                                                                self.data['CGM'],
+                                                                self.frames[ChartPage.get_name()].graph,
+                                                                time)
+
 
 
 if __name__ == '__main__':

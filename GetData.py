@@ -225,6 +225,86 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
     return IOB_anomalies
 
 
+def plotMealTime(file, CGM, frame, time_frame):
+    """
+    :param file:
+    :param CGM:
+    :param frame:
+    :param time_frame: 0 for all, 1 for night, 2 morning, 3 afternoon, 4 evening
+    :return:
+    """
+    meal_size = list()
+    parsed_meal_size = list()
+    temp_count = 0
+
+    with open(file, 'r') as data:
+        csv_reader = csv.reader(data)
+
+        for index, item in enumerate(csv_reader):
+            if len(item) >= 41 and item[24] != "BolusType":
+                if item[24] != "Carb":
+                    temp_str = ""
+                    temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
+                    date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
+                    meal_size.append((temp_count, convert_unix(item[22])))
+                    temp_count = 0
+                if item[28] != '0' and item[24] == "Carb":
+                    temp_count += float(item[28])
+
+    for i in range(0, len(meal_size)):
+        if meal_size[i][0] == 0:
+            continue
+        if meal_size[i][0] != 0:
+            parsed_meal_size.append(meal_size[i])
+
+    X = []
+    Y = []
+    NewCGM = list()
+    dataFreq = list()
+    for i in range(0, 48):
+        dataFreq.append(0)
+    index = 0
+    for i in range(0, 14400, 300):
+        j = i, 0
+        NewCGM.append(list(j))
+    for meal in range(0, len(parsed_meal_size)):
+        for elem in CGM:
+            if elem[0] > parsed_meal_size[meal][1] and elem[0] < (parsed_meal_size[meal][1] + 14400):
+                i = ((elem[0] - parsed_meal_size[meal][1]) - ((elem[0] - parsed_meal_size[meal][1]) % 300)), elem[1]
+                for e in NewCGM:
+                    if e[0] == i[0]:
+                        e[1] += i[1]
+                        dataFreq[int(i[0] / 300)] += 1
+
+    for i in range(0, len(NewCGM)):
+        NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
+
+    for i in range(1, len(NewCGM)):
+        NewCGM[i][1] = (NewCGM[i][1] - NewCGM[0][1])
+    NewCGM[0][1] = 0
+
+    for i, elem in enumerate(NewCGM):
+        if i > 0 and i + 1 < len(NewCGM):
+            if elem[1] - NewCGM[i - 1][1] < 0 and elem[1] - NewCGM[i + 1][1] < 0 and NewCGM[2] == -1:
+                elem[1] = min(abs(elem[1] - NewCGM[i - 1][1]),
+                              abs(NewCGM[i + 1][1] - elem[1]))
+            X.append(datetime.datetime.fromtimestamp(elem[0]))
+            Y.append(elem[1])
+
+    figure = plt.figure()
+    myFmt = mdates.DateFormatter('%H:%M')
+    plt.gca().xaxis.set_major_formatter(myFmt)
+    CGM_time = FigureCanvasTkAgg(figure, frame)
+    CGM_time.get_tk_widget().pack()
+    figure = plt.scatter(X, Y, s=1)
+    figure = plt.title('CGM Change 4 hours post meal')
+
+    #plt.show()
+
+    return CGM_time
+
+
+
 def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     # lists for data points for plot
     X = []
@@ -259,7 +339,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     # figure = plt.scatter(XC, YC, marker='P', color="red")
     figure = plt.scatter(XS, YS, color="orange")
 
-    plt.show()
+    # plt.show()
 
     return IOB_Time
 
@@ -294,6 +374,8 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
     i = 0
     CGM_highs = [x for x in CGM if x[1] > 250]
     CGM_lows = [x for x in CGM if x[1] < 60]
+
+
     start_night = datetime.datetime.strptime("0:00:00", "%H:%M:%S").time()
     start_morning = datetime.datetime.strptime("6:00:00", "%H:%M:%S").time()
     start_afternoon = datetime.datetime.strptime("12:00:00", "%H:%M:%S").time()

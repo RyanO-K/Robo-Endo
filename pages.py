@@ -10,7 +10,7 @@ class PageNum(IntEnum):
     CHARTTWO = 1
     CHARTTHREE = 2
     CHARTFOUR = 3
-    CHARTFIVE = 3
+    CHARTFIVE = 4
 
 
 class StartPage(Frame):
