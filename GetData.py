@@ -233,7 +233,14 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     :param time_frame: 0 for all, 1 for night, 2 morning, 3 afternoon, 4 evening
     :return:
     """
-    
+    new_parsed_meal_size = list()
+    if time_frame == 0:
+        new_parsed_meal_size = parsed_meal_size
+    else:
+        for m in parsed_meal_size:
+            dt = datetime.datetime.fromtimestamp(m[1])
+            if dt.hour >= (time_frame-1)*6 and dt.hour < time_frame * 6:
+                new_parsed_meal_size.append(m)
 
     X = []
     Y = []
@@ -245,29 +252,30 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     for i in range(0, 14400, 300):
         j = i, 0
         NewCGM.append(list(j))
-    for meal in range(0, len(parsed_meal_size)):
+    for meal in range(0, len(new_parsed_meal_size)):
         for elem in CGM:
-            if elem[0] > parsed_meal_size[meal][1] and elem[0] < (parsed_meal_size[meal][1] + 14400):
-                i = ((elem[0] - parsed_meal_size[meal][1]) - ((elem[0] - parsed_meal_size[meal][1]) % 300)), elem[1]
+            if elem[0] > new_parsed_meal_size[meal][1] and elem[0] < (new_parsed_meal_size[meal][1] + 14400):
+                i = ((elem[0] - new_parsed_meal_size[meal][1]) - ((elem[0] - new_parsed_meal_size[meal][1]) % 300)), elem[1]
                 for e in NewCGM:
                     if e[0] == i[0]:
                         e[1] += i[1]
                         dataFreq[int(i[0] / 300)] += 1
 
     for i in range(0, len(NewCGM)):
-        NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
+        if(dataFreq[i] > 0):
+            NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
 
     for i in range(1, len(NewCGM)):
         NewCGM[i][1] = (NewCGM[i][1] - NewCGM[0][1])
     NewCGM[0][1] = 0
 
     for i, elem in enumerate(NewCGM):
-        if i > 0 and i + 1 < len(NewCGM):
-            if elem[1] - NewCGM[i - 1][1] < 0 and elem[1] - NewCGM[i + 1][1] < 0 and NewCGM[2] == -1:
-                elem[1] = min(abs(elem[1] - NewCGM[i - 1][1]),
-                              abs(NewCGM[i + 1][1] - elem[1]))
-            X.append(datetime.datetime.fromtimestamp(elem[0]))
-            Y.append(elem[1])
+        #if i > 0 and i + 1 < len(NewCGM):
+        #    if elem[1] - NewCGM[i - 1][1] < 0 and elem[1] - NewCGM[i + 1][1] < 0 and NewCGM[2] == -1:
+        #        elem[1] = min(abs(elem[1] - NewCGM[i - 1][1]),
+        #                      abs(NewCGM[i + 1][1] - elem[1]))
+        X.append(datetime.datetime.fromtimestamp(elem[0]))
+        Y.append(elem[1])
 
     figure = plt.figure()
     myFmt = mdates.DateFormatter('%H:%M')
@@ -275,7 +283,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     CGM_time = FigureCanvasTkAgg(figure, frame)
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
-    title = 'CGM Change 4 hours post meal (Average of ' + str(len(parsed_meal_size)) + ' meals)'
+    title = 'CGM Change 4 hours post meal (Average of ' + str(len(new_parsed_meal_size)) + ' meals)'
     figure = plt.title(title)
 
     #plt.show()
@@ -531,7 +539,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                     temp_str = ""
                     temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
                     date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
-                    print(date_time_obj.hour)
                     meal_size.append((temp_count, convert_unix(item[22])))
                     temp_count = 0
                 if item[28] != '0' and item[24] == "Carb":
