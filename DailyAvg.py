@@ -58,13 +58,11 @@ for i, n in enumerate(cnt):
         AVG[i] = (AVG[i-1] + AVG[i+1])/2
 
 plt.scatter(timeplot, AVG)
-
-print(AVG[6])
 plt.plot(timeplot, AVG, label="CGM")
 
 myFmt = mdates.DateFormatter('%H:%M')
 plt.gca().xaxis.set_major_formatter(myFmt)
-
+plt.axhspan(100, 180, color='y', alpha=0.5, lw=0)
 plt.title("Daily CGM Averages")
 plt.xlabel("Time in day")
 

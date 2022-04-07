@@ -125,7 +125,7 @@ class app(Tk):
             for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
                 self.data[key] = temp[i]
                 i += 1
-            self.recommendation_list = get_recommendations(self.filename)
+       #     self.recommendation_list = get_recommendations(self.filename)
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
@@ -144,7 +144,8 @@ class app(Tk):
                                                                  self.data['skipsI'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("IOB Anomaly Graph")
+            self.frames[ChartPage.get_name()].graph_info.set(
+                "IOB Anomaly Graph")
         if chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
@@ -153,7 +154,8 @@ class app(Tk):
                                                                  self.data['peaks'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("CGM Anomaly Graph")
+            self.frames[ChartPage.get_name()].graph_info.set(
+                "CGM Anomaly Graph")
         if chart_num is PageNum.CHARTTHREE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
@@ -175,16 +177,22 @@ class app(Tk):
     def recommend(self):
         # self.recommendation_list += "Have Better Blood Sugar", "Eat Better", "Inject before eating", "Adjust basal"
 
-        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(0, weight=1)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(0, weight=1)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(1, weight=2)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(2, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(
+            0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            1, weight=2)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            2, weight=1)
 
-        list_canvas = Listbox(self.frames[RecPage.get_name()].recommendations_frame, bg='#303030', fg='white')
+        list_canvas = Listbox(self.frames[RecPage.get_name(
+        )].recommendations_frame, bg='#303030', fg='white')
         list_canvas.grid(row=0, column=1, sticky="nsew")
         list_canvas.configure(font=('Times', 25))
         if len(self.recommendation_list) > 13:
-            w = Scrollbar(self.frames[RecPage.get_name()].recommendations_frame)
+            w = Scrollbar(
+                self.frames[RecPage.get_name()].recommendations_frame)
             w.grid(row=0, column=2, sticky="nsw")
             w.config(command=list_canvas.yview)
             list_canvas.configure(yscrollcommand=w.set)
