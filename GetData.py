@@ -10,38 +10,35 @@ import pandas as pd
 import sys
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.dates as mdates
+import numpy as np
 
 
 # file = '3_days_data_Ryan.csv'
 # file = '1_month_of_data_Ryan.csv'
 # file = '3_months_of_data_Ryan.csv'
-
 # convert date in YYYY-MM-DDTHH:MM:SS to unix timestamp in local time
 
 def convert_unix(s_date):
-    year = int(s_date[0:4:1])
-    month = int(s_date[5:7:1])
-    day = int(s_date[8:10:1])
-    t = s_date[11:19:1]
+    try:
+        year = int(s_date[0:4:1])
+        month = int(s_date[5:7:1])
+        day = int(s_date[8:10:1])
+        t = s_date[11:19:1]
+    except ValueError:
+        return 0
 
     dt = datetime.datetime(year, month, day)
     u_date = dt.timestamp()
-    u_date += int(t[0:2])*3600 + int(t[3:5])*60 + int(t[6:8])
+    u_date += int(t[0:2]) * 3600 + int(t[3:5]) * 60 + int(t[6:8])
 
     return u_date
 
 
-def convert_datetime(line):
-    temp_str = ""
-    temp_str = temp_str + line[3][0:10] + " " + line[3][11:] + ".0"
-    date_time_obj = datetime.datetime.strptime(
-        temp_str, '%Y-%m-%d %H:%M:%S.%f')
-    return date_time_obj
-
-
 def peakdet(v, thresh):
     maxthresh = []
-    peaks = []
+    minthresh = []
+    IOB_anomalies = []
+    valleys = []
 
     for i, elem in enumerate(v):
         if elem[1] > thresh:
@@ -51,12 +48,32 @@ def peakdet(v, thresh):
     for i in maxthresh:
         try:
             if (v[i - 1][1] < v[i][1]) & (v[i + 1][1] < v[i][1]):
-                peaks.append(v[i])
+                IOB_anomalies.append(v[i])
                 print("added peak")
         except Exception:
             pass
 
-    return peaks
+    return IOB_anomalies
+
+
+def timeskips(data, time):
+    timeSkip = []
+    i = 0
+    while i < len(data):
+        if i > 0 and i + 1 < len(data):
+            nextTime = data[i + 1][0]
+            elem = data[i]
+            # 10 minutes without input = timeskip
+            if nextTime - elem[0] > time:
+                timeSkip.append(
+                    (float((nextTime + elem[0]) / 2), int((data[i + 1][1] + elem[1]) / 2)))
+                data.insert(
+                    i + 1, (float((nextTime + elem[0]) / 2), int((data[i + 1][1] + elem[1]) / 2)))
+                i = i - 1
+
+        i = i + 1
+
+    return timeSkip
 
 
 def timeskips(data, time):
@@ -118,11 +135,11 @@ def plotBG(file, BG, Completion_time, frame5=None):
     figure = plt.title('BG over time')
     BG_time = FigureCanvasTkAgg(figure, frame5)
     BG_time.get_tk_widget().pack()
-   # plt.show()
+    # plt.show()
     return BG
 
 
-def plotCGM(file, CGM, carb, frame4=None):
+def plotCGM(file, CGM, skips, anC, carb, frame4=None):
 
     X = []
     Y = []
@@ -145,7 +162,7 @@ def plotCGM(file, CGM, carb, frame4=None):
     return CGM_time
 
 
-def plotAnCGM(file, CGM, skipsC, anC, carb, frame2):
+def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, frame2):
     X = []
     Y = []
     # skips
@@ -187,7 +204,7 @@ def plotAnCGM(file, CGM, skipsC, anC, carb, frame2):
     return CGM_anomalies
 
 
-def plotAnIOB(file, IOB, ID, skipsI, carb, frame1):
+def plotAnIOB(file, IOB, ID, skips, carb, frame1):
 
     figure = plt.figure()
     IOB_anomalies = FigureCanvasTkAgg(figure, frame1)
@@ -210,7 +227,7 @@ def plotAnIOB(file, IOB, ID, skipsI, carb, frame1):
     for i, elem in enumerate(ID):
         IDX.append(datetime.datetime.fromtimestamp(elem[0]))
         IDY.append(elem[1])
-    for i in skipsI:
+    for i in skips:
         XS.append(datetime.datetime.fromtimestamp(i[0]))
         YS.append(i[1])
     figure = plt.scatter(X, Y, s=1)
@@ -220,7 +237,7 @@ def plotAnIOB(file, IOB, ID, skipsI, carb, frame1):
     return IOB_anomalies
 
 
-def plotIOB(file, IOB, ID, carb, frame3=None):
+def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
     X = []
     Y = []
@@ -257,8 +274,53 @@ def plotIOB(file, IOB, ID, carb, frame3=None):
     return IOB_Time
 
 
-def get_recommendations(file):
-    return ["Sample", "Recommendation"]
+def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
+    recommendations = ["Sample Recommendation", "Generic Recommendation!"]
+
+    num_highs_from_carbs = 0
+    probable_machine_failure = 0
+    insufficient_basal = []
+    i = 0
+    while i < len(IOB_anomalies):
+        relevant_carbs = [[IOB_anomalies[i][0] - x[0], x[1], x[2]] for x in carb if
+                          0 <= IOB_anomalies[i][0] - x[0] < 14400]  # grab all carbs within four hours of high
+        recent_carbs = [[IOB_anomalies[i][0] - x[0], x[1], x[2]] for x in carb if
+                        0 <= IOB_anomalies[i][0] - x[0] < 7200]  # grab all carbs within two hours of high
+        relevant_total = np.sum([x[1] for x in relevant_carbs])
+        recent_total = np.sum([x[1] for x in recent_carbs])
+
+        if recent_total > 100:
+            num_highs_from_carbs += 1
+
+        if len(recent_carbs) == 0 and relevant_total <= 20:
+            # TODO: convert to time of day
+            insufficient_basal += [IOB_anomalies[i][0] - 14400]
+
+            curr_index = i
+            # toss out any IOB_anomalies occuring the the next 2 hours
+            while IOB_anomalies[curr_index + 1][0] - IOB_anomalies[i][0] < 7200:
+                curr_index += 1
+            i = curr_index
+
+        elif len(relevant_carbs) == 0:
+            probable_machine_failure += 1
+        i += 1
+
+    # TODO: Move logic regarding basal to a loop iterating over CGM anomalies rather than IOB
+
+    for time in insufficient_basal:
+        # TODO: convert to time of day
+        recommendations += [f"You went high at {time} despite not many carbs."]
+    if probable_machine_failure > 0:
+        recommendations += [
+            f"You had {probable_machine_failure} machine failures."]
+    if num_highs_from_carbs > 0:
+        recommendations += [
+            f"You went high from eating a large meal {num_highs_from_carbs} times."]
+
+    # TODO: Get average number of failures per day
+
+    return recommendations
 
 
 def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
@@ -268,10 +330,9 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     ID = []
     BG = []
     carb = []
-    target = []
     # anamoly corrections
     anC = []
-    peaks = []
+
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
         for line in csv_reader:
@@ -283,40 +344,30 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[2] == "EGV":
                     CGM.append((convert_unix(line[3]), int(line[4])))
             if len(line) >= 41 and line[2] != "BG":
-                if line[2] != "":
+                if line[1] == "Automatic Bolus/Correction" or 'Extended' in line[1]:
+                    continue
+                if line[28] != "0":
+                    # time, carb, override
+                    override = False
+                    if line[29] == '1':
+                        override = True
+                    carb.append(
+                        (convert_unix(line[6]), int(line[28]), override))
+                if line[2] == "":
+                    continue
+                if line[6] != "":
                     BG.append((convert_unix(line[6]), int(line[2])))
                 if line[7] != "":
                     ID.append((convert_unix(line[6]), float(line[7])))
-                if line[28] != "":
-                    carb.append((convert_unix(line[6]), int(line[28])))
-                if line[30] != "":
-                    target.append((convert_unix(line[6]), int(line[30])))
 
     skipsC = timeskips(CGM, 600)
     skipsI = timeskips(IOB, 900)
-    anC = anom(CGM)
-    #peaks = peakdet(IOB, 7)
-    i = 0
-    while i < len(carb):
-        if i+1 < len(carb):
-            next = carb[i+1]
-            elem = carb[i]
-            # within 45 minutes = same meal
-            if next[0] - elem[0] < 2450:
-                carb.remove(carb[i+1])
-                carb.remove(carb[i])
-                carb.insert(i, (next[0], next[1]+elem[1]))
-            else:  # discard anything less than 50 carbs after combined
-                if carb[i][1] < 50:
-                    carb.remove(carb[i])
-                else:
-                    i = i+1
-        else:
-            if carb[i][1] < 50:
-                carb.remove(carb[i])
-            break
-
-    return plotIOB(file, IOB, ID, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, carb, frame2), plotCGM(file, CGM, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
+    IOB_anomalies = peakdet(IOB, 7)
+    for i in IOB_anomalies:
+        print(i[0])
+        print(i[1])
+    return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies
+    # return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, IOB_anomalies, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
 if __name__ == "__main__":
