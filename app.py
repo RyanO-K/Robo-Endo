@@ -2,6 +2,7 @@ from pages import *
 from GetData import *
 from PIL import Image, ImageTk
 import os
+import tkcalendar
 
 debug = False
 
@@ -151,7 +152,7 @@ class app(Tk):
                                                                  self.data['skipsI'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("IOB Anomaly Graph")
+            self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
         if chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
@@ -160,7 +161,16 @@ class app(Tk):
                                                                  self.data['peaks'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("CGM Anomaly Graph")
+            self.frames[ChartPage.get_name()].graph_info.set("CGM over time")
+            date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)
+            self.frames[ChartPage.get_name()].nav.place_forget()
+            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.25, anchor="center")
+            date_selection.place(relx=.5, rely=.75, anchor="center")
+
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+                            command=lambda: self.update_graph(date_selection.get_date()))
+
+            update.place(relx=.5, rely=.85, anchor="center")
         if chart_num is PageNum.CHARTTHREE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
@@ -168,7 +178,7 @@ class app(Tk):
                                                                self.data['skipsI'],
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("IOB Graph")
+            self.frames[ChartPage.get_name()].graph_info.set("Daily Average IOB")
         if chart_num is PageNum.CHARTFOUR:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
@@ -176,7 +186,7 @@ class app(Tk):
                                                                self.data['anC'],
                                                                self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("CGM Graph")
+            self.frames[ChartPage.get_name()].graph_info.set("Daily Average Glucose")
         # chart five code goes here
         self.show_frame(ChartPage.get_name())
 
@@ -202,10 +212,13 @@ class app(Tk):
         for entry in self.recommendation_list:
             list_canvas.insert(END, str(index) + ": " + entry)
             # emplace sub widgets
-
             index += 1
 
         self.show_frame(RecPage.get_name())
+
+    def update_graph(self, date):
+        print(f"Update here!:{date}")
+        self.frames[ChartPage.get_name()].canvas = None
 
 
 if __name__ == '__main__':

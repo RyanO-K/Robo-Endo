@@ -298,21 +298,21 @@ class ChartPage(Frame):
         self.grid_columnconfigure(2, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        info = Frame(self)
+        self.info = Frame(self)
         self.graph = Frame(self)
         self.configure(background='#01384C')
         self.graph.configure(background='#303030')
 
-        info.configure(background='#01384C')
+        self.info.configure(background='#01384C')
         self.graph_info = StringVar()
         # create sub widgets
-        nav = Label(info, textvariable=self.graph_info)
+        self.nav = Label(self.info, textvariable=self.graph_info)
         # emplace sub widgets
-        nav.place(relx=.5, rely=.5, anchor="center")
+        self.nav.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
         self.graph.grid(row=0, column=1, sticky="nsew")
-        info.grid(row=0, column=0, sticky="nsew")
+        self.info.grid(row=0, column=0, sticky="nsew")
 
     @staticmethod
     def get_name():
@@ -408,10 +408,10 @@ class MainMenu(Frame):
         bottom_mid = Frame(left, bg='#303030')
 
         # create sub widgets
-        chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
-        chart_two_btn = Button(top_mid, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
-        chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
-        chart_four_btn = Button(bottom_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        chart_one_btn = Button(top_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
+        chart_two_btn = Button(top_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_three_btn = Button(bottom_left, text="Daily Average IOB", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
+        chart_four_btn = Button(bottom_mid, text="Daily Average Glucose", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
         chart_five_btn = Button(top_right, text="CGM after meal", command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
         recommendation_btn = Button(bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
 

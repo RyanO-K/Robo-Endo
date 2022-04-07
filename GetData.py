@@ -270,7 +270,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
     num_highs_from_carbs = 0
     num_lows_from_carbs = 0
     probable_machine_failure = 0
-    insufficient_basal = []
+
     i = 0
     while i < len(IOB_anomalies):
         relevant_carbs = [[IOB_anomalies[i][0] - x[0], x[1], x[2]] for x in carb if
@@ -318,7 +318,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
             num_highs_from_carbs += 1
 
         if relevant_total < 20:  # if there are less than 20 relevant carbs
-            insufficient_basal += [CGM_highs[i][0]]
+
             converted_time = datetime.datetime.fromtimestamp(CGM_highs[i][0]).time()
 
             if converted_time > start_evening:
@@ -337,7 +337,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
                             CGM_highs[i + 1][0]).time() > start_afternoon:  # toss out any CGM readings until the next segment
                         i += 1
                 except IndexError as e:
-                    # only hits if the remainder of hte readings are high
+                    # only hits if the remainder of the readings are high
                     break
             elif converted_time > start_morning:
                 morning_highs += 1
@@ -370,7 +370,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
             num_lows_from_carbs += 1
 
         if relevant_total < 20:  # if there are less than 20 relevant carbs
-            insufficient_basal += [CGM_lows[i][0]]
+
             converted_time = datetime.datetime.fromtimestamp(CGM_lows[i][0]).time()
 
             if converted_time > start_evening:
