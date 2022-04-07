@@ -1,4 +1,5 @@
 from pages import *
+from GetData import *
 from PIL import Image, ImageTk
 import os
 
@@ -8,6 +9,8 @@ debug = False
 class app(Tk):
 
     def __init__(self, *args, **kwargs):
+        self.recommendation_list = []
+        self.data = {}
         self.debug = debug
         Tk.__init__(self, *args, **kwargs)
         self.geometry('950x500')
@@ -42,8 +45,8 @@ class app(Tk):
         for F in page_set:
             page_name = F.__name__
             frame = F(parent=self.container, controller=self)
+            # self.frames[page_name] = frame
             self.frames[page_name] = frame
-
             # put all of the pages in the same location;
             # the one on the top of the stacking order
             # will be the one that is visible.
@@ -93,32 +96,108 @@ class app(Tk):
         self.button1.pack(side=RIGHT)
         self.button2.pack(side=LEFT)
 
-        if self.curr_frame.get_name() in (PageFour.get_name(), loading_page.get_name(), MainMenu.get_name()) + chart_names:
+        if self.curr_frame.get_name() in (
+                PageFour.get_name(), loading_page.get_name(), MainMenu.get_name(), ChartPage.get_name(), RecPage.get_name()):
             self.button1.pack_forget()
-        if self.curr_frame.get_name() in (StartPage.get_name(), loading_page.get_name(), MainMenu.get_name()) + chart_names:
+        if self.curr_frame.get_name() in (StartPage.get_name(), loading_page.get_name(), MainMenu.get_name()):
             self.button2.pack_forget()
-        if self.curr_frame.get_name() in chart_names:
+        if self.curr_frame.get_name() in [ChartPage.get_name(), RecPage.get_name()]:
             self.button2.pack_forget()
-            self.button2.configure(text = "Back to main menu")
+            self.button2.configure(text="Back to main menu")
             self.button2.configure(command=lambda: self.show_frame("MainMenu"))
             self.button2.pack(side=LEFT)
-        if self.curr_frame.get_name() in (loading_page.get_name()):
-            # ChartOne.show_graph(self.frames[ChartOne.get_name()])
+        if self.curr_frame.get_name() is loading_page.get_name():
+            # ChartPage.show_graph(self.frames[ChartPage.get_name()])
             self.container.update()
+            self.frames = {}
+            for F in chart_set:
+                page_name = F.get_name()
+                frame = F(parent=self.container, controller=self)
+                self.frames[page_name] = frame
 
-            # TODO: Refactor this line
-            self.frames[ChartOne.get_name()].canvas, \
-            self.frames[ChartTwo.get_name()].canvas, \
-            self.frames[ChartThree.get_name()].canvas, \
-            self.frames[ChartFour.get_name()].canvas = plot(
-                self.filename,
-                self.frames[ChartOne.get_name()].graph,
-                self.frames[ChartTwo.get_name()].graph,
-                self.frames[ChartThree.get_name()].graph,
-                self.frames[ChartFour.get_name()].graph)
+                # put all of the pages in the same location;
+                # the one on the top of the stacking order
+                # will be the one that is visible.
+                frame.grid(row=1, column=1, sticky="nsew")
 
-            self.next_frame()
+            temp = plot(self.filename)
+            i = 0
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
+                self.data[key] = temp[i]
+                i += 1
+            self.recommendation_list = get_recommendations(self.filename)
+            self.show_frame(MainMenu.get_name())
         self.container.update()
+
+    def display_chart(self, chart_num):
+        try:
+            del self.frames[ChartPage.get_name()].canvas
+
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
+        except AttributeError:
+            pass
+        if chart_num is PageNum.CHARTONE:
+            self.frames[ChartPage.get_name()].canvas = plotAnIOB(self.filename,
+                                                                 self.data['IOB'],
+                                                                 self.data['ID'],
+                                                                 self.data['skipsI'],
+                                                                 self.data['carb'],
+                                                                 self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("IOB Anomaly Graph")
+        if chart_num is PageNum.CHARTTWO:
+            self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
+                                                                 self.data['CGM'],
+                                                                 self.data['skipsC'],
+                                                                 self.data['anC'],
+                                                                 self.data['peaks'],
+                                                                 self.data['carb'],
+                                                                 self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("CGM Anomaly Graph")
+        if chart_num is PageNum.CHARTTHREE:
+            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
+                                                               self.data['IOB'],
+                                                               self.data['ID'],
+                                                               self.data['skipsI'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("IOB Graph")
+        if chart_num is PageNum.CHARTFOUR:
+            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['skipsC'],
+                                                               self.data['anC'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set("CGM Graph")
+        self.show_frame(ChartPage.get_name())
+
+    def recommend(self):
+        # self.recommendation_list += "Have Better Blood Sugar", "Eat Better", "Inject before eating", "Adjust basal"
+
+        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(1, weight=2)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(2, weight=1)
+
+        list_canvas = Listbox(self.frames[RecPage.get_name()].recommendations_frame, bg='#303030', fg='white')
+        list_canvas.grid(row=0, column=1, sticky="nsew")
+        list_canvas.configure(font=('Times', 25))
+        if len(self.recommendation_list) > 13:
+            w = Scrollbar(self.frames[RecPage.get_name()].recommendations_frame)
+            w.grid(row=0, column=2, sticky="nsw")
+            w.config(command=list_canvas.yview)
+            list_canvas.configure(yscrollcommand=w.set)
+
+        index = 1
+
+        for entry in self.recommendation_list:
+            list_canvas.insert(END, str(index) + ": " + entry)
+            # emplace sub widgets
+
+            index += 1
+
+        self.show_frame(RecPage.get_name())
 
 
 if __name__ == '__main__':

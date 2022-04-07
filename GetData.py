@@ -217,7 +217,7 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
         YS.append(i[1])
     figure = plt.scatter(X, Y, s=1)
     figure = plt.scatter(XS, YS, color="orange")
-    figure = plt.title('IOB over time')
+    figure = plt.title('IOB anomalies over time')
     figure = plt.scatter(IDX, IDY, marker='P')
     return IOB_anomalies
 
@@ -260,6 +260,8 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
     return IOB_Time
 
+def get_recommendations(file):
+    return ["Sample","Recommendation"]
 
 def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     IOB = []
@@ -294,6 +296,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
 
     skipsC = timeskips(CGM, 600)
     skipsI = timeskips(IOB, 900)
+<<<<<<< HEAD
     #peaks = peakdet(IOB, 7)
     i = 0
     while i < len(carb):
@@ -316,6 +319,14 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
             break
 
     return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, carb, frame2), plotCGM(file, CGM, skipsC, carb, target, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
+=======
+    peaks = peakdet(IOB, 7)
+    for i in peaks:
+        print(i[0])
+        print(i[1])
+    return IOB, ID, skipsI, carb, CGM, skipsC, anC, peaks
+    #return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, peaks, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
+>>>>>>> main
 
 
 if __name__ == "__main__":
