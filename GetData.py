@@ -304,7 +304,6 @@ def plotMealTime(file, CGM, frame, time_frame):
     return CGM_time
 
 
-
 def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     # lists for data points for plot
     X = []
