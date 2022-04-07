@@ -123,7 +123,7 @@ class app(Tk):
 
             temp = plot(self.filename)
             i = 0
-            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks']:
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'parsed_meal_size']:
                 self.data[key] = temp[i]
                 i += 1
             self.recommendation_list = get_recommendations(self.data['IOB'],
@@ -133,7 +133,8 @@ class app(Tk):
                                                            self.data['CGM'],
                                                            self.data['skipsC'],
                                                            self.data['anC'],
-                                                           self.data['peaks'])
+                                                           self.data['peaks'],
+                                                           self.data['parsed_meal_size'])
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
@@ -205,7 +206,8 @@ class app(Tk):
             self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
                                                                     self.data['CGM'],
                                                                     self.frames[ChartPage.get_name()].graph,
-                                                                    0)
+                                                                    0,
+                                                                    self.data['parsed_meal_size'])
             self.frames[ChartPage.get_name()].graph_info.set("Mealtime Averages")
             night = Button(self.frames[ChartPage.get_name()].info, text='Night Meals', command=lambda: self.time_of_day(1))
             morning = Button(self.frames[ChartPage.get_name()].info, text='Morning Meals', command=lambda: self.time_of_day(2))
@@ -276,7 +278,8 @@ class app(Tk):
         self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
                                                                 self.data['CGM'],
                                                                 self.frames[ChartPage.get_name()].graph,
-                                                                time)
+                                                                time,
+                                                                self.data['parsed_meal_size'])
 
 
 

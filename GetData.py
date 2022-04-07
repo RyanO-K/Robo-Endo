@@ -225,7 +225,7 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
     return IOB_anomalies
 
 
-def plotMealTime(file, CGM, frame, time_frame):
+def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     """
     :param file:
     :param CGM:
@@ -233,29 +233,7 @@ def plotMealTime(file, CGM, frame, time_frame):
     :param time_frame: 0 for all, 1 for night, 2 morning, 3 afternoon, 4 evening
     :return:
     """
-    meal_size = list()
-    parsed_meal_size = list()
-    temp_count = 0
-
-    with open(file, 'r') as data:
-        csv_reader = csv.reader(data)
-
-        for index, item in enumerate(csv_reader):
-            if len(item) >= 41 and item[24] != "BolusType":
-                if item[24] != "Carb":
-                    temp_str = ""
-                    temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
-                    date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
-                    meal_size.append((temp_count, convert_unix(item[22])))
-                    temp_count = 0
-                if item[28] != '0' and item[24] == "Carb":
-                    temp_count += float(item[28])
-
-    for i in range(0, len(meal_size)):
-        if meal_size[i][0] == 0:
-            continue
-        if meal_size[i][0] != 0:
-            parsed_meal_size.append(meal_size[i])
+    
 
     X = []
     Y = []
@@ -297,7 +275,8 @@ def plotMealTime(file, CGM, frame, time_frame):
     CGM_time = FigureCanvasTkAgg(figure, frame)
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
-    figure = plt.title('CGM Change 4 hours post meal')
+    title = 'CGM Change 4 hours post meal (Average of ' + str(len(parsed_meal_size)) + ' meals)'
+    figure = plt.title(title)
 
     #plt.show()
 
@@ -343,7 +322,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     return IOB_Time
 
 
-def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
+def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size):
     recommendations = ["Sample Recommendation", "Generic Recommendation!"]
 
     num_highs_from_carbs = 0
@@ -531,6 +510,40 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     # anamoly corrections
     anC = []
 
+
+
+
+
+
+
+    meal_size = list()
+    parsed_meal_size = list()
+    temp_count = 0
+
+
+
+    with open(file, 'r') as data:
+        csv_reader = csv.reader(data)
+
+        for index, item in enumerate(csv_reader):
+            if len(item) >= 41 and item[24] != "BolusType":
+                if item[24] != "Carb":
+                    temp_str = ""
+                    temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
+                    date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
+                    print(date_time_obj.hour)
+                    meal_size.append((temp_count, convert_unix(item[22])))
+                    temp_count = 0
+                if item[28] != '0' and item[24] == "Carb":
+                    temp_count += float(item[28])
+
+    for i in range(0, len(meal_size)):
+        if meal_size[i][0] == 0:
+            continue
+        if meal_size[i][0] != 0:
+            parsed_meal_size.append(meal_size[i])
+
+
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
         for line in csv_reader:
@@ -563,7 +576,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     for i in IOB_anomalies:
         print(i[0])
         print(i[1])
-    return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies
+    return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size
     # return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, IOB_anomalies, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
