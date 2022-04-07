@@ -33,9 +33,7 @@ def convert_unix(s_date):
 
 def peakdet(v, thresh):
     maxthresh = []
-    minthresh = []
     peaks = []
-    valleys = []
 
     for i, elem in enumerate(v):
         if elem[1] > thresh:
@@ -92,19 +90,19 @@ def plotBG(file, BG, Completion_time, frame5=None):
     return BG
 
 
-def plotCGM(file, CGM, skips, anC, carb, frame4=None):
+def plotCGM(file, CGM, skips, carb, target, frame4=None):
 
     X = []
     Y = []
     XS = []
     YS = []
-    XA = []
-    YA = []
     XC = []
     YC = []
+    XT = []
+    YT = []
     for i, elem in enumerate(CGM):
         if i > 0 and i+1 < len(CGM):
-            if elem[1]-CGM[i-1][1] < 0 and elem[1]-CGM[i+1][1] < 0 and CGM[2] == -1:
+            if elem[1]-CGM[i-1][1] < 0 and elem[1]-CGM[i+1][1] < 0:
                 elem[1] = min(abs(elem[1]-CGM[i-1][1]),
                               abs(CGM[i+1][1]-elem[1]))
             X.append(datetime.datetime.fromtimestamp(elem[0]))
@@ -113,10 +111,9 @@ def plotCGM(file, CGM, skips, anC, carb, frame4=None):
     for i in skips:
         XS.append(datetime.datetime.fromtimestamp(i[0]))
         YS.append(i[1])
-    for i in anC:
-        XA.append(datetime.datetime.fromtimestamp(i[0]))
-        print(datetime.datetime.fromtimestamp(i[0]))
-        YA.append(i[1])
+    for i in target:
+        XT.append(datetime.datetime.fromtimestamp(i[0]))
+        YT.append(i[1])
         print(i[1])
     figure = plt.figure()
     myFmt = mdates.DateFormatter('%H:%M')
@@ -125,14 +122,15 @@ def plotCGM(file, CGM, skips, anC, carb, frame4=None):
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
     figure = plt.scatter(XS, YS, color="orange")
-    figure = plt.scatter(XA, YA, color="red")
+    figure = plt.scatter(XT, YT, color="red")
+    figure = plt.axhspan(110, 160, color='y', alpha=0.5, lw=0)
     figure = plt.title('CGM over time')
 
     # plt.show()
     return CGM_time
 
 
-def plotAnCGM(file, CGM, skips, anC, peaks, carb, frame2):
+def plotAnCGM(file, CGM, skips, anC, carb, frame2):
     outlier = []
     X = []
     Y = []
@@ -140,8 +138,6 @@ def plotAnCGM(file, CGM, skips, anC, peaks, carb, frame2):
     YS = []
     XO = []
     YO = []
-    XP = []
-    YP = []
     XC = []
     YC = []
     i = 0
@@ -149,20 +145,22 @@ def plotAnCGM(file, CGM, skips, anC, peaks, carb, frame2):
         curr = CGM[i][1]
         X.append(datetime.datetime.fromtimestamp(CGM[i][0]))
         Y.append(curr)
-        if i > 0 and i+2 < len(CGM):
+        if i > 0 and i+1 < len(CGM):
             prev = CGM[i-1][1]
             nextVal = CGM[i+1][1]
-            nextVal2 = CGM[i+1][1]
+            ## jump of 30 blood sugar in short period of time
             if abs(curr-nextVal) > 30:
                 outlier.append((CGM[i+1][0], nextVal))
-                CGM.remove(CGM[i])
-                anC = anC + timeskips(CGM, 600)
-
+                CGM.remove(CGM[i+1])
+                timeskips(CGM, 600)
+                continue
+            ## 10 blood sugar 
             elif prev < curr and curr > nextVal:
                 if abs(prev-curr) > 10 and abs(nextVal-curr) > 10:
                     outlier.append((CGM[i][0], curr))
                     CGM.remove(CGM[i])
-                    anC = anC + timeskips(CGM, 600)
+                    timeskips(CGM, 600)
+                    continue
         i = i + 1
 
     for i in skips:
@@ -270,6 +268,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     ID = []
     BG = []
     carb = []
+    target = []
     # anamoly corrections
     anC = []
     peaks = []
@@ -284,22 +283,39 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[2] == "EGV":
                     CGM.append((convert_unix(line[3]), int(line[4])))
             if len(line) >= 41 and line[2] != "BG":
-                if line[2] == "":
-                    continue
-                if line[6] != "":
+                if line[2] != "":
                     BG.append((convert_unix(line[6]), int(line[2])))
                 if line[7] != "":
                     ID.append((convert_unix(line[6]), float(line[7])))
+                if line[28] != "":
+                    carb.append((convert_unix(line[6]), int(line[28])))
                 if line[30] != "":
-                    carb.append((convert_unix(line[6]), int(line[30])))
+                    target.append((convert_unix(line[6]), int(line[30])))
+
     skipsC = timeskips(CGM, 600)
     skipsI = timeskips(IOB, 900)
-    peaks = peakdet(IOB, 7)
-    for i in peaks:
-        print(i[0])
-        print(i[1])
+    #peaks = peakdet(IOB, 7)
+    i = 0
+    while i < len(carb):
+        if i+1 < len(carb):
+            next = carb[i+1]
+            elem = carb[i]
+            # within 45 minutes = same meal
+            if next[0] - elem[0] < 2450:
+                carb.remove(carb[i+1])
+                carb.remove(carb[i])
+                carb.insert(i, (next[0], next[1]+elem[1]))
+            else:  # discard anything less than 50 carbs after combined
+                if carb[i][1] < 50:
+                    carb.remove(carb[i])
+                else:
+                    i = i+1
+        else:
+            if carb[i][1] < 50:
+                carb.remove(carb[i])
+            break
 
-    return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, peaks, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
+    return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, carb, frame2), plotCGM(file, CGM, skipsC, carb, target, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
 if __name__ == "__main__":
