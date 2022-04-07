@@ -11,6 +11,7 @@ import sys
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.dates as mdates
 import numpy as np
+from mealtime import *
 
 
 # file = '3_days_data_Ryan.csv'
@@ -43,17 +44,43 @@ def peakdet(v, thresh):
     for i, elem in enumerate(v):
         if elem[1] > thresh:
             maxthresh.append(i)
-            print("maxthrest")
+           # print("maxthrest")
 
     for i in maxthresh:
         try:
             if (v[i - 1][1] < v[i][1]) & (v[i + 1][1] < v[i][1]):
                 IOB_anomalies.append(v[i])
-                print("added peak")
+               # print("added peak")
         except Exception:
             pass
 
     return IOB_anomalies
+
+
+def anomI(IOBA, carb):
+    anI = []
+    i = 0
+    while i < len(IOBA):
+        relevant_carbs = [[IOBA[i][0] - x[0], x[1], x[2]] for x in carb if
+                          0 <= IOBA[i][0] - x[0] < 14400]  # grab all carbs within four hours of high
+        recent_carbs = [[IOBA[i][0] - x[0], x[1], x[2]] for x in carb if
+                        0 <= IOBA[i][0] - x[0] < 7200]  # grab all carbs within two hours of high
+        relevant_total = np.sum([x[1] for x in relevant_carbs])
+        recent_total = np.sum([x[1] for x in recent_carbs])
+
+        if len(recent_carbs) == 0 and relevant_total <= 20:
+            anI.append((IOBA[i][0] - 14400, IOBA[i][1], 0))
+            curr_index = i
+            # toss out any IOB_anomalies occuring the the next 2 hours
+            while IOBA[curr_index + 1][0] - IOBA[i][0] < 7200:
+                curr_index += 1
+            i = curr_index
+
+        elif len(relevant_carbs) == 0:
+            anI.append((IOBA[i][0], IOBA[i][1], 1))
+        i += 1
+    print(anI)
+    return anI
 
 
 def timeskips(data, time):
@@ -121,7 +148,7 @@ def plotBG(file, BG, Completion_time, frame5=None):
     return BG
 
 
-def plotCGM(file, CGM, skips, anC, carb, frame4=None):
+def plotCGM(file, CGM, skips, anC, carb, meal, frame4=None):
 
     X = []
     Y = []
@@ -131,21 +158,26 @@ def plotCGM(file, CGM, skips, anC, carb, frame4=None):
     for i in CGM:
         X.append(datetime.datetime.fromtimestamp(i[0]))
         Y.append(i[1])
+    for i in meal:
+        XC.append(i[1])
+        YC.append(i[0])
     figure = plt.figure()
     myFmt = mdates.DateFormatter('%H:%M')
     plt.gca().xaxis.set_major_formatter(myFmt)
+
     CGM_time = FigureCanvasTkAgg(figure, frame4)
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
     figure = plt.plot(X, Y)
     figure = plt.axhspan(70, 180, color='y', alpha=0.5, lw=0)
     figure = plt.title('CGM over time')
+    figure = plt.scatter(XC, YC, marker='P', color="blue")
 
     # plt.show()
     return CGM_time
 
 
-def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, frame2):
+def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, meal, frame2):
     X = []
     Y = []
     # skips
@@ -168,9 +200,9 @@ def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, frame2):
     for i in anC:
         XO.append(datetime.datetime.fromtimestamp(i[0]))
         YO.append(i[1])
-    for i in carb:
-        XC.append(datetime.datetime.fromtimestamp(i[0]))
-        YC.append(i[1])
+    for i in meal:
+        XC.append(i[1])
+        YC.append(i[0])
     figure = plt.figure()
     myFmt = mdates.DateFormatter('%H:%M')
     plt.gca().xaxis.set_major_formatter(myFmt)
@@ -180,14 +212,14 @@ def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, frame2):
     figure = plt.scatter(XS, YS, color="orange")
     figure = plt.title('CGM over time')
     figure = plt.scatter(XO, YO, color="red", marker='x')
-    figure = plt.scatter(XC, YC, marker='P', color="red")
+    figure = plt.scatter(XC, YC, marker='P', color="blue")
 
     # plt.show()
 
     return CGM_anomalies
 
 
-def plotAnIOB(file, IOB, ID, skips, carb, frame1):
+def plotAnIOB(file, IOB, ID, skips, anI, frame1):
 
     figure = plt.figure()
     IOB_anomalies = FigureCanvasTkAgg(figure, frame1)
@@ -213,10 +245,20 @@ def plotAnIOB(file, IOB, ID, skips, carb, frame1):
     for i in skips:
         XS.append(datetime.datetime.fromtimestamp(i[0]))
         YS.append(i[1])
+    for i in anI:
+        if i[2] == 1:  # machine failure
+            figure = plt.scatter(datetime.datetime.fromtimestamp(
+                i[0]), i[1], color="red", marker='x')
+        if i[2] == 0:  # insufficient basil
+            plt.axvspan(datetime.datetime.fromtimestamp(
+                i[0]), datetime.datetime.fromtimestamp(i[0]+14000), color='y', alpha=0.5, lw=0)
+
     figure = plt.scatter(X, Y, s=1)
+    figure = plt.plot(X, Y)
     figure = plt.scatter(XS, YS, color="orange")
     figure = plt.title('IOB over time')
-    figure = plt.scatter(IDX, IDY, marker='P')
+    figure = plt.scatter(IDX, IDY, color='yellow')
+    figure = plt.plot(IDX, IDY, color='yellow')
     return IOB_anomalies
 
 
@@ -249,7 +291,8 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     for i, elem in enumerate(ID):
         IDX.append(datetime.datetime.fromtimestamp(elem[0]))
         IDY.append(elem[1])
-    figure = plt.scatter(IDX, IDY, marker='P')
+    figure = plt.scatter(IDX, IDY, color='yellow')
+    figure = plt.plot(IDX, IDY, color='yellow')
     #figure = plt.scatter(XC, YC, marker='P', color="red")
 
    # plt.show()
@@ -293,7 +336,8 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies):
 
     for time in insufficient_basal:
         # TODO: convert to time of day
-        recommendations += [f"You went high at {time} despite not many carbs."]
+        recommendations += [
+            f"You went high at {datetime.datetime.fromtimestamp(time).time()} despite not many carbs."]
     if probable_machine_failure > 0:
         recommendations += [
             f"You had {probable_machine_failure} machine failures."]
@@ -313,7 +357,8 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     ID = []
     BG = []
     carb = []
-    # anamoly corrections
+    meal = []
+    # machine failure: rapid jump/falls in Glucose
     anC = []
 
     with open(file, 'r') as data:
@@ -342,15 +387,17 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                     BG.append((convert_unix(line[6]), int(line[2])))
                 if line[7] != "":
                     ID.append((convert_unix(line[6]), float(line[7])))
-
+    meal = mealtime_identification(file)
     skipsC = timeskips(CGM, 600)
     skipsI = timeskips(IOB, 900)
     IOB_anomalies = peakdet(IOB, 7)
     anC = anom(CGM)
+    anI = anomI(IOB_anomalies, carb)
     for i in IOB_anomalies:
         print(i[0])
         print(i[1])
-    return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies
+
+    return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, meal, anI
     # return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, IOB_anomalies, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
