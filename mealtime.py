@@ -31,6 +31,3 @@ def mealtime_identification(file):
         if meal_size[i][0] != 0:
             parsed_meal_size.append(meal_size[i])
     return parsed_meal_size
-
-
-# print(mealtime_identification(file))

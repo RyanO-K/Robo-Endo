@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import os
 import tkcalendar
 
-debug = False
+debug = True
 
 
 class app(Tk):
@@ -123,7 +123,7 @@ class app(Tk):
 
             temp = plot(self.filename)
             i = 0
-            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'parsed_meal_size', 'meal']:
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'parsed_meal_size', 'meal']:
                 self.data[key] = temp[i]
                 i += 1
             self.recommendation_list = get_recommendations(self.data['IOB'],
@@ -133,6 +133,7 @@ class app(Tk):
                                                            self.data['CGM'],
                                                            self.data['skipsC'],
                                                            self.data['anC'],
+                                                           self.data['peaks'],
                                                            self.data['parsed_meal_size'])
             self.show_frame(MainMenu.get_name())
         self.container.update()
@@ -151,7 +152,7 @@ class app(Tk):
         if chart_num is PageNum.CHARTONE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
-                                                               self.data['ID'],
+                                                               self.data['ID'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
             date_selection = tkcalendar.DateEntry(
@@ -168,7 +169,7 @@ class app(Tk):
         elif chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
-                                                               self.data['meal'],
+                                                               self.data['meal'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("CGM over time")
             date_selection = tkcalendar.DateEntry(
@@ -271,14 +272,20 @@ class app(Tk):
 
         print(f"Update here! {date}")
         self.frames[ChartPage.get_name()].canvas = None
-        """
-        self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
-                                                               self.data['CGM'],
-                                                               self.data['skipsC'],
-                                                               self.data['anC'],
-                                                               self.data['carb'],
+        if chart_num is PageNum.CHARTONE:
+            print("hi")
+            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
+                                                               self.data['IOB'],
+                                                               self.data['ID'],
+                                                               date,
                                                                self.frames[ChartPage.get_name()].graph)
-        """
+        if chart_num is PageNum.CHARTTWO:
+            print("hi2")
+            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['meal'],
+                                                               date,
+                                                               self.frames[ChartPage.get_name()].graph)
 
     def time_of_day(self, time):
         try:
