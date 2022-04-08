@@ -403,7 +403,9 @@ class MainMenu(Frame):
         left.grid_columnconfigure(1, weight=1)
 
         right = Frame(self, bg='#303030')
-        right.grid_columnconfigure(0, weight=1)
+
+        right.grid_columnconfigure(0,weight=1)
+
         right.grid_rowconfigure(0, weight=1)
         right.grid_rowconfigure(1, weight=1)
 
@@ -415,18 +417,14 @@ class MainMenu(Frame):
         bottom_mid = Frame(left, bg='#303030')
 
         # create sub widgets
-        chart_one_btn = Button(top_left, text="IOB over time",
-                               command=lambda: self.controller.display_chart(PageNum.CHARTONE))
-        chart_two_btn = Button(top_mid, text="CGM over time",
-                               command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
-        chart_three_btn = Button(bottom_left, text="Daily Average IOB",
-                                 command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
-        chart_four_btn = Button(bottom_mid, text="Daily Average Glucose",
-                                command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
-        chart_five_btn = Button(top_right, text="CGM after meal",
-                                command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
-        recommendation_btn = Button(
-            bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
+
+        chart_one_btn = Button(top_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
+        chart_two_btn = Button(top_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_three_btn = Button(bottom_left, text="Daily Average IOB", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
+        chart_four_btn = Button(bottom_mid, text="Daily Average Glucose", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        chart_five_btn = Button(top_right, text="CGM after meal", command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
+        recommendation_btn = Button(bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
+
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
