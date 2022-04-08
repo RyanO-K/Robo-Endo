@@ -15,7 +15,6 @@ from mealtime import *
 from datetime import timedelta
 
 
-
 # file = '3_days_data_Ryan.csv'
 # file = '1_month_of_data_Ryan.csv'
 # file = '3_months_of_data_Ryan.csv'
@@ -59,18 +58,18 @@ def timeskips(data, time):
     timeSkip = []
     i = 0
     while i < len(data):
-        if i+1 < len(data):
-            nextTime = data[i+1][0]
+        if i + 1 < len(data):
+            nextTime = data[i + 1][0]
             elem = data[i]
             # time minutes without input = timeskip
             if nextTime - elem[0] > time:
-                avg = float((nextTime + elem[0])/2)
+                avg = float((nextTime + elem[0]) / 2)
 
                 timeSkip.append(
-                    (avg, int((data[i+1][1] + elem[1])/2)))
+                    (avg, int((data[i + 1][1] + elem[1]) / 2)))
                 data.insert(
-                    i+1, (avg, int((data[i+1][1] + elem[1])/2), datetime.datetime.fromtimestamp(avg)))
-                i = i-1
+                    i + 1, (avg, int((data[i + 1][1] + elem[1]) / 2), datetime.datetime.fromtimestamp(avg)))
+                i = i - 1
 
         i = i + 1
 
@@ -80,17 +79,17 @@ def timeskips(data, time):
 def duplicates(data):
     i = 0
     while i < len(data):
-        if i+1 < len(data):
-            nextTime = data[i+1][0]
+        if i + 1 < len(data):
+            nextTime = data[i + 1][0]
             elem = data[i]
             if nextTime - elem[0] < 300:  # within 3 min
-                if(data[i+1][1] > elem[1]):
+                if (data[i + 1][1] > elem[1]):
                     data.remove(data[i])
                     continue
                 else:
-                    data.remove(data[i+1])
+                    data.remove(data[i + 1])
                     continue
-        i = i+1
+        i = i + 1
 
 
 def anom(CGM):
@@ -98,24 +97,24 @@ def anom(CGM):
     i = 0
     while i < len(CGM):
         curr = CGM[i][1]
-        if i > 0 and i+1 < len(CGM):
-            prev = CGM[i-1][1]
-            nextVal = CGM[i+1][1]
+        if i > 0 and i + 1 < len(CGM):
+            prev = CGM[i - 1][1]
+            nextVal = CGM[i + 1][1]
             time = CGM[i][0]
             # jump/dip that does not follow trend within 5 minutes
             if (prev < curr and curr > nextVal) or (prev > curr and curr < nextVal):
-                if abs(prev-curr) > 10 and abs(nextVal-curr) > 10:
+                if abs(prev - curr) > 10 and abs(nextVal - curr) > 10:
                     outlier.append((CGM[i][0], curr))
                     CGM.remove(CGM[i])
-                    CGM.insert(i, (time, (prev+nextVal)/2,
-                               datetime.datetime.fromtimestamp(time)))
+                    CGM.insert(i, (time, (prev + nextVal) / 2,
+                                   datetime.datetime.fromtimestamp(time)))
 
             # jump/dip of 30 blood sugar in short period of time
-            elif abs(prev-curr) > 30:
+            elif abs(prev - curr) > 30:
                 outlier.append((CGM[i][0], curr))
                 CGM.remove(CGM[i])
-                CGM.insert(i, (time, (prev+nextVal)/2,
-                           datetime.datetime.fromtimestamp(time)))
+                CGM.insert(i, (time, (prev + nextVal) / 2,
+                               datetime.datetime.fromtimestamp(time)))
 
         i = i + 1
     return outlier
@@ -141,7 +140,7 @@ def plotBG(file, BG, Completion_time, frame5=None):
 
 def plotCGM(file, CGM, meal, date, frame2=None):
     valid = 0
-    leng = len(CGM)-1
+    leng = len(CGM) - 1
     if date != 0:  # check if valid
         if date >= CGM[0][2].date() and date <= CGM[leng][2].date():
             valid = 1
@@ -159,23 +158,23 @@ def plotCGM(file, CGM, meal, date, frame2=None):
     CGM_time.get_tk_widget().pack()
     count = 0
     for i in CGM:
-        if(i[2].date() == date):
+        if (i[2].date() == date):
             X.append(datetime.datetime.fromtimestamp(i[0]))
             Y.append(i[1])
-            if(i[1] > 70 and i[1] < 181):
-                count = count+1
+            if (i[1] > 70 and i[1] < 181):
+                count = count + 1
     maxg = max(Y)
-    avgt = int((count/len(Y))*100)
+    avgt = int((count / len(Y)) * 100)
 
     for i in meal:
-        if(i[1].date() == date):
+        if (i[1].date() == date):
             XC.append(i[1])
             YC.append(i[0])
             text = str(i[0])
             text = text + " Carbs"
             figure = plt.annotate(
                 text, xy=(i[1], 10), ha='center', fontsize=5, zorder=6, backgroundcolor='w')
-            figure = plt.axvspan(i[1], i[1]+timedelta(minutes=2),
+            figure = plt.axvspan(i[1], i[1] + timedelta(minutes=2),
                                  0, 100, color='blue', zorder=1, alpha=0.3)
     figure = plt.scatter(X, Y, s=1, zorder=4, color='orange')
     figure = plt.plot(X, Y, zorder=3, color='orange', label='CGM Reading')
@@ -184,7 +183,7 @@ def plotCGM(file, CGM, meal, date, frame2=None):
     figure = plt.title('CGM over time')
     figure = plt.scatter(XC, YC, marker='P', color="blue",
                          zorder=5, label='Carb Intake')
-    tgt = str(avgt)+"% within target range"
+    tgt = str(avgt) + "% within target range"
     figure = plt.plot([], [], ' ', label=tgt)
     figure = plt.legend(fontsize=8)
 
@@ -297,9 +296,8 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     else:
         for m in parsed_meal_size:
             dt = datetime.datetime.fromtimestamp(m[1])
-            if dt.hour >= (time_frame-1)*6 and dt.hour < time_frame * 6:
+            if dt.hour >= (time_frame - 1) * 6 and dt.hour < time_frame * 6:
                 new_parsed_meal_size.append(m)
-
 
     X = []
     Y = []
@@ -321,7 +319,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
                         dataFreq[int(i[0] / 300)] += 1
 
     for i in range(0, len(NewCGM)):
-        if(dataFreq[i] > 0):
+        if (dataFreq[i] > 0):
             NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
 
     for i in range(1, len(NewCGM)):
@@ -329,7 +327,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     NewCGM[0][1] = 0
 
     for i, elem in enumerate(NewCGM):
-        #if i > 0 and i + 1 < len(NewCGM):
+        # if i > 0 and i + 1 < len(NewCGM):
         #    if elem[1] - NewCGM[i - 1][1] < 0 and elem[1] - NewCGM[i + 1][1] < 0 and NewCGM[2] == -1:
         #        elem[1] = min(abs(elem[1] - NewCGM[i - 1][1]),
         #                      abs(NewCGM[i + 1][1] - elem[1]))
@@ -374,7 +372,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
                         dataFreq[int(i[0] / 300)] += 1
 
     for i in range(0, len(NewCGM)):
-        if(dataFreq[i] > 0):
+        if (dataFreq[i] > 0):
             NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
 
     for i in range(1, len(NewCGM)):
@@ -396,7 +394,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     CGM_time.get_tk_widget().pack()
     figure = plt.scatter(X, Y, s=1)
     title = 'CGM Change 4 hours post meal (Average of ' + \
-        str(len(new_parsed_meal_size)) + ' meals)'
+            str(len(new_parsed_meal_size)) + ' meals)'
     figure = plt.title(title)
 
     # plt.show()
@@ -406,7 +404,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
 def plotIOB(file, IOB, ID, date, frame1=None):
     valid = 0
-    leng = len(IOB)-1
+    leng = len(IOB) - 1
     if date != 0:  # check if valid
         if date >= IOB[0][2].date() and date <= IOB[leng][2].date():
             valid = 1
@@ -453,9 +451,9 @@ def plotCGMavg(file, CGM, frame4):
     startdate = datetime.datetime(
         CGM[0][2].year, CGM[0][2].month, CGM[0][2].day, 0, 0, 0)
     enddate = datetime.datetime(
-        CGM[leng-1][2].year, CGM[leng-1][2].month, CGM[leng-1][2].day, 23, 59, 59)
+        CGM[leng - 1][2].year, CGM[leng - 1][2].month, CGM[leng - 1][2].day, 23, 59, 59)
     timeplot = pd.date_range("00:00", "23:59", freq="5min")
-    range = enddate-startdate
+    range = enddate - startdate
     range = range.days + 1
     # add CGM to avg
     count = 0
@@ -466,35 +464,34 @@ def plotCGMavg(file, CGM, frame4):
             minute = i[2].minute
             hour = i[2].hour
             minute = minute - minute % 5
-            index = int(hour*12+minute/5)
-            AVG[index] = AVG[index]+i[1]
+            index = int(hour * 12 + minute / 5)
+            AVG[index] = AVG[index] + i[1]
             cnt[index] = cnt[index] + 1
             tot = tot + 1
-            if(i[1] > 70 and i[1] < 181):
-                count = count+1
+            if (i[1] > 70 and i[1] < 181):
+                count = count + 1
 
         # determine avg
     for i, n in enumerate(AVG):
-
-        AVG[i] = n/cnt[i]
+        AVG[i] = n / cnt[i]
 
     for i, n in enumerate(cnt):
         if n < range:
 
-            if i+1 >= len(AVG):
-                AVG[i] = AVG[i-1]
+            if i + 1 >= len(AVG):
+                AVG[i] = AVG[i - 1]
             elif i == 0:
-                AVG[i] = AVG[i+1]
+                AVG[i] = AVG[i + 1]
             else:
-                AVG[i] = (AVG[i-1] + AVG[i+1])/2
-    avgt = int((count/tot)*100)
+                AVG[i] = (AVG[i - 1] + AVG[i + 1]) / 2
+    avgt = int((count / tot) * 100)
     plt.scatter(timeplot, AVG, color='orange', s=.8)
     plt.plot(timeplot, AVG, color='orange', label='Average CGM')
     myFmt = mdates.DateFormatter('%H:%M')
     plt.gca().xaxis.set_major_formatter(myFmt)
     plt.axhspan(70, 180, color='orange', alpha=0.2,
                 lw=0, zorder=2, label='Target range')
-    tgt = str(avgt)+"% within target range"
+    tgt = str(avgt) + "% within target range"
     plt.plot([], [], ' ', label=tgt)
     plt.title("Daily CGM Averages")
     plt.xlabel("Time in day")
@@ -511,32 +508,31 @@ def plotIOBavg(file, IOB, frame3):
     startdate = datetime.datetime(
         IOB[0][2].year, IOB[0][2].month, IOB[0][2].day, 0, 0, 0)
     enddate = datetime.datetime(
-        IOB[leng-1][2].year, IOB[leng-1][2].month, IOB[leng-1][2].day, 23, 59, 59)
+        IOB[leng - 1][2].year, IOB[leng - 1][2].month, IOB[leng - 1][2].day, 23, 59, 59)
     timeplot = pd.date_range("00:00", "23:59", freq="10min")
-    range = enddate-startdate
+    range = enddate - startdate
     range = range.days + 1
     # add IOB to avg
     for i in IOB:
         if i[2] > startdate and i[2] < enddate:
-
             minute = i[2].minute
             hour = i[2].hour
             minute = minute - minute % 10
-            index = int(hour*6+minute/10)
-            AVG[index] = AVG[index]+i[1]
+            index = int(hour * 6 + minute / 10)
+            AVG[index] = AVG[index] + i[1]
             cnt[index] = cnt[index] + 1
         # determine avg
     for i, n in enumerate(AVG):
-        AVG[i] = n/cnt[i]
+        AVG[i] = n / cnt[i]
     for i, n in enumerate(cnt):
         if n < range:
 
-            if i+1 >= len(AVG):
-                AVG[i] = AVG[i-1]
+            if i + 1 >= len(AVG):
+                AVG[i] = AVG[i - 1]
             elif i == 0:
-                AVG[i] = AVG[i+1]
+                AVG[i] = AVG[i + 1]
             else:
-                AVG[i] = (AVG[i-1] + AVG[i+1])/2
+                AVG[i] = (AVG[i - 1] + AVG[i + 1]) / 2
 
     plt.scatter(timeplot, AVG, s=.7)
     plt.plot(timeplot, AVG, label="Average IOB")
@@ -545,10 +541,6 @@ def plotIOBavg(file, IOB, frame3):
     plt.title("Daily IOB Averages")
     plt.xlabel("Time in day")
     figure = plt.legend()
-
-
-def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size):
-    """
 
 
 def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size):
@@ -625,7 +617,6 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
 
             converted_time = datetime.datetime.fromtimestamp(CGM_highs[i][0]).time()
 
-
             if converted_time > start_evening:
                 evening_highs += 1
                 try:
@@ -678,9 +669,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
 
         if relevant_total < 20:  # if there are less than 20 relevant carbs
 
-
             converted_time = datetime.datetime.fromtimestamp(CGM_lows[i][0]).time()
-
 
             if converted_time > start_evening:
                 evening_lows += 1
@@ -747,8 +736,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
         NewCGM[i][1] = (NewCGM[i][1] - NewCGM[0][1])
     NewCGM[0][1] = 0
 
-
-    minimum = [0,0]
+    minimum = [0, 0]
 
     for x in NewCGM:
         if x[1] < minimum[1]:
@@ -757,7 +745,6 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
         min_time = datetime.datetime.fromtimestamp(minimum[0]).time()
 
         recommendations += [f"On average you go down by {round(-minimum[1])} {min_time.hour}:{min_time.minute} after eating."]
-
 
     maximum = [0, 0]
     for x in NewCGM:
@@ -773,7 +760,6 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
     if morning_highs > 0:
         recommendations += [f"You had {morning_highs} unexplained morning highs."]
     if afternoon_highs > 0:
-
         recommendations += [f"You had {afternoon_highs} unexplained highs in the afternoon."]
     if evening_highs > 0:
         recommendations += [f"You had {evening_highs} unexplained highs in the evening."]
@@ -783,17 +769,14 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
     if morning_lows > 0:
         recommendations += [f"You had {morning_lows} unexplained morning lows."]
     if afternoon_lows > 0:
-
         recommendations += [f"You had {afternoon_lows} unexplained lows in the afternoon."]
     if evening_lows > 0:
         recommendations += [f"You had {evening_lows} unexplained lows in the evening."]
-
 
     if probable_machine_failure > 0:
         recommendations += [
             f"You had {probable_machine_failure} machine failures."]
     if num_highs_from_carbs > 0:
-
         recommendations += [
             f"You went high from eating a large meal {num_highs_from_carbs} times."]
     if num_lows_from_carbs > 0:
@@ -801,8 +784,8 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
             f"You went low from eating a large meal {num_lows_from_carbs} times."]
 
     # TODO: Get average number of failures per day anC/CGM
-    last = len(CGM)-1
-    num = CGM[0][2].date()-CGM[last][2].date()
+    last = len(CGM) - 1
+    num = CGM[0][2].date() - CGM[last][2].date()
     timeplot = pd.date_range(
         CGM[0][2].date(), CGM[last][2].date(), freq="D").to_list()
     fails = [0] * len(timeplot)
@@ -811,15 +794,14 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
     for index, day in enumerate(timeplot):
         for i in anC:
             if datetime.datetime.fromtimestamp(i[0]).date() == day:
-                fails[index] = fails[index]+1
+                fails[index] = fails[index] + 1
     for index, day in enumerate(timeplot):
         for i in CGM:
             if i[2].date() == day:
-                tot[index] = tot[index]+1
+                tot[index] = tot[index] + 1
     for i, day in enumerate(timeplot):
-        averages.append((day, fails[i], (fails[i]/tot[i])*100))
-   # print(averages)
-
+        averages.append((day, fails[i], (fails[i] / tot[i]) * 100))
+    # print(averages)
 
     return recommendations
 
@@ -868,7 +850,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[0] == "IOB":
                     temp_str = ""
                     temp_str = temp_str + \
-                        line[2][0:10] + " " + line[2][11:] + ".0"
+                               line[2][0:10] + " " + line[2][11:] + ".0"
                     date_time_obj = datetime.datetime.strptime(
                         temp_str, '%Y-%m-%d %H:%M:%S.%f')
                     IOB.append(
@@ -877,7 +859,7 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
                 if line[2] == "EGV":
                     temp_str = ""
                     temp_str = temp_str + \
-                        line[3][0:10] + " " + line[3][11:] + ".0"
+                               line[3][0:10] + " " + line[3][11:] + ".0"
                     date_time_obj = datetime.datetime.strptime(
                         temp_str, '%Y-%m-%d %H:%M:%S.%f')
                     CGM.append(
