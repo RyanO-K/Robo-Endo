@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import os
 import tkcalendar
 
-debug = False
+debug = True
 
 
 class app(Tk):
@@ -123,7 +123,9 @@ class app(Tk):
 
             temp = plot(self.filename)
             i = 0
-            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'parsed_meal_size']:
+
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'parsed_meal_size', 'meal']:
+
                 self.data[key] = temp[i]
                 i += 1
             self.recommendation_list = get_recommendations(self.data['IOB'],
@@ -185,21 +187,19 @@ class app(Tk):
 
             update.place(relx=.5, rely=.85, anchor="center")
         elif chart_num is PageNum.CHARTTHREE:
+
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
-                                                               self.data['ID'],
-                                                               self.data['skipsI'],
-                                                               self.data['carb'],
+                                                               self.data['ID'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average IOB")
             self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.5, anchor="center")
         elif chart_num is PageNum.CHARTFOUR:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
-                                                               self.data['skipsC'],
-                                                               self.data['anC'],
-                                                               self.data['carb'],
+                                                               self.data['meal'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
+
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average Glucose")
             self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.5, anchor="center")
         elif chart_num is PageNum.CHARTFIVE:
@@ -225,16 +225,22 @@ class app(Tk):
     def recommend(self):
         # self.recommendation_list += "Have Better Blood Sugar", "Eat Better", "Inject before eating", "Adjust basal"
 
-        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(0, weight=1)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(0, weight=1)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(1, weight=2)
-        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(2, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_rowconfigure(
+            0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            0, weight=1)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            1, weight=2)
+        self.frames[RecPage.get_name()].recommendations_frame.grid_columnconfigure(
+            2, weight=1)
 
-        list_canvas = Listbox(self.frames[RecPage.get_name()].recommendations_frame, bg='#303030', fg='white')
+        list_canvas = Listbox(self.frames[RecPage.get_name(
+        )].recommendations_frame, bg='#303030', fg='white')
         list_canvas.grid(row=0, column=1, sticky="nsew")
         list_canvas.configure(font=('Times', 15))
         if len(self.recommendation_list) > 13:
-            w = Scrollbar(self.frames[RecPage.get_name()].recommendations_frame)
+            w = Scrollbar(
+                self.frames[RecPage.get_name()].recommendations_frame)
             w.grid(row=0, column=2, sticky="nsw")
             w.config(command=list_canvas.yview)
             list_canvas.configure(yscrollcommand=w.set)
@@ -262,14 +268,22 @@ class app(Tk):
 
         print(f"Update here! {date}")
         self.frames[ChartPage.get_name()].canvas = None
-        """
-        self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
-                                                               self.data['CGM'],
-                                                               self.data['skipsC'],
-                                                               self.data['anC'],
-                                                               self.data['carb'],
+
+        if chart_num is PageNum.CHARTONE:
+            print("hi")
+            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
+                                                               self.data['IOB'],
+                                                               self.data['ID'],
+                                                               date,
                                                                self.frames[ChartPage.get_name()].graph)
-        """
+        if chart_num is PageNum.CHARTTWO:
+            print("hi2")
+            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['meal'],
+                                                               date,
+                                                               self.frames[ChartPage.get_name()].graph)
+
 
     def time_of_day(self, time):
         try:
@@ -284,6 +298,7 @@ class app(Tk):
                                                                 self.frames[ChartPage.get_name()].graph,
                                                                 time,
                                                                 self.data['parsed_meal_size'])
+
 
 
 

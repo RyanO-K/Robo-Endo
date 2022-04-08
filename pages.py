@@ -45,13 +45,16 @@ class StartPage(Frame):
 
         # create sub widgets
         welcome = Label(info, text="Welcome to Robo-Endo")
-        nav = Label(info, text="Please navigate to:\nhttps://tconnect.tandemdiabetes.com/login.aspx")
+        nav = Label(
+            info, text="Please navigate to:\nhttps://tconnect.tandemdiabetes.com/login.aspx")
         self.sub_main.grid(row=1, column=1, sticky="")
 
         self.welcome_image = Image.open("./resources/welcome.png")
-        self.welcome_image = self.welcome_image.resize((500, 400), Image.ANTIALIAS)
+        self.welcome_image = self.welcome_image.resize(
+            (500, 400), Image.ANTIALIAS)
         temp_image = ImageTk.PhotoImage(self.welcome_image)
-        self.welcome_label = Label(self.sub_main, image=temp_image, borderwidth=0)
+        self.welcome_label = Label(
+            self.sub_main, image=temp_image, borderwidth=0)
         self.welcome_label.image = temp_image
 
         # emplace sub widgets
@@ -65,10 +68,12 @@ class StartPage(Frame):
         self.sub_main.grid(row=1, column=1, sticky="")
 
     def resize_image(self):
-        self.welcome_image.resize((self.sub_main.winfo_width(), self.sub_main.winfo_height()))
+        self.welcome_image.resize(
+            (self.sub_main.winfo_width(), self.sub_main.winfo_height()))
         temp_image = ImageTk.PhotoImage(self.welcome_image)
         self.welcome_label.grid_remove()
-        self.welcome_label = Label(self.sub_main, image=temp_image, borderwidth=0)
+        self.welcome_label = Label(
+            self.sub_main, image=temp_image, borderwidth=0)
         self.welcome_label.image = temp_image
         self.welcome_label.grid(row=0, column=0, sticky="nsew")
 
@@ -111,7 +116,8 @@ class PageOne(Frame):
         self.configure(background='#01384C')
 
         # create sub widgets
-        nav = Label(info, text="After your data is uploaded click\n“Custom” and select a time\nperiod of 3 or more months")
+        nav = Label(
+            info, text="After your data is uploaded click\n“Custom” and select a time\nperiod of 3 or more months")
 
         dashboard_image = Image.open("./resources/dashboard.png")
         dashboard_image = ImageTk.PhotoImage(dashboard_image)
@@ -218,7 +224,8 @@ class PageThree(Frame):
         self.configure(background='#01384C')
 
         # create sub widgets
-        nav = Label(info, text='Under “Save & Print Report” \nchoose “Export Data"')
+        nav = Label(
+            info, text='Under “Save & Print Report” \nchoose “Export Data"')
 
         export_image = Image.open("./resources/export.png")
         export_image = ImageTk.PhotoImage(export_image)
@@ -396,7 +403,9 @@ class MainMenu(Frame):
         left.grid_columnconfigure(1, weight=1)
 
         right = Frame(self, bg='#303030')
+
         right.grid_columnconfigure(0,weight=1)
+
         right.grid_rowconfigure(0, weight=1)
         right.grid_rowconfigure(1, weight=1)
 
@@ -408,12 +417,14 @@ class MainMenu(Frame):
         bottom_mid = Frame(left, bg='#303030')
 
         # create sub widgets
+
         chart_one_btn = Button(top_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
         chart_two_btn = Button(top_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
         chart_three_btn = Button(bottom_left, text="Daily Average IOB", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
         chart_four_btn = Button(bottom_mid, text="Daily Average Glucose", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
         chart_five_btn = Button(top_right, text="CGM after meal", command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
         recommendation_btn = Button(bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
+
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
