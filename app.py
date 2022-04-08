@@ -2,6 +2,7 @@ from pages import *
 from GetData import *
 from PIL import Image, ImageTk
 import os
+import tkcalendar
 
 debug = False
 
@@ -122,58 +123,106 @@ class app(Tk):
 
             temp = plot(self.filename)
             i = 0
-            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'meal', 'anI']:
+            for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'parsed_meal_size', 'meal']:
                 self.data[key] = temp[i]
                 i += 1
-           # self.recommendation_list = get_recommendations(self.filename)
+            self.recommendation_list = get_recommendations(self.data['IOB'],
+                                                           self.data['ID'],
+                                                           self.data['skipsI'],
+                                                           self.data['carb'],
+                                                           self.data['CGM'],
+                                                           self.data['skipsC'],
+                                                           self.data['anC'],
+                                                           self.data['parsed_meal_size'])
             self.show_frame(MainMenu.get_name())
         self.container.update()
 
     def display_chart(self, chart_num):
+
         try:
             del self.frames[ChartPage.get_name()].canvas
 
             for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
                 widget.destroy()
+            for widget in self.frames[ChartPage.get_name()].info.winfo_children():
+                widget.place_forget()
         except AttributeError:
             pass
         if chart_num is PageNum.CHARTONE:
-            self.frames[ChartPage.get_name()].canvas = plotAnIOB(self.filename,
-                                                                 self.data['IOB'],
-                                                                 self.data['ID'],
-                                                                 self.data['skipsI'],
-                                                                 self.data['anI'],
-                                                                 self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set(
-                "IOB Anomaly Graph")
-        if chart_num is PageNum.CHARTTWO:
-            self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
-                                                                 self.data['CGM'],
-                                                                 self.data['skipsC'],
-                                                                 self.data['anC'],
-                                                                 self.data['peaks'],
-                                                                 self.data['carb'],
-                                                                 self.data['meal'],
-                                                                 self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set(
-                "CGM Anomaly Graph")
-        if chart_num is PageNum.CHARTTHREE:
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
                                                                self.data['ID'],
-                                                               self.data['skipsI'],
-                                                               self.data['carb'],
                                                                self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("IOB Graph")
-        if chart_num is PageNum.CHARTFOUR:
+            self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
+            date_selection = tkcalendar.DateEntry(
+                self.frames[ChartPage.get_name()].info)
+            self.frames[ChartPage.get_name()].nav.place_forget()
+            self.frames[ChartPage.get_name()].nav.place(
+                relx=.5, rely=.25, anchor="center")
+            date_selection.place(relx=.5, rely=.75, anchor="center")
+
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+                            command=lambda: self.update_graph(date_selection.get_date(), chart_num))
+
+            update.place(relx=.5, rely=.85, anchor="center")
+        elif chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
-                                                               self.data['skipsC'],
-                                                               self.data['anC'],
-                                                               self.data['carb'],
                                                                self.data['meal'],
                                                                self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("CGM Graph")
+            self.frames[ChartPage.get_name()].graph_info.set("CGM over time")
+            date_selection = tkcalendar.DateEntry(
+                self.frames[ChartPage.get_name()].info)
+
+            self.frames[ChartPage.get_name()].nav.place(
+                relx=.5, rely=.25, anchor="center")
+            date_selection.place(relx=.5, rely=.75, anchor="center")
+
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+                            command=lambda: self.update_graph(date_selection.get_date(), chart_num))
+
+            update.place(relx=.5, rely=.85, anchor="center")
+        elif chart_num is PageNum.CHARTTHREE:
+            self.frames[ChartPage.get_name()].canvas = plotIOBavg(self.filename,
+                                                                  self.data['IOB'],
+                                                                  self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set(
+                "Daily Average IOB")
+            self.frames[ChartPage.get_name()].nav.place(
+                relx=.5, rely=.5, anchor="center")
+        elif chart_num is PageNum.CHARTFOUR:
+            self.frames[ChartPage.get_name()].canvas = plotCGMavg(self.filename,
+                                                                  self.data['CGM'],
+                                                                  self.frames[ChartPage.get_name()].graph)
+            self.frames[ChartPage.get_name()].graph_info.set(
+                "Daily Average Glucose")
+            self.frames[ChartPage.get_name()].nav.place(
+                relx=.5, rely=.5, anchor="center")
+        elif chart_num is PageNum.CHARTFIVE:
+            self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
+                                                                    self.data['CGM'],
+                                                                    self.frames[ChartPage.get_name(
+                                                                    )].graph,
+                                                                    0,
+                                                                    self.data['parsed_meal_size'])
+            self.frames[ChartPage.get_name()].graph_info.set(
+                "Mealtime Averages")
+            night = Button(self.frames[ChartPage.get_name(
+            )].info, text='Night Meals', command=lambda: self.time_of_day(1))
+            morning = Button(self.frames[ChartPage.get_name(
+            )].info, text='Morning Meals', command=lambda: self.time_of_day(2))
+            afternoon = Button(self.frames[ChartPage.get_name(
+            )].info, text='Afternoon Meals', command=lambda: self.time_of_day(3))
+            evening = Button(self.frames[ChartPage.get_name(
+            )].info, text='Evening Meals', command=lambda: self.time_of_day(4))
+
+            night.place(relx=.5, rely=.33, anchor="center")
+            morning.place(relx=.5, rely=.5, anchor="center")
+            afternoon.place(relx=.5, rely=.67, anchor="center")
+            evening.place(relx=.5, rely=.83, anchor="center")
+            self.frames[ChartPage.get_name()].nav.place(
+                relx=.5, rely=.16, anchor="center")
+
         self.show_frame(ChartPage.get_name())
 
     def recommend(self):
@@ -204,10 +253,47 @@ class app(Tk):
         for entry in self.recommendation_list:
             list_canvas.insert(END, str(index) + ": " + entry)
             # emplace sub widgets
-
             index += 1
 
         self.show_frame(RecPage.get_name())
+
+    def update_graph(self, date, chart_num):
+        """date is a one day selection %YR-%M-%D
+        chart_num is the chart selection. CHARTONE is insulin CHARTTWO is glucose
+        """
+
+        try:
+            del self.frames[ChartPage.get_name()].canvas
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
+        except AttributeError:
+            pass
+
+        print(f"Update here! {date}")
+        self.frames[ChartPage.get_name()].canvas = None
+        """
+        self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+                                                               self.data['CGM'],
+                                                               self.data['skipsC'],
+                                                               self.data['anC'],
+                                                               self.data['carb'],
+                                                               self.frames[ChartPage.get_name()].graph)
+        """
+
+    def time_of_day(self, time):
+        try:
+            del self.frames[ChartPage.get_name()].canvas
+            for widget in self.frames[ChartPage.get_name()].graph.winfo_children():
+                widget.destroy()
+        except AttributeError:
+            pass
+
+        self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
+                                                                self.data['CGM'],
+                                                                self.frames[ChartPage.get_name(
+                                                                )].graph,
+                                                                time,
+                                                                self.data['parsed_meal_size'])
 
 
 if __name__ == '__main__':

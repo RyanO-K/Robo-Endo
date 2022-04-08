@@ -10,6 +10,7 @@ class PageNum(IntEnum):
     CHARTTWO = 1
     CHARTTHREE = 2
     CHARTFOUR = 3
+    CHARTFIVE = 4
 
 
 class StartPage(Frame):
@@ -44,13 +45,16 @@ class StartPage(Frame):
 
         # create sub widgets
         welcome = Label(info, text="Welcome to Robo-Endo")
-        nav = Label(info, text="Please navigate to:\nhttps://tconnect.tandemdiabetes.com/login.aspx")
+        nav = Label(
+            info, text="Please navigate to:\nhttps://tconnect.tandemdiabetes.com/login.aspx")
         self.sub_main.grid(row=1, column=1, sticky="")
 
         self.welcome_image = Image.open("./resources/welcome.png")
-        self.welcome_image = self.welcome_image.resize((500, 400), Image.ANTIALIAS)
+        self.welcome_image = self.welcome_image.resize(
+            (500, 400), Image.ANTIALIAS)
         temp_image = ImageTk.PhotoImage(self.welcome_image)
-        self.welcome_label = Label(self.sub_main, image=temp_image, borderwidth=0)
+        self.welcome_label = Label(
+            self.sub_main, image=temp_image, borderwidth=0)
         self.welcome_label.image = temp_image
 
         # emplace sub widgets
@@ -64,10 +68,12 @@ class StartPage(Frame):
         self.sub_main.grid(row=1, column=1, sticky="")
 
     def resize_image(self):
-        self.welcome_image.resize((self.sub_main.winfo_width(), self.sub_main.winfo_height()))
+        self.welcome_image.resize(
+            (self.sub_main.winfo_width(), self.sub_main.winfo_height()))
         temp_image = ImageTk.PhotoImage(self.welcome_image)
         self.welcome_label.grid_remove()
-        self.welcome_label = Label(self.sub_main, image=temp_image, borderwidth=0)
+        self.welcome_label = Label(
+            self.sub_main, image=temp_image, borderwidth=0)
         self.welcome_label.image = temp_image
         self.welcome_label.grid(row=0, column=0, sticky="nsew")
 
@@ -110,7 +116,8 @@ class PageOne(Frame):
         self.configure(background='#01384C')
 
         # create sub widgets
-        nav = Label(info, text="After your data is uploaded click\n“Custom” and select a time\nperiod of 3 or more months")
+        nav = Label(
+            info, text="After your data is uploaded click\n“Custom” and select a time\nperiod of 3 or more months")
 
         dashboard_image = Image.open("./resources/dashboard.png")
         dashboard_image = ImageTk.PhotoImage(dashboard_image)
@@ -217,7 +224,8 @@ class PageThree(Frame):
         self.configure(background='#01384C')
 
         # create sub widgets
-        nav = Label(info, text='Under “Save & Print Report” \nchoose “Export Data"')
+        nav = Label(
+            info, text='Under “Save & Print Report” \nchoose “Export Data"')
 
         export_image = Image.open("./resources/export.png")
         export_image = ImageTk.PhotoImage(export_image)
@@ -297,21 +305,21 @@ class ChartPage(Frame):
         self.grid_columnconfigure(2, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        info = Frame(self)
+        self.info = Frame(self)
         self.graph = Frame(self)
         self.configure(background='#01384C')
         self.graph.configure(background='#303030')
 
-        info.configure(background='#01384C')
+        self.info.configure(background='#01384C')
         self.graph_info = StringVar()
         # create sub widgets
-        nav = Label(info, textvariable=self.graph_info)
+        self.nav = Label(self.info, textvariable=self.graph_info)
         # emplace sub widgets
-        nav.place(relx=.5, rely=.5, anchor="center")
+        self.nav.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
         self.graph.grid(row=0, column=1, sticky="nsew")
-        info.grid(row=0, column=0, sticky="nsew")
+        self.info.grid(row=0, column=0, sticky="nsew")
 
     @staticmethod
     def get_name():
@@ -325,7 +333,7 @@ class RecPage(Frame):
         self.controller = controller
 
         self.grid_columnconfigure(0, weight=4)
-        self.grid_rowconfigure(0, weight=1,minsize=20)
+        self.grid_rowconfigure(0, weight=1, minsize=20)
         self.grid_rowconfigure(1, weight=4)
 
         title = Frame(self)
@@ -387,7 +395,6 @@ class MainMenu(Frame):
 
         self.grid_rowconfigure(0, weight=1)
 
-
         # create subframes under StartPage
         left = Frame(self, bg='#303030')
         left.grid_rowconfigure(0, weight=1)
@@ -396,24 +403,37 @@ class MainMenu(Frame):
         left.grid_columnconfigure(1, weight=1)
 
         right = Frame(self, bg='#303030')
+        right.grid_columnconfigure(0, weight=1)
+        right.grid_rowconfigure(0, weight=1)
+        right.grid_rowconfigure(1, weight=1)
+
+        top_right = Frame(right, bg='#303030')
+        bottom_right = Frame(right, bg='#303030')
         top_left = Frame(left, bg='#303030')
         top_mid = Frame(left, bg='#303030')
         bottom_left = Frame(left, bg='#303030')
         bottom_mid = Frame(left, bg='#303030')
 
-
         # create sub widgets
-        chart_one_btn = Button(top_left, text="IOB Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
-        chart_two_btn = Button(top_mid, text="CGM Anomalies", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
-        chart_three_btn = Button(bottom_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
-        chart_four_btn = Button(bottom_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
-        recommendation_btn = Button(right, text="Recommendations", command=lambda: self.controller.recommend())
+        chart_one_btn = Button(top_left, text="IOB over time",
+                               command=lambda: self.controller.display_chart(PageNum.CHARTONE))
+        chart_two_btn = Button(top_mid, text="CGM over time",
+                               command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_three_btn = Button(bottom_left, text="Daily Average IOB",
+                                 command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
+        chart_four_btn = Button(bottom_mid, text="Daily Average Glucose",
+                                command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        chart_five_btn = Button(top_right, text="CGM after meal",
+                                command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
+        recommendation_btn = Button(
+            bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
 
         # emplace sub widgets
         chart_one_btn.place(relx=.5, rely=.5, anchor="center")
         chart_two_btn.place(relx=.5, rely=.5, anchor="center")
         chart_three_btn.place(relx=.5, rely=.5, anchor="center")
         chart_four_btn.place(relx=.5, rely=.5, anchor="center")
+        chart_five_btn.place(relx=.5, rely=.5, anchor="center")
         recommendation_btn.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
@@ -421,6 +441,9 @@ class MainMenu(Frame):
         top_mid.grid(row=0, column=1, sticky="nsew")
         bottom_left.grid(row=1, column=0, sticky="nsew")
         bottom_mid.grid(row=1, column=1, sticky="nsew")
+        bottom_right.grid(row=1, column=0, sticky="nsew")
+        top_right.grid(row=0, column=0, sticky="nsew")
+
         right.grid(row=0, column=1, sticky="nsew")
         left.grid(row=0, column=0, sticky="nsew")
 

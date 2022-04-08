@@ -3,8 +3,6 @@ import datetime
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-file = '3_days_data_Ryan.csv'
-
 
 def mealtime_identification(file):
     meal_size = list()
