@@ -151,11 +151,9 @@ class app(Tk):
         except AttributeError:
             pass
         if chart_num is PageNum.CHARTONE:
-            self.frames[ChartPage.get_name()].canvas = plotAnIOB(self.filename,
+            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                  self.data['IOB'],
-                                                                 self.data['ID'],
-                                                                 self.data['skipsI'],
-                                                                 self.data['carb'],
+                                                                 self.data['ID'],0,
                                                                  self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
             date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)
@@ -168,12 +166,9 @@ class app(Tk):
 
             update.place(relx=.5, rely=.85, anchor="center")
         elif chart_num is PageNum.CHARTTWO:
-            self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
+            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                  self.data['CGM'],
-                                                                 self.data['skipsC'],
-                                                                 self.data['anC'],
-                                                                 self.data['peaks'],
-                                                                 self.data['carb'],
+                                                                 self.data['meal'],0,
                                                                  self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("CGM over time")
             date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)

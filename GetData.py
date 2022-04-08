@@ -181,8 +181,6 @@ def plotCGM(file, CGM, meal, date, frame2=None):
     figure = plt.axhspan(70, 180, color='orange', alpha=0.2,
                          lw=0, zorder=2, label='Target Range')
     figure = plt.title('Glucose over time')
-    if valid == 0:
-        plt.title('Average Daily Glucose')
     figure = plt.scatter(XC, YC, marker='P', color="blue",
                          zorder=5, label='Carb Intake')
     tgt = str(avgt) + "% within target range"
