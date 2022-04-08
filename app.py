@@ -125,7 +125,6 @@ class app(Tk):
             i = 0
 
             for key in ['IOB', 'ID', 'skipsI', 'carb', 'CGM', 'skipsC', 'anC', 'peaks', 'parsed_meal_size', 'meal']:
-
                 self.data[key] = temp[i]
                 i += 1
             self.recommendation_list = get_recommendations(self.data['IOB'],
@@ -270,20 +269,17 @@ class app(Tk):
         self.frames[ChartPage.get_name()].canvas = None
 
         if chart_num is PageNum.CHARTONE:
-            print("hi")
             self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
                                                                self.data['IOB'],
                                                                self.data['ID'],
                                                                date,
                                                                self.frames[ChartPage.get_name()].graph)
         if chart_num is PageNum.CHARTTWO:
-            print("hi2")
             self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
                                                                self.data['CGM'],
                                                                self.data['meal'],
                                                                date,
                                                                self.frames[ChartPage.get_name()].graph)
-
 
     def time_of_day(self, time):
         try:
@@ -298,8 +294,6 @@ class app(Tk):
                                                                 self.frames[ChartPage.get_name()].graph,
                                                                 time,
                                                                 self.data['parsed_meal_size'])
-
-
 
 
 if __name__ == '__main__':

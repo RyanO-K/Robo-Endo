@@ -180,7 +180,9 @@ def plotCGM(file, CGM, meal, date, frame2=None):
     figure = plt.plot(X, Y, zorder=3, color='orange', label='CGM Reading')
     figure = plt.axhspan(70, 180, color='orange', alpha=0.2,
                          lw=0, zorder=2, label='Target Range')
-    figure = plt.title('CGM over time')
+    figure = plt.title('Glucose over time')
+    if valid == 0:
+        plt.title('Average Daily Glucose')
     figure = plt.scatter(XC, YC, marker='P', color="blue",
                          zorder=5, label='Carb Intake')
     tgt = str(avgt) + "% within target range"
@@ -348,7 +350,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     return CGM_time
 
 
-def plotIOB(file, IOB, ID, skips, carb, frame3=None):
+"""def plotIOB(file, IOB, ID, skips, carb, frame3=None):
     # lists for data points for plot
 
     X = []
@@ -399,7 +401,7 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
     # plt.show()
 
-    return CGM_time
+    return CGM_time"""
 
 
 def plotIOB(file, IOB, ID, date, frame1=None):
@@ -744,16 +746,16 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
     if minimum[1] < -20:
         min_time = datetime.datetime.fromtimestamp(minimum[0]).time()
 
-        recommendations += [f"On average you go down by {round(-minimum[1])} {min_time.hour}:{min_time.minute} after eating."]
+        recommendations += [f"On average you go down by {round(-minimum[1])} mg/dl {min_time.strftime('%H')} hours and {min_time.strftime('%M')} minutes after eating."]
 
     maximum = [0, 0]
     for x in NewCGM:
         if x[1] > maximum[1]:
             maximum = x
     if maximum[1] > 20:
-        max_time = datetime.datetime.fromtimestamp(maximum[0]).time()
+        max_time = (datetime.datetime.min + datetime.timedelta(seconds=maximum[0])).time()
 
-        recommendations += [f"On average you go up by {round(maximum[1])} {max_time.hour}:{max_time.minute} after eating."]
+        recommendations += [f"On average you go up by {round(maximum[1])} mg/dl {max_time.hour} hours and {max_time.strftime('%M')} minutes after eating."]
 
     if night_highs > 0:
         recommendations += [f"You had {night_highs} unexplained highs at night."]
@@ -823,19 +825,16 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
 
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
-
+        temp_str = ""
         for index, item in enumerate(csv_reader):
             if len(item) >= 41 and item[24] != "BolusType":
-                if item[24] != "Carb":
-                    temp_str = ""
+                if item[24] != "Carb":  # resetting meal
 
-                    temp_str = temp_str + item[22][0:10] + " " + item[22][11:] + ".0"
-                    date_time_obj = datetime.datetime.strptime(temp_str, '%Y-%m-%d %H:%M:%S.%f')
-
-                    meal_size.append((temp_count, convert_unix(item[22])))
+                    meal_size.append((temp_count, convert_unix(temp_str)))
                     temp_count = 0
                 if item[28] != '0' and item[24] == "Carb":
                     temp_count += float(item[28])
+                    temp_str = item[22][0:10] + " " + item[22][11:] + ".0"
 
     for i in range(0, len(meal_size)):
         if meal_size[i][0] == 0:
@@ -889,8 +888,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     meal = mealtime_identification(file)
 
     return IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size, meal
-
-    # return plotIOB(file, IOB, ID, skipsI, carb, frame3), plotAnCGM(file, CGM, skipsC, anC, IOB_anomalies, carb, frame2), plotCGM(file, CGM, skipsC, anC, carb, frame4), plotAnIOB(file, IOB, ID, skipsI, carb, frame1)
 
 
 if __name__ == "__main__":
