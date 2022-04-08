@@ -187,16 +187,14 @@ class app(Tk):
             update.place(relx=.5, rely=.85, anchor="center")
         elif chart_num is PageNum.CHARTTHREE:
 
-            self.frames[ChartPage.get_name()].canvas = plotIOB(self.filename,
+            self.frames[ChartPage.get_name()].canvas = plotIOBavg(self.filename,
                                                                self.data['IOB'],
-                                                               self.data['ID'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average IOB")
             self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.5, anchor="center")
         elif chart_num is PageNum.CHARTFOUR:
-            self.frames[ChartPage.get_name()].canvas = plotCGM(self.filename,
+            self.frames[ChartPage.get_name()].canvas = plotCGMavg(self.filename,
                                                                self.data['CGM'],
-                                                               self.data['meal'], 0,
                                                                self.frames[ChartPage.get_name()].graph)
 
             self.frames[ChartPage.get_name()].graph_info.set("Daily Average Glucose")
