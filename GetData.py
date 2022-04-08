@@ -231,6 +231,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     :param CGM:
     :param frame:
     :param time_frame: 0 for all, 1 for night, 2 morning, 3 afternoon, 4 evening
+    :param parsed_meal_size:
     :return:
     """
     new_parsed_meal_size = list()
@@ -286,7 +287,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     title = 'CGM Change 4 hours post meal (Average of ' + str(len(new_parsed_meal_size)) + ' meals)'
     figure = plt.title(title)
 
-    #plt.show()
+    # plt.show()
 
     return CGM_time
 
@@ -318,7 +319,6 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
         XC.append(datetime.datetime.fromtimestamp(i[0]))
         YC.append(10)
     for i, elem in enumerate(ID):
-
         IDX.append(datetime.datetime.fromtimestamp(elem[0]))
         IDY.append(elem[1])
     figure = plt.scatter(IDX, IDY, marker='P')
@@ -331,7 +331,20 @@ def plotIOB(file, IOB, ID, skips, carb, frame3=None):
 
 
 def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, parsed_meal_size):
-    recommendations = ["Sample Recommendation", "Generic Recommendation!"]
+    """
+
+    :param IOB:
+    :param ID:
+    :param skipsI:
+    :param carb:
+    :param CGM:
+    :param skipsC:
+    :param anC:
+    :param IOB_anomalies:
+    :param parsed_meal_size:
+    :return: list of string recommendations
+    """
+    recommendations = []
 
     num_highs_from_carbs = 0
     num_lows_from_carbs = 0
@@ -360,7 +373,6 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
     i = 0
     CGM_highs = [x for x in CGM if x[1] > 250]
     CGM_lows = [x for x in CGM if x[1] < 60]
-
 
     start_night = datetime.datetime.strptime("0:00:00", "%H:%M:%S").time()
     start_morning = datetime.datetime.strptime("6:00:00", "%H:%M:%S").time()
@@ -428,7 +440,7 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
 
         i += 1
 
-    i=0
+    i = 0
     while i < len(CGM_lows):
         relevant_carbs = [[CGM_lows[i][0] - x[0], x[1], x[2]] for x in carb if 0 <= CGM_lows[i][0] - x[0] < 14400]
         # grab all carbs within four hours of high BS
@@ -480,6 +492,48 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
 
         i += 1
 
+    NewCGM = list()
+    dataFreq = list()
+    for i in range(0, 48):
+        dataFreq.append(0)
+    index = 0
+    for i in range(0, 14400, 300):
+        j = i, 0
+        NewCGM.append(list(j))
+    for meal in range(0, len(parsed_meal_size)):
+        for elem in CGM:
+            if elem[0] > parsed_meal_size[meal][1] and elem[0] < (parsed_meal_size[meal][1] + 14400):
+                i = ((elem[0] - parsed_meal_size[meal][1]) - ((elem[0] - parsed_meal_size[meal][1]) % 300)), elem[1]
+                for e in NewCGM:
+                    if e[0] == i[0]:
+                        e[1] += i[1]
+                        dataFreq[int(i[0] / 300)] += 1
+
+    for i in range(0, len(NewCGM)):
+        NewCGM[i][1] = NewCGM[i][1] / dataFreq[i]
+
+    for i in range(1, len(NewCGM)):
+        NewCGM[i][1] = (NewCGM[i][1] - NewCGM[0][1])
+    NewCGM[0][1] = 0
+
+    minimum = [0,0]
+    for x in NewCGM:
+        if x[1] < minimum[1]:
+            minimum = x
+    if minimum[1] < -20:
+        min_time = datetime.datetime.fromtimestamp(minimum[0]).time()
+        recommendations += [f"On average you go down by {round(-minimum[1])} {min_time.hour}:{min_time.minute} after eating."]
+
+    maximum = [0, 0]
+    for x in NewCGM:
+        if x[1] > maximum[1]:
+            maximum = x
+    if maximum[1] > 20:
+        max_time = datetime.datetime.fromtimestamp(maximum[0]).time()
+        recommendations += [f"On average you go up by {round(maximum[1])} {max_time.hour}:{max_time.minute} after eating."]
+
+
+
     if night_highs > 0:
         recommendations += [f"You had {night_highs} unexplained highs at night."]
     if morning_highs > 0:
@@ -503,6 +557,8 @@ def get_recommendations(IOB, ID, skipsI, carb, CGM, skipsC, anC, IOB_anomalies, 
         recommendations += [f"You went high from eating a large meal {num_highs_from_carbs} times."]
     if num_lows_from_carbs > 0:
         recommendations += [f"You went low from eating a large meal {num_lows_from_carbs} times."]
+
+
     # TODO: Get average number of failures per day
 
     return recommendations
@@ -518,17 +574,9 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
     # anamoly corrections
     anC = []
 
-
-
-
-
-
-
     meal_size = list()
     parsed_meal_size = list()
     temp_count = 0
-
-
 
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
@@ -549,7 +597,6 @@ def plot(file, frame1=None, frame2=None, frame3=None, frame4=None):
             continue
         if meal_size[i][0] != 0:
             parsed_meal_size.append(meal_size[i])
-
 
     with open(file, 'r') as data:
         csv_reader = csv.reader(data)
