@@ -169,7 +169,7 @@ class app(Tk):
 
             global upd
             upd = PhotoImage(file = "./resources/updbut.png")
-            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph", font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update", font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
                             command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
             update.place(relx=.5, rely=.65, anchor="center")
@@ -188,7 +188,7 @@ class app(Tk):
             date_selection.place(relx=.5, rely=.55, anchor="center")
 
             upd = PhotoImage(file = "./resources/updbut.png")
-            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",  font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update",  font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
                             command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
             update.place(relx=.5, rely=.65, anchor="center")
