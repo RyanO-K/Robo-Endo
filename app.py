@@ -25,7 +25,7 @@ class app(Tk):
 
         # handles the background of the main frame
 
-        bg_image = Image.open("./resources/background.png")
+        bg_image = Image.open("./resources/background2.png")
         bg_image = bg_image.resize((2000, 1000), Image.ANTIALIAS)
         bg_image = ImageTk.PhotoImage(bg_image)
         background_label = Label(self.container, image=bg_image)
@@ -55,13 +55,17 @@ class app(Tk):
 
         button_container = Frame(self.container, height=200, width=1000)
 
-        button_container.configure(background='#01384C')
-        self.container.configure(background="#01384C")
+        button_container.configure(background='#333F50') #bottom next/back buttons
+        self.container.configure(background="#333F50")
 
+        global next
+        next = PhotoImage(file = "./resources/next.png")
         self.button1 = Button(button_container, text="Next",
-                              command=lambda: self.next_frame())
-        self.button2 = Button(button_container, text="Previous",
-                              command=lambda: self.previous_frame())
+            font= ('Helvetica 15 bold'), fg="white", image=next, compound=CENTER, borderwidth=0, height=25, width=70,
+            command=lambda: self.next_frame())
+        self.button2 = Button(button_container, text="Back",
+            font= ('Helvetica 15 bold'), fg="white", image=next, compound=CENTER, borderwidth=0, height=25, width=70,
+            command=lambda: self.previous_frame())
 
         button_container.grid(row=2, column=1, sticky="nsew")
         background_label.place(x=-10, y=-10)
@@ -104,7 +108,7 @@ class app(Tk):
             self.button2.pack_forget()
         if self.curr_frame.get_name() in [ChartPage.get_name(), RecPage.get_name()]:
             self.button2.pack_forget()
-            self.button2.configure(text="Back to main menu")
+            self.button2.configure(text="Back", font= ('Helvetica 15 bold'), fg="white", image=next, compound=CENTER, borderwidth=0, height=25, width=70) #back to main menu
             self.button2.configure(command=lambda: self.show_frame("MainMenu"))
             self.button2.pack(side=LEFT)
         if self.curr_frame.get_name() is loading_page.get_name():
@@ -157,16 +161,18 @@ class app(Tk):
                                                                  self.data['skipsI'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("IOB over time")
+            self.frames[ChartPage.get_name()].graph_info.set("IOB\nOver\nTime")
             date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)
             self.frames[ChartPage.get_name()].nav.place_forget()
-            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.25, anchor="center")
-            date_selection.place(relx=.5, rely=.75, anchor="center")
+            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.35, anchor="center")
+            date_selection.place(relx=.5, rely=.55, anchor="center")
 
-            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+            global upd
+            upd = PhotoImage(file = "./resources/updbut.png")
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph", font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
                             command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
-            update.place(relx=.5, rely=.85, anchor="center")
+            update.place(relx=.5, rely=.65, anchor="center")
         elif chart_num is PageNum.CHARTTWO:
             self.frames[ChartPage.get_name()].canvas = plotAnCGM(self.filename,
                                                                  self.data['CGM'],
@@ -175,29 +181,30 @@ class app(Tk):
                                                                  self.data['peaks'],
                                                                  self.data['carb'],
                                                                  self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("CGM over time")
+            self.frames[ChartPage.get_name()].graph_info.set("CGM\nOver\nTime")
             date_selection = tkcalendar.DateEntry(self.frames[ChartPage.get_name()].info)
 
-            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.25, anchor="center")
-            date_selection.place(relx=.5, rely=.75, anchor="center")
+            self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.35, anchor="center")
+            date_selection.place(relx=.5, rely=.55, anchor="center")
 
-            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",
+            upd = PhotoImage(file = "./resources/updbut.png")
+            update = Button(self.frames[ChartPage.get_name()].info, text="Update Graph",  font= ('Helvetica 15 bold', 17), fg="white", image=upd, compound=CENTER, height=35, width=125,
                             command=lambda: self.update_graph(date_selection.get_date(), chart_num))
 
-            update.place(relx=.5, rely=.85, anchor="center")
+            update.place(relx=.5, rely=.65, anchor="center")
         elif chart_num is PageNum.CHARTTHREE:
 
             self.frames[ChartPage.get_name()].canvas = plotIOBavg(self.filename,
                                                                self.data['IOB'],
                                                                self.frames[ChartPage.get_name()].graph)
-            self.frames[ChartPage.get_name()].graph_info.set("Daily Average IOB")
+            self.frames[ChartPage.get_name()].graph_info.set("Daily\nAverage\nIOB")
             self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.5, anchor="center")
         elif chart_num is PageNum.CHARTFOUR:
             self.frames[ChartPage.get_name()].canvas = plotCGMavg(self.filename,
                                                                self.data['CGM'],
                                                                self.frames[ChartPage.get_name()].graph)
 
-            self.frames[ChartPage.get_name()].graph_info.set("Daily Average Glucose")
+            self.frames[ChartPage.get_name()].graph_info.set("Daily\nAverage\nGlucose")
             self.frames[ChartPage.get_name()].nav.place(relx=.5, rely=.5, anchor="center")
         elif chart_num is PageNum.CHARTFIVE:
             self.frames[ChartPage.get_name()].canvas = plotMealTime(self.filename,
@@ -205,11 +212,18 @@ class app(Tk):
                                                                     self.frames[ChartPage.get_name()].graph,
                                                                     0,
                                                                     self.data['parsed_meal_size'])
-            self.frames[ChartPage.get_name()].graph_info.set("Mealtime Averages")
-            night = Button(self.frames[ChartPage.get_name()].info, text='Night Meals', command=lambda: self.time_of_day(1))
-            morning = Button(self.frames[ChartPage.get_name()].info, text='Morning Meals', command=lambda: self.time_of_day(2))
-            afternoon = Button(self.frames[ChartPage.get_name()].info, text='Afternoon Meals', command=lambda: self.time_of_day(3))
-            evening = Button(self.frames[ChartPage.get_name()].info, text='Evening Meals', command=lambda: self.time_of_day(4))
+            self.frames[ChartPage.get_name()].graph_info.set("Mealtime\nAverages")
+
+            global nightb, mornb, aftb, eveb
+            nightb= PhotoImage(file = "./resources/night2.png")
+            mornb= PhotoImage(file = "./resources/morn2.png")
+            aftb= PhotoImage(file = "./resources/aft2.png")
+            eveb= PhotoImage(file = "./resources/eve2.png")
+
+            night = Button(self.frames[ChartPage.get_name()].info, image=nightb, command=lambda: self.time_of_day(1))
+            morning = Button(self.frames[ChartPage.get_name()].info, image=mornb, command=lambda: self.time_of_day(2))
+            afternoon = Button(self.frames[ChartPage.get_name()].info, image=aftb, command=lambda: self.time_of_day(3))
+            evening = Button(self.frames[ChartPage.get_name()].info, image=eveb, command=lambda: self.time_of_day(4))
 
             night.place(relx=.5, rely=.33, anchor="center")
             morning.place(relx=.5, rely=.5, anchor="center")
@@ -232,9 +246,9 @@ class app(Tk):
             2, weight=1)
 
         list_canvas = Listbox(self.frames[RecPage.get_name(
-        )].recommendations_frame, bg='#303030', fg='white')
+        )].recommendations_frame, bg='#D9D9D9', fg='#333F50')
         list_canvas.grid(row=0, column=1, sticky="nsew")
-        list_canvas.configure(font=('Times', 15))
+        list_canvas.configure(font=('Times', 27))
         if len(self.recommendation_list) > 13:
             w = Scrollbar(
                 self.frames[RecPage.get_name()].recommendations_frame)

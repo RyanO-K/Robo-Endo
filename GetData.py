@@ -175,7 +175,7 @@ def plotCGM(file, CGM, meal, date, frame2=None):
             figure = plt.annotate(
                 text, xy=(i[1], 10), ha='center', fontsize=5, zorder=6, backgroundcolor='w')
             figure = plt.axvspan(i[1], i[1] + timedelta(minutes=2),
-                                 0, 100, color='blue', zorder=1, alpha=0.3)
+                                 0, 100, color='#049CB8', zorder=1, alpha=0.3)
     figure = plt.scatter(X, Y, s=1, zorder=4, color='orange')
     figure = plt.plot(X, Y, zorder=3, color='orange', label='CGM Reading')
     figure = plt.axhspan(70, 180, color='orange', alpha=0.2,
@@ -183,7 +183,7 @@ def plotCGM(file, CGM, meal, date, frame2=None):
     figure = plt.title('Glucose over time')
     if valid == 0:
         plt.title('Average Daily Glucose')
-    figure = plt.scatter(XC, YC, marker='P', color="blue",
+    figure = plt.scatter(XC, YC, marker='P', color="#049CB8",
                          zorder=5, label='Carb Intake')
     tgt = str(avgt) + "% within target range"
     figure = plt.plot([], [], ' ', label=tgt)
@@ -244,7 +244,7 @@ def plotAnCGM(file, CGM, skips, anC, IOB_anomalies, carb, frame2):
     # for i in IOB_anomalies:
     # plt.axvline(x=datetime.datetime.fromtimestamp(i[0]), ymin=0, ymax=0.20, color='b',
     #            label='IOB IOB_anomalies')
-    figure = plt.title('CGM over time')
+    figure = plt.title('CGM Anomalies Over Time')
     figure = plt.scatter(XO, YO, color="red", marker='x')
     figure = plt.scatter(XC, YC, marker='P', color="red")
 
@@ -341,7 +341,7 @@ def plotMealTime(file, CGM, frame, time_frame, parsed_meal_size):
     plt.gca().xaxis.set_major_formatter(myFmt)
     CGM_time = FigureCanvasTkAgg(figure, frame)
     CGM_time.get_tk_widget().pack()
-    figure = plt.scatter(X, Y, s=1)
+    figure = plt.scatter(X, Y, s=2)
     title = 'CGM Change 4 hours post meal (Average of ' + str(len(new_parsed_meal_size)) + ' meals)'
     figure = plt.title(title)
 
@@ -433,10 +433,10 @@ def plotIOB(file, IOB, ID, date, frame1=None):
             XI.append(datetime.datetime.fromtimestamp(i[0]))
             YI.append(i[1])
 
-    figure = plt.scatter(X, Y, s=1, zorder=4, color='blue')
-    figure = plt.plot(X, Y, zorder=3, color='blue', label='IOB')
+    figure = plt.scatter(X, Y, s=1, zorder=4, color='#2F5597')
+    figure = plt.plot(X, Y, zorder=3, color='#2F5597', label='IOB')
     figure = plt.title('IOB over time')
-    figure = plt.scatter(XI, YI, marker='P', color="green",
+    figure = plt.scatter(XI, YI, marker='P', color="#0FAFCC",
                          zorder=5, label='Insulin Intake')
     figure = plt.legend()
 

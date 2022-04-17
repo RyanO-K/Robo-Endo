@@ -39,19 +39,20 @@ class StartPage(Frame):
         main.grid_columnconfigure(2, weight=1)
 
         # colors
-        main.configure(background='#303030')
-        info.configure(background='#01384C')
-        self.configure(background='#01384C')
+        main.configure(background='#D9D9D9') #right; for img
+        info.configure(background='#049CB8') #left; for text
+        self.configure(background='#D9D9D9') #far right col
 
         # create sub widgets
-        welcome = Label(info, text="Welcome to Robo-Endo")
-        nav = Label(
-            info, text="Please navigate to:\nhttps://tconnect.tandemdiabetes.com/login.aspx")
+        welcome = Label(info, text="\n\n Welcome to \n Robo-Endo",
+            fg="#EFEFEF", bg="#049CB8", font= ('Helvetica 15 bold', 45))
+        nav = Label(info, text=" Please navigate to:\n https://tconnect.tandem\n diabetes.com/login.aspx",
+            fg="#EFEFEF", bg="#049CB8", font= ('Helvetica 15 bold', 24))
         self.sub_main.grid(row=1, column=1, sticky="")
 
-        self.welcome_image = Image.open("./resources/welcome.png")
+        self.welcome_image = Image.open("./resources/welcome2.png")
         self.welcome_image = self.welcome_image.resize(
-            (500, 400), Image.ANTIALIAS)
+            (500, 412), Image.ANTIALIAS)
         temp_image = ImageTk.PhotoImage(self.welcome_image)
         self.welcome_label = Label(
             self.sub_main, image=temp_image, borderwidth=0)
@@ -59,7 +60,7 @@ class StartPage(Frame):
 
         # emplace sub widgets
         welcome.place(relx=.5, rely=.2, anchor="center")
-        nav.place(relx=.5, rely=.7, anchor="center")
+        nav.place(relx=.5, rely=.6, anchor="center")
         self.welcome_label.pack(fill=BOTH)
 
         # emplace sub frames
@@ -111,15 +112,15 @@ class PageOne(Frame):
         main.grid_columnconfigure(2, weight=1)
 
         # colors
-        main.configure(background='#303030')
-        info.configure(background='#01384C')
-        self.configure(background='#01384C')
+        main.configure(background='#D9D9D9')
+        info.configure(background='#D9D9D9')
+        self.configure(background='#D9D9D9')
 
         # create sub widgets
-        nav = Label(
-            info, text="After your data is uploaded click\n“Custom” and select a time\nperiod of 3 or more months")
+        nav = Label(info, text="After your data\nis uploaded\nclick “Custom” \nand select \na time period\nof 3 or more months",
+            fg="#333F50", bg="#D9D9D9", font= ('Helvetica 15 bold', 20))
 
-        dashboard_image = Image.open("./resources/dashboard.png")
+        dashboard_image = Image.open("./resources/dashboard2.png")
         dashboard_image = ImageTk.PhotoImage(dashboard_image)
         dashboard_label = Label(sub_main, image=dashboard_image, borderwidth=0)
         dashboard_label.image = dashboard_image
@@ -165,15 +166,16 @@ class PageTwo(Frame):
         main.grid_columnconfigure(2, weight=1)
 
         # colors
-        main.configure(background='#303030')
-        info.configure(background='#01384C')
-        self.configure(background='#01384C')
+        main.configure(background='#D9D9D9')
+        info.configure(background='#D9D9D9')
+        self.configure(background='#D9D9D9')
 
         # create sub widgets
-        nav = Label(info, text="Now click\n“Reports”")
+        nav = Label(info, text="Now click\n“Reports”",
+            fg="#333F50", bg="#D9D9D9", font= ('Helvetica 15 bold', 25))
 
-        report_image = Image.open("./resources/report.png")
-        report_image = report_image.resize((500, 60), Image.ANTIALIAS)
+        report_image = Image.open("./resources/report2.png")
+        report_image = report_image.resize((585, 50), Image.ANTIALIAS)
         report_image = ImageTk.PhotoImage(report_image)
         report_label = Label(sub_main, image=report_image, borderwidth=0)
         report_label.image = report_image
@@ -219,15 +221,15 @@ class PageThree(Frame):
         main.grid_columnconfigure(2, weight=1)
 
         # colors
-        main.configure(background='#303030')
-        info.configure(background='#01384C')
-        self.configure(background='#01384C')
+        main.configure(background='#D9D9D9')
+        info.configure(background='#D9D9D9')
+        self.configure(background='#D9D9D9')
 
         # create sub widgets
-        nav = Label(
-            info, text='Under “Save & Print Report” \nchoose “Export Data"')
+        nav = Label(info, text='Under “Save & Print Report” \nchoose “Export Data"',
+            fg="#333F50", bg="#D9D9D9", font= ('Helvetica 15 bold', 21))
 
-        export_image = Image.open("./resources/export.png")
+        export_image = Image.open("./resources/Export2.png")
         export_image = ImageTk.PhotoImage(export_image)
         export_label = Label(sub_main, image=export_image, borderwidth=0)
         export_label.image = export_image
@@ -255,22 +257,26 @@ class PageFour(Frame):
         # organize PageFour's row and col
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
-        self.configure(background='#01384C')
+        self.configure(background='#333F50')
 
         # create subframes under StartPage
         main = Frame(self)
 
         # colors
-        main.configure(background='#303030')
+        main.configure(background='#D9D9D9')
 
         # create sub widgets
-        nav = Label(main, text="Now choose that file here")
+        nav = Label(main, text="Now choose that file here",
+            fg="#333F50", bg="#D9D9D9", font= ('Helvetica 15 bold', 35))
+        global choose
+        choose = PhotoImage(file = "./resources/next2.png")
         choose_file = Button(main, text="Choose File",
-                             command=self.select_file)
+            font= ('Helvetica 15 bold', 30), fg="#EAEAEA", image=choose, compound=CENTER, borderwidth=2, height=80, width=250,
+            command=self.select_file)
 
         # emplace sub widgets
         nav.place(relx=.5, rely=.3, anchor="center")
-        choose_file.place(relx=.5, rely=.7, anchor="center")
+        choose_file.place(relx=.5, rely=.6, anchor="center")
 
         # emplace sub frames
         main.grid(row=0, column=0, sticky="nsew")
@@ -307,13 +313,13 @@ class ChartPage(Frame):
 
         self.info = Frame(self)
         self.graph = Frame(self)
-        self.configure(background='#01384C')
-        self.graph.configure(background='#303030')
+        self.configure(background='#333F50') #far right
+        self.graph.configure(background='#333F50') #behind graph
 
-        self.info.configure(background='#01384C')
+        self.info.configure(background='#333F50', width=33) #left; behind buttons
         self.graph_info = StringVar()
         # create sub widgets
-        self.nav = Label(self.info, textvariable=self.graph_info)
+        self.nav = Label(self.info, textvariable=self.graph_info, font=('Helvetica 15 bold', 25), foreground="white", background='#333F50')
         # emplace sub widgets
         self.nav.place(relx=.5, rely=.5, anchor="center")
 
@@ -338,12 +344,14 @@ class RecPage(Frame):
 
         title = Frame(self)
         self.recommendations_frame = Frame(self)
-        self.configure(background='#01384C')
-        self.recommendations_frame.configure(background='#303030')
+        self.configure(background='#D9D9D9')
+        self.recommendations_frame.configure(background='#D9D9D9')
 
-        title.configure(background='#01384C')
+        title.configure(background='#333F50') #title; top page
         # create sub widgets
-        nav = Label(title, text="Potential Recommendations")
+        nav = Label(title, text="Potential Recommendations",
+            fg="white", bg="#333F50", font=('Helvetica 15 bold', 33))
+
         # emplace sub widgets
         nav.place(relx=.5, rely=.5, anchor="center")
 
@@ -369,13 +377,13 @@ class loading_page(Frame):
         main = Frame(self)
 
         # colors
-        main.configure(background='#303030')
+        main.configure(background='#333F50')
 
         # create sub widgets
-        nav = Label(main, text="Loading")
+        nav = Label(main, text="Loading", font=('Helvetica 15 bold', 45), fg="white", bg="#333F50")
 
         # emplace sub widgets
-        nav.place(relx=.5, rely=.3, anchor="center")
+        nav.place(relx=.5, rely=.5, anchor="center")
 
         # emplace sub frames
         main.grid(row=0, column=0, sticky="nsew")
@@ -396,34 +404,38 @@ class MainMenu(Frame):
         self.grid_rowconfigure(0, weight=1)
 
         # create subframes under StartPage
-        left = Frame(self, bg='#303030')
+        left = Frame(self, bg='#D9D9D9')
         left.grid_rowconfigure(0, weight=1)
         left.grid_rowconfigure(1, weight=1)
         left.grid_columnconfigure(0, weight=1)
         left.grid_columnconfigure(1, weight=1)
 
-        right = Frame(self, bg='#303030')
-
+        right = Frame(self, bg='#D9D9D9')
         right.grid_columnconfigure(0,weight=1)
-
         right.grid_rowconfigure(0, weight=1)
         right.grid_rowconfigure(1, weight=1)
 
-        top_right = Frame(right, bg='#303030')
-        bottom_right = Frame(right, bg='#303030')
-        top_left = Frame(left, bg='#303030')
-        top_mid = Frame(left, bg='#303030')
-        bottom_left = Frame(left, bg='#303030')
-        bottom_mid = Frame(left, bg='#303030')
+        top_right = Frame(right, bg='#D9D9D9')
+        bottom_right = Frame(right, bg='#D9D9D9')
+        top_left = Frame(left, bg='#D9D9D9')
+        top_mid = Frame(left, bg='#D9D9D9')
+        bottom_left = Frame(left, bg='#D9D9D9')
+        bottom_mid = Frame(left, bg='#D9D9D9')
 
         # create sub widgets
-
-        chart_one_btn = Button(top_left, text="IOB over time", command=lambda: self.controller.display_chart(PageNum.CHARTONE))
-        chart_two_btn = Button(top_mid, text="CGM over time", command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
-        chart_three_btn = Button(bottom_left, text="Daily Average IOB", command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
-        chart_four_btn = Button(bottom_mid, text="Daily Average Glucose", command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
-        chart_five_btn = Button(top_right, text="CGM after meal", command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
-        recommendation_btn = Button(bottom_right, text="Recommendations", command=lambda: self.controller.recommend())
+        global iobanon, cgmanon, avgiob, avgcgm, meal, recom
+        iobanon= PhotoImage(file = "./resources/iobanon.png")
+        cgmanon= PhotoImage(file = "./resources/cgmanon.png")
+        avgiob= PhotoImage(file = "./resources/avgiob.png")
+        avgcgm= PhotoImage(file = "./resources/avgcgm.png")
+        meal= PhotoImage(file = "./resources/meal.png")
+        recom= PhotoImage(file = "./resources/recom.png")
+        chart_one_btn = Button(top_left, image=iobanon, width=250, height=120, borderwidth=3, command=lambda: self.controller.display_chart(PageNum.CHARTONE))
+        chart_two_btn = Button(top_mid, image=cgmanon, width=250, height=120, borderwidth=3, command=lambda: self.controller.display_chart(PageNum.CHARTTWO))
+        chart_three_btn = Button(bottom_left, image=avgiob, width=250, height=120, borderwidth=3, command=lambda: self.controller.display_chart(PageNum.CHARTTHREE))
+        chart_four_btn = Button(bottom_mid, image=avgcgm, width=250, height=120, borderwidth=3, command=lambda: self.controller.display_chart(PageNum.CHARTFOUR))
+        chart_five_btn = Button(top_right, image=meal, width=250, height=120, borderwidth=3, command=lambda: self.controller.display_chart(PageNum.CHARTFIVE))
+        recommendation_btn = Button(bottom_right, image=recom, width=250, height=120, borderwidth=3, command=lambda: self.controller.recommend())
 
 
         # emplace sub widgets
